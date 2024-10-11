@@ -5,13 +5,23 @@
         <div class="card-title">
             <!--begin::Search-->
             <div class="d-flex align-items-center position-relative my-1">
-                <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span
-                        class="path2"></span></i> <input type="text" data-kt-customer-table-filter="search"
-                    class="form-control form-control-solid w-250px ps-12" placeholder="Search Customers">
+                <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                </i>
+                <input type="text" 
+                    data-kt-customer-table-filter="search"
+                    [(ngModel)]="search"
+                    (keyup.enter)="listRoles()"
+                    name="search"
+                    class="form-control form-control-solid w-250px ps-12" 
+                    placeholder="Search Customers">
             </div>
             <!--end::Search-->
         </div>
         <!--begin::Card title-->
+
+        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
 
         <!--begin::Card toolbar-->
         <div class="card-toolbar">
@@ -51,59 +61,93 @@
                     style="width: 100%;">
                     <thead>
                         <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Rol</span><span
-                                    class="dt-column-order"></span></th>
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Rol</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="2" rowspan="1"
-                                colspan="1" aria-label="Email: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Permisos</span><span
-                                    class="dt-column-order"></span></th>                            
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="2" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Email: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Permisos</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
-                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Fecha de registro</span><span
-                                    class="dt-column-order"></span></th>
+                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                <span class="dt-column-title" role="button">Fecha de registro</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
-                            <th class="text-end min-w-70px dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1"
-                                aria-label="Actions"><span class="dt-column-title">Acciones</span><span
-                                    class="dt-column-order"></span></th>
+                            <th class="text-end min-w-70px dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1" aria-label="Actions">
+                                <span class="dt-column-title">Acciones</span>
+                                <span class="dt-column-order"></span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
+
+                        <ng-container *ngFor="let ROL of ROLES">
+                        
                         <tr>
-                            <!-- <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1">
-                                </div>
-                            </td> -->
                             <td>
-                                ASESOR COMERCIAL
+                                {{ ROL.name}}
                             </td>
                             
                             <td>
-                                ["register_contract"]
+                                <span
+                                    style="width: 500px !important; display:block;"
+                                >{{ ROL.permissions_pluck }}</span>                                
                             </td>
                                                         
                             <td>
-                                18 Aug 2020, 3:34 pm
+                                {{ ROL.created_format_at }}
                             </td>
 
                             <td class="">
-                                <a href="#" onclick="return false;" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                    <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
+                                <a *ngIf="ROL.id > 1" 
+                                    href="#" 
+                                    onclick="return false;"
+                                    (click)="editRole(ROL)"
+                                    class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                    <i class="ki-duotone ki-pencil fs-2">
+                                        <span class="path1"></span>
+                                        <span  class="path2"></span>
+                                    </i>
                                 </a>
 
-                                <a href="#" onclick="return false;" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                <a *ngIf="ROL.id > 1" 
+                                    href="#" 
+                                    onclick="return false;" 
+                                    (click)="deleteRole(ROL)"
+                                    class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                     <i class="ki-duotone ki-trash fs-2"><span class="path1"></span><span  class="path2"></span><span  class="path3"></span><span  class="path4"></span></i>
                                 </a>
                             </td>
                         </tr>
+
+                        </ng-container>
+
                     </tbody>
                     <tfoot></tfoot>
                 </table>
             </div>
+            <ngb-pagination
+                [collectionSize]="totalPages"
+                [(page)]="currentPage"
+                [pageSize]="25"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"
+            ></ngb-pagination>
         </div>
         <!--end::Table-->
     </div>
