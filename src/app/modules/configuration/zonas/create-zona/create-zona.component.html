@@ -2,7 +2,7 @@
     <!--begin::Modal header-->
     <div class="modal-header" id="kt_modal_add_user_header">
         <!--begin::Modal title-->
-        <h2 class="fw-bolder">Agregar Función</h2>
+        <h2 class="fw-bolder">Agregar Zona</h2>
 
         <!--end::Modal title-->
         <!--begin::Close-->
@@ -38,9 +38,24 @@
                     <!--end::Label-->
                     <!--begin::Input-->
                     <input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0"
-                        placeholder="Función" [(ngModel)]="name" />
+                        placeholder="Zona" [(ngModel)]="name" />
                     <!--end::Input-->
-                </div>               
+                </div>
+                <div class="fv-row mb-7">
+                    <!--begin::Label-->
+                    <label class="required fw-bold fs-6 mb-2">Ubicación: </label>
+                    <!--end::Label-->
+                    <!--begin::Input-->
+                    <input type="text" name="location" class="form-control form-control-solid mb-3 mb-lg-0"
+                        placeholder="Ubicación" [(ngModel)]="location" />
+                    <!--end::Input-->
+                </div>
+                <div class="fv-row mb-7">
+                    <!--begin::Label-->
+                    <label class="required fw-bold fs-6 mb-2">Descripción:(Opcional) </label>
+                    <!--end::Label-->
+                    <textarea class="form-control form-control-solid" rows="3" [(ngModel)]="description" name="description" placeholder="Descripción"></textarea>
+                </div>           
             </div>
             <!--end::Scroll-->
 
