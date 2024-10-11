@@ -6,8 +6,8 @@
             <!--begin::Search-->
             <div class="d-flex align-items-center position-relative my-1">
                 <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span
-                        class="path2"></span></i> <input type="text" [(ngModel)]="search" (keyup.enter)="listEmployeeFunctions()" data-kt-customer-table-filter="search"
-                    class="form-control form-control-solid w-250px ps-12" placeholder="Buscar Funciones">
+                        class="path2"></span></i> <input type="text" [(ngModel)]="search" (keyup.enter)="listZonas()" data-kt-customer-table-filter="search"
+                    class="form-control form-control-solid w-250px ps-12" placeholder="Buscar Zona">
             </div>
             <!--end::Search-->
         </div>
@@ -18,8 +18,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                 <!--begin::Add customer-->
-                <button type="button" class="btn btn-primary" (click)="createEmployeeFunction()">
-                    + Agregar Función
+                <button type="button" class="btn btn-primary" (click)="createZona()">
+                    + Agregar Zona
                 </button>
                 <!--end::Add customer-->
             </div>
@@ -41,13 +41,23 @@
                         <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
                                 colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Funcion</span><span
+                                    class="dt-column-title" role="button">Zona</span><span
                                     class="dt-column-order"></span></th>                           
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
                                 colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                    class="dt-column-title" role="button">Ubicación</span><span
+                                    class="dt-column-order"></span></th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
+                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                    class="dt-column-title" role="button">Descripción</span><span
+                                    class="dt-column-order"></span></th>
+                            
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="2" rowspan="1"
+                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
                                     class="dt-column-title" role="button">Estado</span><span
-                                    class="dt-column-order"></span></th>                           
+                                    class="dt-column-order"></span></th>
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
                                 colspan="1" aria-label="Created Date: Activate to sort" tabindex="0"><span
@@ -60,27 +70,35 @@
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
-                        <ng-container *ngFor="let EMPLOYEEFUNCTION of EMPLOYEEFUNCTIONS">
+                        <ng-container *ngFor="let ZONA of ZONAS">
                             <tr>
                                 <td>
-                                    {{ EMPLOYEEFUNCTION.name }}
+                                    {{ ZONA.name }}
                                 </td>
 
                                 <td>
-                                    <span class="badge badge-light-success" *ngIf="EMPLOYEEFUNCTION.state == 1">Activo</span>
-                                    <span class="badge badge-light-danger" *ngIf="EMPLOYEEFUNCTION.state == 2">Inactivo</span>
+                                    {{ ZONA.location }}
+                                </td>
+
+                                <td>
+                                    {{ ZONA.description }}
+                                </td>
+
+                                <td>
+                                    <span class="badge badge-light-success" *ngIf="ZONA.state == 1">Activo</span>
+                                    <span class="badge badge-light-danger" *ngIf="ZONA.state == 2">Inactivo</span>
                                 </td>
                                                             
                                 <td>
-                                    {{ EMPLOYEEFUNCTION.created_format_at }}
+                                    {{ ZONA.created_format_at }}
                                 </td>
 
                                 <td class="">
-                                    <a href="#" onclick="return false;" (click)="editEmployeeFunction(EMPLOYEEFUNCTION)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                    <a href="#" onclick="return false;" (click)="editZona(ZONA)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                         <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
                                     </a>
 
-                                    <a href="#" onclick="return false;" (click)="deleteEmployeeFunction(EMPLOYEEFUNCTION)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                    <a href="#" onclick="return false;" (click)="deleteZona(ZONA)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                         <i class="ki-duotone ki-trash fs-2"><span class="path1"></span><span  class="path2"></span><span  class="path3"></span><span  class="path4"></span></i>
                                     </a>
                                 </td>

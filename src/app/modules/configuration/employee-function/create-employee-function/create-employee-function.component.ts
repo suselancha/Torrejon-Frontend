@@ -28,7 +28,7 @@ export class CreateEmployeeFunctionComponent {
 
   store(){
     if(!this.name){
-      this.toast.error("Validación","El nombre es requerido");
+      this.toast.error("Validación","El nombre de la función es requerido");
       return false;
     }
 
