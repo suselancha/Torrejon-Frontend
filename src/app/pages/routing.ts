@@ -52,6 +52,11 @@ const Routing: Routes = [
     path: 'roles',
     loadChildren: () => import('../modules/roles/roles.module').then((m) => m.RolesModule),
   },
+  // Acceso => localhost:4200/users/list
+  {
+    path: 'users',
+    loadChildren: () => import('../modules/users/users.module').then((m) => m.UsersModule),
+  },
   // Acceso => localhost:4200/configuraciones/employee-function/list
   {
     path: 'configuraciones',
