@@ -30,10 +30,19 @@ export class ClientsService {
     );
   }
 
-  listClients(page =1,search:string = ''){
+  listClients(page =1, data:any = {}){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/clients?page="+page+"&search="+search;
+    let URL = URL_SERVICIOS+"/clients/index?page="+page;
+    return this.http.post(URL,data,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  listConfig(){
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
+    let URL = URL_SERVICIOS+"/clients/config";
     return this.http.get(URL,{headers: headers}).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );

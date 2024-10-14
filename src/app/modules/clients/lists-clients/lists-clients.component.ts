@@ -16,29 +16,54 @@ export class ListsClientsComponent {
   search:string = '';
   CLIENTS:any = [];
   isLoading$:any;
+  client_segment_id:string = '';
+  type:string = '';
 
   totalPages:number = 0;
   currentPage:number = 0;
 
+  client_segments:any = [];
+
   constructor(
     public modalService: NgbModal,
-    public clientService : ClientsService,
+    public clientsService : ClientsService,
   ) {
 
   }
 
   ngOnInit(): void {
     // Renderizado del servicio con el componente
-    this.isLoading$ = this.clientService.isLoading$;
+    this.isLoading$ = this.clientsService.isLoading$;
+    this.listClients();
+    this.listConfig();
+  }
+
+  resetlistClients(){
+    this.search = '';
+    this.client_segment_id = '',
+    this.type = '';
     this.listClients();
   }
 
   listClients(page = 1){
-    this.clientService.listClients(page,this.search).subscribe((resp:any) => {
+    let data = {
+      search: this.search,
+      client_segment_id: this.client_segment_id,
+      type: this.type
+    }
+
+    this.clientsService.listClients(page,data).subscribe((resp:any) => {
       console.log(resp);
-      this.CLIENTS = resp.client_segments; // Respuesta del backend
+      this.CLIENTS = resp.clients.data; // Respuesta del backend y data parque usamos Collection
       this.totalPages = resp.total;
       this.currentPage = page;
+    })
+  }
+
+  listConfig(){
+    this.clientsService.listConfig().subscribe((resp:any) => {
+      console.log(resp);
+      this.client_segments = resp.client_segments; // Respuesta del backend      
     })
   }
 
@@ -48,26 +73,35 @@ export class ListsClientsComponent {
 
   createClientCompany() {
     // Inicializo un componente hijo
-    const modalRef = this.modalService.open(CreateClientsCompanyComponent,{centered: true, size: 'md'});
+    const modalRef = this.modalService.open(CreateClientsCompanyComponent,{centered: true, size: 'lg'});
+
+    // Pasar valor x medio de componentes
+    // client_segments => nombre de la variable dentro del componente
+    modalRef.componentInstance.client_segments = this.client_segments
+
     // Output
     // Recepcionamos valor enviado por el componente hijo
-    modalRef.componentInstance.ClientSegmentC.subscribe((client_segment:any) => {
-      this.CLIENTS.unshift(client_segment);
+    modalRef.componentInstance.ClientsC.subscribe((client:any) => {
+      this.CLIENTS.unshift(client);
     })
   }
 
   createClientPerson() {
     // Inicializo un componente hijo
-    const modalRef = this.modalService.open(CreateClientsPersonComponent,{centered: true, size: 'md'});
+    const modalRef = this.modalService.open(CreateClientsPersonComponent,{centered: true, size: 'lg'});
+    // Pasar valor x medio de componentes
+    // client_segments => nombre de la variable dentro del componente
+    modalRef.componentInstance.client_segments = this.client_segments
+
     // Output
     // Recepcionamos valor enviado por el componente hijo
-    modalRef.componentInstance.ClientSegmentC.subscribe((client_segment:any) => {
-      this.CLIENTS.unshift(client_segment);
+    modalRef.componentInstance.ClientsC.subscribe((client:any) => {
+      this.CLIENTS.unshift(client);
     })
   }
 
   editClientCompany(CLIENT_SEGMENT:any){
-    const modalRef = this.modalService.open(EditClientsCompanyComponent,{centered: true, size: 'md'});
+    const modalRef = this.modalService.open(EditClientsCompanyComponent,{centered: true, size: 'lg'});
     modalRef.componentInstance.CLIENT_SEGMENT_SELECTED = CLIENT_SEGMENT;
 
     // Output
