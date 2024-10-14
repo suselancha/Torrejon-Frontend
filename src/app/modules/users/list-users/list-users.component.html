@@ -12,10 +12,10 @@
                 <input type="text" 
                     data-kt-customer-table-filter="search"
                     [(ngModel)]="search"
-                    (keyup.enter)="listRoles()"
                     name="search"
+                    (keyup.enter)="listUsers()"
                     class="form-control form-control-solid w-250px ps-12" 
-                    placeholder="Search Roles">
+                    placeholder="Search Users">
             </div>
             <!--end::Search-->
         </div>
@@ -28,8 +28,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                 <!--begin::Add customer-->
-                <button type="button" class="btn btn-primary" (click)="createRol()">
-                    + Agregar Rol
+                <button type="button" class="btn btn-primary" (click)="createUser()">
+                    + Agregar User
                 </button>
                 <!--end::Add customer-->
             </div>
@@ -67,17 +67,47 @@
                                 colspan="1" 
                                 aria-label="Customer Name: Activate to sort" 
                                 tabindex="0">
+                                <span class="dt-column-title" role="button">Usuario</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
                                 <span class="dt-column-title" role="button">Rol</span>
                                 <span class="dt-column-order"></span>
                             </th>
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
-                                data-dt-column="2" 
+                                data-dt-column="1" 
                                 rowspan="1"
                                 colspan="1" 
-                                aria-label="Email: Activate to sort" 
+                                aria-label="Customer Name: Activate to sort" 
                                 tabindex="0">
-                                <span class="dt-column-title" role="button">Permisos</span>
+                                <span class="dt-column-title" role="button">Sucursal</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Telefono</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">N° de Documento</span>
                                 <span class="dt-column-order"></span>
                             </th>
 
@@ -95,28 +125,45 @@
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
 
-                        <ng-container *ngFor="let ROL of ROLES">
+                        <ng-container *ngFor="let USER of USERS">
                         
                         <tr>
                             <td>
-                                {{ ROL.name}}
+                                <div class="symbol symbol-50px me-5">
+                                    <img [src]="USER.avatar" class="" alt="">
+                                </div>
+                                
+                                <div class="d-flex justify-content-start flex-column">
+                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">{{ USER.full_name }}</a>
+                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ USER.email }}</span>
+                                </div>
                             </td>
                             
                             <td>
-                                <span
-                                    style="width: 500px !important; display:block;"
-                                >{{ ROL.permissions_pluck }}</span>                                
+                                {{ USER.role.name}}
+                            </td>
+                            
+                            <td>
+                                {{ USER.sucursal_id }}
                             </td>
                                                         
                             <td>
-                                {{ ROL.created_format_at }}
+                                {{ USER.phone }}
+                            </td>
+                                                        
+                            <td>
+                                {{ USER.n_document }}
+                            </td>
+                                                        
+                            <td>
+                                {{ USER.created_format_at }}
                             </td>
 
                             <td class="">
-                                <a *ngIf="ROL.id > 1" 
+                                <a
                                     href="#" 
                                     onclick="return false;"
-                                    (click)="editRole(ROL)"
+                                    (click)="editUser(USER)"
                                     class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                     <i class="ki-duotone ki-pencil fs-2">
                                         <span class="path1"></span>
@@ -124,12 +171,17 @@
                                     </i>
                                 </a>
 
-                                <a *ngIf="ROL.id > 1" 
+                                <a
                                     href="#" 
                                     onclick="return false;" 
-                                    (click)="deleteRole(ROL)"
+                                    (click)="deleteUser(USER)"
                                     class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                    <i class="ki-duotone ki-trash fs-2"><span class="path1"></span><span  class="path2"></span><span  class="path3"></span><span  class="path4"></span></i>
+                                    <i class="ki-duotone ki-trash fs-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span  class="path4"></span>
+                                    </i>
                                 </a>
                             </td>
                         </tr>
@@ -140,7 +192,7 @@
                     <tfoot></tfoot>
                 </table>
             </div>
-            <ngb-pagination
+            <ngb-pagination 
                 [collectionSize]="totalPages"
                 [(page)]="currentPage"
                 [pageSize]="25"
