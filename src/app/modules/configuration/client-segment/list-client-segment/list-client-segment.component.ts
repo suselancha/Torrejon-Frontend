@@ -17,7 +17,7 @@ export class ListClientSegmentComponent {
   isLoading$:any;
 
   totalPages:number = 0;
-  currentPage:number = 0;
+  currentPage:number = 1;
 
   constructor(
     public modalService: NgbModal,

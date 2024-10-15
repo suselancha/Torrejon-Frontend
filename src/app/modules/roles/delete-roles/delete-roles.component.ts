@@ -13,9 +13,10 @@ export class DeleteRolesComponent {
   @Output() RoleD: EventEmitter<any> = new EventEmitter();
   @Input() ROLE_SELECTED:any;
 
-  name:string = '';
   isLoading:any;
   SIDEBAR:any = SIDEBAR;
+
+  name:string = '';
   permissions:any = [];
 
   constructor(
@@ -31,20 +32,16 @@ export class DeleteRolesComponent {
   }
 
   delete() {
-
     this.rolesService.deleteRole(this.ROLE_SELECTED.id).subscribe((resp:any) => {
       console.log(resp);
-
       if (resp.message == 400) {
         this.toast.error("Validación", resp.message_text);
       }
       else {
-        this.toast.success("Exito", "El Rol fue eliminado correctamente.");
+        this.toast.success("Exito", "El Rol se eliminó correctamente.");
         this.RoleD.emit(resp.role);
         this.modal.close();
       }
-      
-    });    
-
+    });
   }
 }

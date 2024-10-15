@@ -22,11 +22,8 @@ export class UsersService {
 
   configAll() {
     this.isLoadingSubject.next(true);
-
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-
-    let URL = URL_SERVICIOS + "/users/config";
-
+    let URL = URL_SERVICIOS+"/users/config";
     return this.http.get(URL, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
@@ -34,11 +31,8 @@ export class UsersService {
 
   listUsers(page = 1, search:string = '') {
     this.isLoadingSubject.next(true);
-
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-
-    let URL = URL_SERVICIOS + "/users?page=" + page + "&search=" + search;
-
+    let URL = URL_SERVICIOS+"/users?page="+page+"&search="+search;
     return this.http.get(URL, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
@@ -46,11 +40,8 @@ export class UsersService {
 
   registerUser(data:any) {
     this.isLoadingSubject.next(true);
-
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-
-    let URL = URL_SERVICIOS + "/users";
-
+    let URL = URL_SERVICIOS+"/users";
     return this.http.post(URL, data, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
@@ -58,23 +49,18 @@ export class UsersService {
 
   updateUser(ID_USER:string, data:any) {
     this.isLoadingSubject.next(true);
-
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-
-    let URL = URL_SERVICIOS + "/users/" + ID_USER;
-
-    return this.http.post(URL, data, { headers: headers }).pipe(
+    let URL = URL_SERVICIOS+"/users/"+ID_USER;
+    // Si trabajamos con imagenes usar POST
+    return this.http.put(URL, data, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
 
   deleteUser(ID_USER:string) {
     this.isLoadingSubject.next(true);
-
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-
-    let URL = URL_SERVICIOS + "/users/" + ID_USER;
-
+    let URL = URL_SERVICIOS +"/users/"+ID_USER;
     return this.http.delete(URL, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
