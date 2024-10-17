@@ -18,7 +18,7 @@ export class ListUsersComponent {
   isLoading$:any;
 
   totalPages:number = 0;
-  currentPage:number = 0;
+  currentPage:number = 1;
 
   constructor(
     public modalService: NgbModal,
@@ -28,13 +28,15 @@ export class ListUsersComponent {
   }
 
   ngOnInit(): void {
-    
     this.isLoading$ = this.usersService.isLoading$;
-
     this.listUsers();
-
     this.configAll();
     
+  }
+
+  resetlistUsers(){
+    this.search = '';    
+    this.listUsers();
   }
 
   listUsers(page = 1) {

@@ -156,9 +156,9 @@ export const environment = {
       'thumbnail': './assets/media/demos/demo20.png'
     },
   },
-  URL_BACKEND: 'https://www.fotoseventos.com.ar/public/',
-  URL_SERVICIOS: 'https://www.fotoseventos.com.ar/public/api',
-  URL_FRONTED: 'http://www.avicolatorrejon.com',
+  URL_BACKEND: 'https://www.fotoseventos.com.ar/backend/public/',
+  URL_SERVICIOS: 'https://www.fotoseventos.com.ar/backend/public/api',
+  URL_FRONTED: 'http://www.fotoseventos.com.ar',
 };
 
 /*

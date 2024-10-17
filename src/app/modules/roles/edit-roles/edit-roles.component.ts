@@ -11,11 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditRolesComponent {
   @Output() RoleE: EventEmitter<any> = new EventEmitter();
+  // Recibo del padre en la variable ""
   @Input() ROLE_SELECTED:any;
 
-  name:string = '';
   isLoading:any;
   SIDEBAR:any = SIDEBAR;
+
+  name:string = '';
   permissions:any = [];
 
   constructor(
@@ -27,36 +29,29 @@ export class EditRolesComponent {
   }
 
   ngOnInit(): void {
-    
     this.name = this.ROLE_SELECTED.name;
-
-    this.permissions = this.ROLE_SELECTED.permissions_pluck;
+    // Array simple
+    this.permissions = this.ROLE_SELECTED.permission_pluck;
+    
   }
 
   addPermission(permiso:string) {
-
+    // Busco si existe el permiso en el array
     let INDEX = this.permissions.findIndex((perm:string) => perm == permiso);
-
-    if (INDEX != -1) {
-      
+    if (INDEX != -1) { // Elimino
       this.permissions.splice(INDEX, 1);
     }
-    else {
-
+    else { // Agrego
       this.permissions.push(permiso);
     }
-    
     console.log(this.permissions);
-
   }
 
   store() {
-
     if(!this.name) {
-      this.toast.error("Validación", "El nombre es un campo requerido");
+      this.toast.error("Validación", "El nombre es requerido");
       return false;
     }
-
     if(this.permissions.length == 0) {
       this.toast.error("Validación", "Necesitas seleccionar al menos un permiso.");
       return false;
@@ -67,19 +62,16 @@ export class EditRolesComponent {
       permissions: this.permissions
     }
 
-    this.rolesService.updateRole(this.ROLE_SELECTED.id, data).subscribe((resp:any) => {
+    this.rolesService.updateRole(this.ROLE_SELECTED.id,data).subscribe((resp:any) => {
       console.log(resp);
-
       if (resp.message == 403) {
         this.toast.error("Validación", resp.message_text);
       }
       else {
-        this.toast.success("Exito", "El Rol fue modificado correctamente.");
-        this.RoleE.emit(resp.role);
+        this.toast.success("Exito", "El Rol se editó correctamente.");
+        this.RoleE.emit(resp.role); // Respuesta exitos del backend
         this.modal.close();
       }
-      
-    });    
-
+    });
   }
 }

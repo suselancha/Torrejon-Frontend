@@ -54,7 +54,7 @@ const Routing: Routes = [
   },
   // Acceso => localhost:4200/users/list
   {
-    path: 'users',
+    path: 'usuarios',
     loadChildren: () => import('../modules/users/users.module').then((m) => m.UsersModule),
   },
   // Acceso => localhost:4200/configuraciones/employee-function/list
