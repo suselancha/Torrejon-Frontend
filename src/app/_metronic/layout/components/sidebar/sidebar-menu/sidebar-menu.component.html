@@ -1,7 +1,10 @@
 <!--begin::Menu wrapper-->
-<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true"
+  data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+  data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
   <!--begin::Menu-->
-  <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+  <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu"
+    data-kt-menu="true" data-kt-menu-expand="false">
     <!-- Dashboard -->
     <div class="menu-item">
       <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="active">
@@ -21,7 +24,7 @@
         <span class="menu-title">Layout Builder</span>
       </a>
     </div> -->
-    
+
     <div class="menu-item">
       <div class="menu-content pt-8 pb-2">
         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Configuraciones</span>
@@ -37,11 +40,10 @@
         </span>
         <span class="menu-arrow"></span>
       </span>
-      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">  
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Sucursales
@@ -50,8 +52,7 @@
         </div>
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Almacenes
@@ -60,8 +61,7 @@
         </div>
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Lugar de entrega
@@ -70,8 +70,7 @@
         </div>
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="active" routerLink="/configuraciones/zonas/list">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Zonas
@@ -79,9 +78,9 @@
           </a>
         </div>
         <div class="menu-item">
-          <a class="menu-link without-sub" routerLinkActive="active" routerLink="/configuraciones/funcion-de-empleado/list">
-            <span
-              class="menu-bullet">
+          <a class="menu-link without-sub" routerLinkActive="active"
+            routerLink="/configuraciones/funcion-de-empleado/list">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Funciones Empleados
@@ -89,9 +88,9 @@
           </a>
         </div>
         <div class="menu-item">
-          <a class="menu-link without-sub" routerLinkActive="active" routerLink="/configuraciones/segmento-de-cliente/list">
-            <span
-              class="menu-bullet">
+          <a class="menu-link without-sub" routerLinkActive="active"
+            routerLink="/configuraciones/segmento-de-cliente/list">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Segmento Clientes
@@ -100,8 +99,7 @@
         </div>
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Categorias
@@ -111,8 +109,7 @@
 
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Proveedores
@@ -121,8 +118,7 @@
         </div>
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="" routerLink="">
-            <span
-              class="menu-bullet">
+            <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
             <span class="menu-title">Unidades
@@ -149,22 +145,75 @@
         <span class="menu-title">Roles</span>
       </a>
     </div>
-    <!-- Customers -->
-    <div class="menu-item">
-      <a class="menu-link without-sub" routerLink="/usuarios/list" routerLinkActive="active">
+
+    <!-- Employees -->    
+    <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+      <!--begin:Menu link-->
+      <span class="menu-link">
         <span class="menu-icon">
-          <app-keenicon name="profile-user" class="fs-2"></app-keenicon>
+          <i class="ki-duotone ki-basket fs-2">
+            <span class="path1"></span>
+            <span class="path2"></span>
+            <span class="path3"></span>
+            <span class="path4"></span>
+          </i>
         </span>
-        <span class="menu-title">Usuarios</span>
-      </a>
+        <span class="menu-title">Empleados</span>
+        <span class="menu-arrow"></span>
+      </span><!--end:Menu link-->
+      
+      <!--begin:Menu sub-->      
+      <div class="menu-sub menu-sub-accordion">
+                    
+            <!--begin:Menu item-->
+            <div class="menu-item">
+              
+              <!--begin:Menu link-->
+              <a class="menu-link" routerLink="/usuarios/list" routerLinkActive="active">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Lista</span>
+              </a><!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            
+            <!--begin:Menu item-->
+            <div class="menu-item">
+              <!--begin:Menu link-->
+              <a class="menu-link" routerLink="/usuarios/create" routerLinkActive="active">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Registro</span>
+              </a><!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            
+            <!--begin:Menu item-->
+            <div class="menu-item">
+              <!--begin:Menu link-->
+              <a class="menu-link" routerLink="/usuarios/edit" routerLinkActive="active">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Actualizar</span>
+              </a>
+              <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+        
+      </div>
+      <!--end:Menu sub-->
     </div>
 
+
     <!-- Separator -->
-    <div class="menu-item">
+    <!-- <div class="menu-item">
       <div class="menu-content pt-8 pb-2">
         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Empleados</span>
       </div>
-    </div>
+    </div> -->
 
     <!-- Pages -->
     <!-- <div class="menu-item">
@@ -176,7 +225,7 @@
       </a>
     </div> -->
     <!-- Customers -->
-    <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+    <!-- <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
       <span class="menu-link">
         <span class="menu-icon">
           <app-keenicon name="profile-user" class="fs-2"></app-keenicon>
@@ -185,7 +234,7 @@
         </span>
         <span class="menu-arrow"></span>
       </span>
-      <!-- <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
         <div class="menu-item">
           <a class="menu-link without-sub" routerLinkActive="active" routerLink="/apps/users">
             <span
@@ -207,11 +256,11 @@
           </a>
         </div>
 
-      </div> -->
-    </div>
+      </div> 
+    </div> -->
 
-    
-    
+
+
     <!-- Accounts -->
     <!-- <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
       <span class="menu-link">
@@ -305,7 +354,7 @@
         <span class="menu-title">Caja</span>
       </a>
     </div>
-    
+
 
     <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
       <span class="menu-link">
