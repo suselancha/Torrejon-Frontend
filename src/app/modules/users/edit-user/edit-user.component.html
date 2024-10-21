@@ -1,30 +1,22 @@
-<div class="modal-content">
-    <!--begin::Modal header-->
-    <div class="modal-header" id="kt_modal_add_user_header">
-        <!--begin::Modal title-->
-        <h2 class="fw-bolder">Editar Usuario: {{ USER_SELECTED.full_name }}</h2>
-
-        <!--end::Modal title-->
-        <!--begin::Close-->
-        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close"
-            (click)="modal.dismiss()">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-            <span class="svg-icon svg-icon-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)"
-                        fill="currentColor" />
-                    <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-                        fill="currentColor" />
-                </svg>
-            </span>
-            <!--end::Svg Icon-->
+<div class="card shadow-sm">
+    <!--begin::Card header-->
+    <div class="card-header border-0 pt-6">
+        <!--begin::Card title-->
+        <div class="card-title">
+            <div class="card-title">
+                <span class="h3">Actualizar Empleado</span>
+            </div>
         </div>
-        <!--end::Close-->
+        <!--begin::Card title-->
+
+        <!-- <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span> -->
+        
     </div>
-    <!--end::Modal header-->
-    <!--begin::Modal body-->
-    <div class="modal-body scroll-y mx-5 my-7">
-        <!--begin::Form-->
+    <!--end::Card header-->
+
+    <!--begin::Card body-->
+    <div class="card-body pt-0">
+
         <form id="kt_modal_add_user_form" class="form" action="#">
             <!--begin::Scroll-->
             <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true"
@@ -38,61 +30,152 @@
                         <label class="required fw-bold fs-6 mb-2">Nombre: </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="Nombre" [(ngModel)]="name" />
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="name"
+                        />
                         <!--end::Input-->
                     </div>
+
                     <div class="col-md-6">
                         <!--begin::Label-->
                         <label class="required fw-bold fs-6 mb-2">Apellido: </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" name="surname" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="Apellido" [(ngModel)]="surname" />
-                        <!--end::Input-->                        
+                        <input
+                            type="text"
+                            name="surname"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="surname"
+                        />
+                        <!--end::Input-->
+                    </div>
+                </div>
+                
+                <!--begin::Input group-->
+                <div class="fv-row row mb-7">
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">N° de Documento:</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input
+                            type="text"
+                            name="document"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="document"
+                        />
+                        <!--end::Input--> 
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">CUIL:</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input
+                            type="text"
+                            name="jobcode"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="jobcode"
+                        />
+                        <!--end::Input--> 
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Fecha de Alta:</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input
+                            type="date"
+                            name="date_entry"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="date_entry"
+                        />
+                        <!--end::Input--> 
                     </div>
                 </div>
 
                 <!--begin::Input group-->
+                <div class="fv-row row mb-7">
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Teléfono: </label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="phone"
+                            name="phone"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="phone"
+                        />
+                        <!--end::Input-->                        
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Celular: </label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="phone"
+                            name="cell"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="cell"
+                        />
+                        <!--end::Input-->                        
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Código de empleado:</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input
+                            type="text"
+                            name="code"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="code"
+                        />
+                        <!--end::Input--> 
+                    </div>
+                </div>
+
+
                 <div class="fv-row row mb-7">
                     <div class="col-md-6">
                         <!--begin::Label-->
                         <label class="required fw-bold fs-6 mb-2">Email: </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="example@gmail.com" [(ngModel)]="email" />
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="email"
+                        />
                         <!--end::Input-->
                     </div>
-                    <div class="col-md-6">                       
-                    </div>
-                </div>
 
-                <!--begin::Input group-->
-                <div class="fv-row row mb-7">
                     <div class="col-md-6">
                         <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Contraseña: </label>
+                        <label class="required fw-bold fs-6 mb-2">Dirección: </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" name="password" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="**********" [(ngModel)]="password" />
+                        <input
+                            type="text"
+                            name="address"
+                            class="form-control mb-3 mb-lg-0"
+                            [(ngModel)]="address"
+                        />
                         <!--end::Input--> 
-                    </div>
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Confirmar Contraseña: </label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
-                        <input type="text" name="password_confirm" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="**********" [(ngModel)]="password_confirm" />
-                        <!--end::Input-->                        
-                    </div>
+                    </div> 
                 </div>
 
                 <!--begin::Input group-->
-                <div class="fv-row row mb-7">
-                    <div class="col">
+                <div class="fv-row row mb-7">                    
+                    <div class="col-md-6">
                         <!--begin::Label-->
                         <label class="required fw-bold fs-6 mb-2">Roles: </label>
                         <!--end::Label-->
@@ -111,117 +194,112 @@
                         </select>
                         <!--end::Select-->
                     </div>
-                </div>
 
-                <!--begin::Input group-->
-                <div class="fv-row row mb-7">
                     <div class="col-md-6">
                         <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Genero: </label>
-                        <!--end::Label-->
-                        <!--begin::Radio-->
-                        <div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="gender" [checked]="gender === 'MASCULINO'" (click)="gender = 'MASCULINO'" id="gender_masc">
-                                <label class="form-check-label" for="gender_masc">
-                                    Masculino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" [checked]="gender === 'FEMENINO'" (click)="gender = 'FEMENINO'" id="gender_fem">
-                                <label class="form-check-label" for="gender_fem">
-                                    Femenino
-                                </label>
-                            </div>
-                        </div>
-                        <!--end::Radio-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Telefono: </label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
-                        <input type="number" name="phone" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="3886186018" [(ngModel)]="phone" />
-                        <!--end::Input-->                        
-                    </div>
-                </div>
-                
-
-                <!--begin::Input group-->
-                <div class="fv-row row mb-7">
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Tipo Documento: </label>
+                        <label class="required fw-bold fs-6 mb-2">Zona: </label>
                         <!--end::Label-->
                         <!--begin::Select-->
                         <select 
                             class="form-control form-select-solid fw-bolder"
-                            name="type_document"
-                            [(ngModel)]="type_document"
-                            placeholder="Selec. Tipo"
+                            name="zone_id"
+                            [(ngModel)]="zone_id"
                         >
-                            <option value="DNI">DNI</option>
-                            <option value="LC">LC</option>
-                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="" disabled>Selec. Zona</option>
+                            <option value="1">zona norte</option>
+                            <option value="2">zona sur</option>
                         </select>
                         <!--end::Select-->
                     </div>
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">N° Documento: </label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
-                        <input type="number" name="n_document" class="form-control form-control-solid mb-3 mb-lg-0"
-                            placeholder="20123456" [(ngModel)]="n_document" />
-                        <!--end::Input-->                        
-                    </div>
                 </div>
-
-                <!--begin::Input group-->
+                
                 <div class="fv-row row mb-7">
                     <div class="col-md-6">
                         <!--begin::Label-->
-                        <label class="fw-bold fs-6 mb-2">Dirección: </label>
+                        <label class="fw-bold fs-6 mb-2"></label>
                         <!--end::Label-->
-                        <!--begin::Textarea-->
-                        <textarea name="address" [(ngModel)]="address" cols="20" rows="5"></textarea>
-                        <!--end::Textarea-->
-                    </div>
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="fw-bold fs-6 mb-2">Avatar: </label>
-                        <!--end::Label-->
-                        <!--begin::InputFile-->
-                        <div class="my-2">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile"  accept=".jpeg, .bmp, .jpg, .png, .gif, .webp"  (change)="processFile($event)">
-                                <label class="custom-file-label" for="customFile">Seleccionar Archivo</label>
-                            </div>
-                            <div *ngIf="imagen_previsualiza">
-                                <img [src]="imagen_previsualiza" style="height: 100px;" alt="" srcset="">
-                            </div>
+                        <!--begin::Checkbox-->
+                        <div class="form-check">
+                            <input name="create_user" 
+                                [checked]="create_user === true"
+                                [(ngModel)]="create_user" 
+                                (click)="setIsUser()" 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                id="flexCheckDefault" 
+                            />
+                            <label class="form-check-label" for="flexCheckDefault" style="color: rgb(24, 24, 24); font-weight: bold;">
+                                Generar Ususario
+                            </label>
                         </div>
-                        <!--end::InputFile-->                        
+                        <!--end::Checkbox-->
                     </div>
                 </div>
-            </div>
-            <!--end::Scroll-->
 
-            <!--begin::Actions-->
-            <div class="text-center pt-15">
-                <button type="reset" class="btn btn-light me-3" (click)="modal.dismiss()">Cerrar</button>
-                <button type="button" (click)="store()" class="btn btn-primary" data-kt-users-modal-action="submit">
-                    <span class="indicator-label">Modificar</span>
+                <div *ngIf="create_user" class="card shadow-sm">
+                    <div class="card-body">
 
-                    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
-                    <!-- <span class="indicator-progress">Please wait...
-                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
-                </button>
+                        <!--begin::Input group-->
+                        <div class="fv-row row mb-7">
+                            <div class="col-md-6">
+                                <!--begin::Label-->
+                                <label class="required fw-bold fs-6 mb-2">Contraseña: </label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input
+                                    type="password"
+                                    name="password"
+                                    class="form-control mb-3 mb-lg-0"
+                                    [(ngModel)]="password"
+                                />
+                                <!--end::Input--> 
+                            </div>
+                            <div class="col-md-6">
+                                <!--begin::Label-->
+                                <label class="required fw-bold fs-6 mb-2">Confirmar Contraseña: </label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="password"
+                                    name="password_confirm"
+                                    class="form-control mb-3 mb-lg-0"
+                                    [(ngModel)]="password_confirm"
+                                />
+                                <!--end::Input-->                        
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+
             </div>
-            <!--end::Actions-->
+            <!--end::Scroll-->            
+
+            <div class="d-flex flex-stack pt-10"> 
+                <!--begin::Wrapper-->
+                <div class="mr-2">
+                    <button type="button" (click)="back()" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous"> 
+                        <i class="ki-duotone ki-arrow-left fs-4 me-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                        Volver
+                    </button>
+                </div>
+                <!--end::Wrapper-->
+
+                <!--begin::Actions-->
+                <div>
+                    <button type="button" (click)="store()" class="btn btn-primary" data-kt-users-modal-action="submit">
+                        <span class="indicator-label">Actualizar</span>    
+                        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>                        
+                    </button>
+                </div>
+                <!--end::Actions-->
+            </div>
+
         </form>
         <!--end::Form-->
+
     </div>
-    <!--end::Modal body-->
+    <!--end::Card body-->
 </div>

@@ -74,7 +74,8 @@ export class ListUsersComponent {
   }
 
   editUser(USER:any) {
-    const modalRef = this.modalService.open(EditUserComponent,{centered: true, size: 'md'});
+    this.router.navigate(['usuarios/edit', USER.id])
+    /* const modalRef = this.modalService.open(EditUserComponent,{centered: true, size: 'md'});
     modalRef.componentInstance.USER_SELECTED = USER;
     modalRef.componentInstance.roles = this.roles;
 
@@ -84,7 +85,7 @@ export class ListUsersComponent {
         this.USERS[INDEX] = user;
       }
       
-    });
+    }); */
   }
 
   deleteUser(USER:any) {
