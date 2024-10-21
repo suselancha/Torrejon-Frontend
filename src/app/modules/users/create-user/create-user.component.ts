@@ -23,7 +23,6 @@ export class CreateUserComponent {
   password:string = '12345678';
   password_confirm:string = '12345678';
   role_id:string = '';
-  zone_id:string = '';
   create_user:boolean = false;
   is_user:string = '0';
 
@@ -116,11 +115,6 @@ export class CreateUserComponent {
       return false;
     }
 
-    if(!this.zone_id) {
-      this.toast.error("Validación", "La zona es campo requerido");
-      return false;
-    }
-
     if(!this.email) {
       this.toast.error("Validación", "El email es campo requerido");
       return false;
@@ -152,7 +146,6 @@ export class CreateUserComponent {
     formData.append("email", this.email);
     formData.append("password", this.password);
     formData.append("role_id", this.role_id);
-    formData.append("zone_id", this.zone_id);
     formData.append("is_user", this.is_user);
 
     console.log(formData);

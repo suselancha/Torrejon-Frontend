@@ -24,7 +24,6 @@ export class EditUserComponent {
   password:string = '';
   password_confirm:string = '';
   role_id:string = '';
-  zone_id:string = '';
   is_user:string = '';
   create_user:boolean;
   roles:any = [];
@@ -65,14 +64,13 @@ export class EditUserComponent {
       this.surname = resp.user.surname;
       this.document = resp.user.document;
       this.jobcode = resp.user.jobcode;
-      this.date_entry = resp.user.date_entry;
+      this.date_entry = resp.user.date_entry_format_at;
       this.phone = resp.user.phone;
       this.cell = resp.user.cell;
       this.code = resp.user.code;
       this.address   = resp.user.address;
       this.email = resp.user.email;
       this.role_id = resp.user.role_id;
-      this.zone_id = resp.user.zone_id;
       this.is_user = resp.user.is_user;
       this.create_user = Boolean(this.is_user);    
       this.password = '';
@@ -157,11 +155,6 @@ export class EditUserComponent {
       return false;
     }
 
-    if(!this.zone_id) {
-      this.toast.error("Validación", "La zona es campo requerido");
-      return false;
-    }
-
     if(!this.email) {
       this.toast.error("Validación", "El email es campo requerido");
       return false;
@@ -174,7 +167,7 @@ export class EditUserComponent {
       }
 
       if(this.password != this.password_confirm) {
-        this.toast.error("Validación", "La contraseña no fué confirmada");
+        this.toast.error("Validación", "La contraseña no coincide con la confirmación");
         return false;
       }
     }
@@ -192,7 +185,6 @@ export class EditUserComponent {
       email: this.email,
       password: this.password,
       role_id: this.role_id,
-      zone_id: this.zone_id,
       is_user: this.is_user
     }    
 
