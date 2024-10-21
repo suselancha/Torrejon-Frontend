@@ -71,22 +71,7 @@ export class ListsClientsComponent {
     this.listClients($event);
   }
 
-  createClientCompany() {
-    // Inicializo un componente hijo
-    const modalRef = this.modalService.open(CreateClientsCompanyComponent,{centered: true, size: 'lg'});
-
-    // Pasar valor x medio de componentes
-    // client_segments => nombre de la variable dentro del componente
-    modalRef.componentInstance.client_segments = this.client_segments
-
-    // Output
-    // Recepcionamos valor enviado por el componente hijo
-    modalRef.componentInstance.ClientsC.subscribe((client:any) => {
-      this.CLIENTS.unshift(client);
-    })
-  }
-
-  createClientPerson() {
+  createClient() {
     // Inicializo un componente hijo
     const modalRef = this.modalService.open(CreateClientsPersonComponent,{centered: true, size: 'lg'});
     // Pasar valor x medio de componentes
@@ -100,21 +85,8 @@ export class ListsClientsComponent {
     })
   }
 
-  editClientCompany(CLIENT_SEGMENT:any){
+  editClient(CLIENT_SEGMENT:any){
     const modalRef = this.modalService.open(EditClientsCompanyComponent,{centered: true, size: 'lg'});
-    modalRef.componentInstance.CLIENT_SEGMENT_SELECTED = CLIENT_SEGMENT;
-
-    // Output
-    modalRef.componentInstance.ClientSegmentE.subscribe((client_segment:any) => {
-      let INDEX =  this.CLIENTS.findIndex((client_seg:any) => client_seg.id == CLIENT_SEGMENT.id);
-      if(INDEX != -1){
-        this.CLIENTS[INDEX] = client_segment;
-      }
-    })
-  }
-
-  editClientPerson(CLIENT_SEGMENT:any){
-    const modalRef = this.modalService.open(EditClientsPersonComponent,{centered: true, size: 'md'});
     modalRef.componentInstance.CLIENT_SEGMENT_SELECTED = CLIENT_SEGMENT;
 
     // Output

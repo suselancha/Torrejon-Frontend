@@ -62,11 +62,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                 <!--begin::Add customer-->
-                <button type="button" class="btn btn-primary" (click)="createClientCompany()">
-                    + Agregar Empresa
-                </button>
-                <button type="button" class="btn btn-primary mx-2" (click)="createClientPerson()">
-                    + Agregar Persona
+                <button type="button" class="btn btn-primary" (click)="createClient()">
+                    + Agregar Cliente
                 </button>
                 <!--end::Add customer-->
             </div>
@@ -164,15 +161,11 @@
                                 </td>
 
                                 <td class="">
-                                    <a href="#" onclick="return false;" *ngIf="CLIENT.type == 1" (click)="editClientPerson(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                    <a href="#" onclick="return false;" (click)="editClient(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                         <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
                                     </a>
 
-                                    <a href="#" onclick="return false;" *ngIf="CLIENT.type == 2" (click)="editClientCompany(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                        <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
-                                    </a>
-
-                                    <a href="#" onclick="return false;" (click)="editClientCompany(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                    <a href="#" onclick="return false;" (click)="deleteClient(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                         <i class="ki-duotone ki-trash fs-2"><span class="path1"></span><span  class="path2"></span><span  class="path3"></span><span  class="path4"></span></i>
                                     </a>
                                 </td>

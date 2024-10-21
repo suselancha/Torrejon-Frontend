@@ -1,0 +1,295 @@
+<div id="kt_app_content" class="app-content  flex-column-fluid ">
+
+
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container  container-xxl ">
+        <!--begin::Form-->
+        <form id="kt_ecommerce_edit_order_form"
+            class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
+            data-kt-redirect="/metronic8/demo1/apps/ecommerce/sales/listing.html" data-gtm-form-interact-id="0">
+            <!--begin::Aside column-->
+            <div class="w-100 flex-lg-row-auto w-lg-300px mb-7 me-7 me-lg-10">
+
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <div class="d-flex flex-column gap-10">
+                            <!--begin::Input group-->
+                            <div class="fv-row">
+                                <!--begin::Label-->
+                                <label class="form-label">Cliente ID</label>
+                                <!--end::Label-->
+
+                                <!--begin::Auto-generated ID-->
+                                <div class="fw-bold fs-3">#12851</div>
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="required form-label">Tipo Cliente </label>
+                                <!--end::Label-->
+
+                                <!--begin::Select2-->
+                                <select class="form-select mb-2 select2-hidden-accessible" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Select an option" name="payment_method"
+                                    id="kt_ecommerce_edit_order_payment"
+                                    data-select2-id="select2-data-kt_ecommerce_edit_order_payment" tabindex="-1"
+                                    aria-hidden="true" data-kt-initialized="1">
+                                    <option data-select2-id="select2-data-10-fxgq"></option>
+                                    <option value="cod">Cash on Delivery</option>
+                                    <option value="visa">Credit Card (Visa)</option>
+                                    <option value="mastercard">Credit Card (Mastercard)</option>
+                                    <option value="paypal">Paypal</option>
+                                </select>
+                                <!--end::Select2-->
+
+
+                            </div>
+                            <!--end::Input group-->
+
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="required form-label">Código Interno</label>
+                                <!--end::Label-->
+
+                                <!--begin::Editor-->
+                                <input id="kt_ecommerce_edit_order_date" name="order_date" placeholder="Select a date"
+                                    class="form-control mb-2 flatpickr-input" value="" type="hidden"><input
+                                    class="form-control mb-2 form-control input" placeholder="Select a date"
+                                    tabindex="0" type="text" readonly="readonly">
+                                <!--end::Editor-->
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                    </div>
+                    <!--end::Card header-->
+                </div>
+                <!--end::Order details-->
+            </div>
+            <!--end::Aside column-->
+
+            <!--begin::Main column-->
+            <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10">
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Billing address-->
+                        <div class="d-flex flex-column gap-5 gap-md-7">
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <!--begin::Input group-->
+                                <div class="fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Tipo documento</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Select2-->
+                                    <select class="form-select select2-hidden-accessible"
+                                        data-placeholder="Select an option" id="kt_ecommerce_edit_order_billing_country"                                        
+                                        data-select2-id="select2-data-kt_ecommerce_edit_order_billing_country"
+                                        tabindex="-1" aria-hidden="true" name="type_document"
+                                        [(ngModel)]="type_document">
+                                        <option data-select2-id="select2-data-122-5jkl"></option>
+                                        <option value="dni">Dni</option>
+                                        <option value="libreta">Libreta Enrolamiento</option>
+                                        <option value="libreta">Libreta Cívica</option>
+                                        <option value="otros">Otros</option>
+                                    </select>
+                                    <!--end::Select2-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Apellido</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="surname" name="surname">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Nombre</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="name" name="name">
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="d-flex flex-column flex-md-row gap-5 gap-md-7">
+                                <div class="col">
+                                    <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Cuit</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <input class="form-control" [(ngModel)]="cuit" name="cuit">
+                                        <!--end::Input-->
+                                        <div
+                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="flex-row-fluid">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Razon Social</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <input class="form-control" [(ngModel)]="razon_social" name="razon_social">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Correo electrónico</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="email" [(ngModel)]="email">
+                                    <!--end::Input-->
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Teléfono Fijo</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="phone" [(ngModel)]="phone">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Celular</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="celular" [(ngModel)]="celular">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                             <!--begin::Input group-->
+                             <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Provincia</label>
+                                    <!--end::Label-->
+
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_provincia"
+                                        [(ngModel)]="ubigeo_provincia"
+                                        placeholder="Selec. Provincia"
+                                        (change)="changeProvincia($event)"
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let PROVINCIA of PROVINCIAS">
+                                            <option [value]="PROVINCIA.id">{{ PROVINCIA.name }}</option>
+                                        </ng-container>                                    
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="required fw-bold fs-6 mb-2">Departamento: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_departamento"
+                                        [(ngModel)]="ubigeo_departamento"
+                                        (change)="changeDepartamento($event)"
+                                        placeholder="Selec. Departamento"                                
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let DEPARTAMENTO of DEPARTAMENTOS_SELECTEDS">
+                                            <option [value]="DEPARTAMENTO.id">{{ DEPARTAMENTO.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="required fw-bold fs-6 mb-2">Localidad: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_localidad"
+                                        [(ngModel)]="ubigeo_localidad"
+                                        placeholder="Selec. Localidad"
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let LOCALIDAD of LOCALIDADES_SELECTEDS">
+                                            <option [value]="LOCALIDAD.id">{{ LOCALIDAD.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Billing address-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Order details-->
+                <div class="d-flex justify-content-end">
+                    <!--begin::Button-->
+                    <a href="/metronic8/demo1/apps/ecommerce/catalog/products.html" id="kt_ecommerce_edit_order_cancel"
+                        class="btn btn-light me-5">
+                        Cancelar
+                    </a>
+                    <!--end::Button-->
+
+                    <!--begin::Button-->
+                    <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary">
+                        <span class="indicator-label">
+                            Registrar
+                        </span>
+                        <span class="indicator-progress">
+                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content container-->
+</div>
