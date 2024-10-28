@@ -74,7 +74,7 @@ export class CreateClientComponent {
   }
 
   changeDepartamento($event:any){
-    console.log($event.target.value);
+    //console.log($event.target.value);
     let DEPARTAMENTO_ID = $event.target.value;
     let DEPARTAMENTO_SELECTED = this.DEPARTAMENTOS.find((departamento:any) => departamento.id ==  DEPARTAMENTO_ID);
     if(DEPARTAMENTO_SELECTED){
