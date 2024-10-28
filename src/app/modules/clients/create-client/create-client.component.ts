@@ -97,7 +97,7 @@ export class CreateClientComponent {
     let data = {
       name: this.name,
       surname: this.surname,
-      full_name: this.name + ' '+ this.surname,
+      razon_social: this.razon_social,
       address: this.address,
       client_segment_id: this.client_segment_id,
       type_document: this.type_document,
@@ -111,17 +111,16 @@ export class CreateClientComponent {
       ubigeo_localidad: this.ubigeo_localidad,
       provincia: this.provincia,
       departamento: this.departamento,
-      localidad: this.localidad,
-      type: 1,
+      localidad: this.localidad
     }
 
     this.clientsService.registerClient(data).subscribe((resp:any) => {
       console.log(resp);
       // Validamos el error del controlador Laravel
-      if(resp.message == 403){
+      if(resp.status == 403){
         this.toast.error("Validación",resp.message_text);        
       }else{
-        this.toast.success("Éxito","El cliente se registró corrrectamente");        
+        this.toast.success("Éxito",resp.message);        
       }
     })
   }
