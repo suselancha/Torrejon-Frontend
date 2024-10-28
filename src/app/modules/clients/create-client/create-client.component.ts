@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UBIGEO_DEPARTAMENTOS } from 'src/app/config/ubigeo_departamentos';
 import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { ClientsService } from '../service/clients.service';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-client',
@@ -12,29 +13,18 @@ import { ClientsService } from '../service/clients.service';
 })
 export class CreateClientComponent {
 
-  // Valores que vienen del componente PADRE (listado)
-  // Mismo nombre de la variable el padre e hijo
-  @Input() client_segments:any = [];
-
+  code:string = '';
   surname:string = '';
   name:string = '';
-  cuit:string = '';
   razon_social:string = '';
-  address:string = '';
   client_segment_id:string = '';
-  type_document:string = '';
-  n_document:string = '';
-  code:string = '';
   phone:string = '';
   celular:string = '';
   email:string = '';
-
-  PROVINCIAS:any = UBIGEO_PROVINCIAS;
-  DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
-  DEPARTAMENTOS_SELECTEDS:any = [];
-  LOCALIDADES:any = UBIGEO_LOCALIDADES;
-  LOCALIDADES_SELECTEDS:any = [];
-  
+  type_document:string = '';
+  n_document:string = '';
+  cuit:string = '';
+  address:string = '';
   ubigeo_provincia:string = '';
   ubigeo_departamento:string = '';
   ubigeo_localidad:string = '';
@@ -42,9 +32,17 @@ export class CreateClientComponent {
   departamento:string = '';
   localidad:string = '';
 
-  isLoading:any;
+  PROVINCIAS:any = UBIGEO_PROVINCIAS;
+  DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
+  DEPARTAMENTOS_SELECTEDS:any = [];
+  LOCALIDADES:any = UBIGEO_LOCALIDADES;
+  LOCALIDADES_SELECTEDS:any = [];
+ 
+  CLIENT_SEGMENTS:any = [];
 
-  constructor(    
+  isLoading$:any;
+
+  constructor(
     public toast: ToastrService,
     public clientsService : ClientsService,
   ) {
@@ -52,7 +50,15 @@ export class CreateClientComponent {
   }
 
   ngOnInit(): void {
-    
+    this.isLoading$ = this.clientsService.isLoading$;
+    this.listConfig();
+  }
+
+  listConfig(){    
+    this.clientsService.configAll().subscribe((resp:any) => {
+      console.log(resp);
+      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
+    })
   }
 
   changeProvincia($event:any){
@@ -68,7 +74,7 @@ export class CreateClientComponent {
   }
 
   changeDepartamento($event:any){
-    console.log($event.target.value);
+    //console.log($event.target.value);
     let DEPARTAMENTO_ID = $event.target.value;
     let DEPARTAMENTO_SELECTED = this.DEPARTAMENTOS.find((departamento:any) => departamento.id ==  DEPARTAMENTO_ID);
     if(DEPARTAMENTO_SELECTED){
@@ -78,23 +84,37 @@ export class CreateClientComponent {
     console.log(localidades);
     this.LOCALIDADES_SELECTEDS = localidades;
   }
+  
+  changeLocalidad($event:any){
+    console.log($event.target.value);
+    this.localidad = $event.target.value;
+  }
 
-  store(){
-    if(!this.type_document || !this.n_document ||
-      !this.name || !this.surname || !this.client_segment_id ||
-      !this.ubigeo_provincia || !this.ubigeo_departamento || !this.ubigeo_localidad ||
-      !this.address
-    ){
-      this.toast.error("Validación","Todos los campos con referencia (*) son obligatorios");
+  registrarCliente(){
+
+    if(!this.client_segment_id){
+      this.toast.error("Validación","Necesita seleccionar un tipo de cliente");
       return false;
     }
 
-    let LOCALIDAD_SELECTED = this.LOCALIDADES.find((localidad:any) => localidad.id ==  this.ubigeo_localidad);
-    if(LOCALIDAD_SELECTED){
-      this.localidad = LOCALIDAD_SELECTED.name;
+    if(!this.provincia){
+      this.toast.error("Validación","Necesita seleccionar provincia");
+      return false;
     }
 
+    if(!this.departamento){
+      this.toast.error("Validación","Necesita seleccionar departamento");
+      return false;
+    }
+
+    if(!this.localidad){
+      this.toast.error("Validación","Necesita seleccionar localidad");
+      return false;
+    }
+
+
     let data = {
+<<<<<<< HEAD
       name: this.name,
       surname: this.surname,
       razon_social: this.razon_social,
@@ -102,10 +122,20 @@ export class CreateClientComponent {
       client_segment_id: this.client_segment_id,
       type_document: this.type_document,
       n_document: this.n_document,
+=======
+>>>>>>> 6bcd4439a770dbeb4379e9ecd85cdcabf53c3152
       code: this.code,
+      surname: this.surname,
+      name: this.name,
+      razon_social: this.razon_social,
+      client_segment_id: this.client_segment_id,
       phone: this.phone,
       celular: this.celular,
       email: this.email,
+      type_document: this.type_document,
+      n_document: this.n_document,
+      cuit: this.cuit,
+      address: this.address,
       ubigeo_provincia: this.ubigeo_provincia,
       ubigeo_departamento: this.ubigeo_departamento,
       ubigeo_localidad: this.ubigeo_localidad,
@@ -114,14 +144,26 @@ export class CreateClientComponent {
       localidad: this.localidad
     }
 
-    this.clientsService.registerClient(data).subscribe((resp:any) => {
+    this.clientsService.registrarCliente(data).subscribe((resp:any) => {
       console.log(resp);
+<<<<<<< HEAD
       // Validamos el error del controlador Laravel
       if(resp.status == 403){
         this.toast.error("Validación",resp.message_text);        
       }else{
         this.toast.success("Éxito",resp.message);        
+=======
+      if (resp.message == 403) {
+        this.toast.error("Validación", resp.message_text);
+>>>>>>> 6bcd4439a770dbeb4379e9ecd85cdcabf53c3152
       }
-    })
+      else {
+        this.toast.success("Exito", "El Cliente se creó correctamente.");        
+      }
+    });
+
+
   }
+
+  
 }

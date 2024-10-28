@@ -20,26 +20,7 @@ export class ClientsService {
     this.isLoading$ = this.isLoadingSubject.asObservable();
   }
 
-  registerClient(data:any){
-    this.isLoadingSubject.next(true); // Inicio petición
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/clients";
-    // Con pipe y finalize finalizo petición.
-    return this.http.post(URL,data,{headers: headers}).pipe(
-      finalize(() => this.isLoadingSubject.next(false))
-    );
-  }
-
-  listClients(page =1, data:any = {}){
-    this.isLoadingSubject.next(true);
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/clients/index?page="+page;
-    return this.http.post(URL,data,{headers: headers}).pipe(
-      finalize(() => this.isLoadingSubject.next(false))
-    );
-  }
-
-  listConfig(){
+  configAll(){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
     let URL = URL_SERVICIOS+"/clients/config";
@@ -48,21 +29,13 @@ export class ClientsService {
     );
   }
 
-  updateClient(ID_CLIENT_SEGMENT:string, data:any){
-    this.isLoadingSubject.next(true); // Inicio petición
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/clients/"+ID_CLIENT_SEGMENT;
-    return this.http.put(URL,data,{headers: headers}).pipe(
+  registrarCliente(data:any){
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
+    let URL = URL_SERVICIOS + "/clients";
+    return this.http.post(URL, data, { headers: headers }).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
 
-  deleteClient(ID_CLIENT_SEGMENT:string){
-    this.isLoadingSubject.next(true); // Inicio petición
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
-    let URL = URL_SERVICIOS+"/clients/"+ID_CLIENT_SEGMENT;
-    return this.http.delete(URL,{headers: headers}).pipe(
-      finalize(() => this.isLoadingSubject.next(false))
-    );
-  }
 }
