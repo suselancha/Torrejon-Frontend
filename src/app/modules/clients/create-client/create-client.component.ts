@@ -31,6 +31,7 @@ export class CreateClientComponent {
   provincia:string = '';
   departamento:string = '';
   localidad:string = '';
+  state:number = 1;
 
   PROVINCIAS:any = UBIGEO_PROVINCIAS;
   DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
@@ -41,6 +42,8 @@ export class CreateClientComponent {
   CLIENT_SEGMENTS:any = [];
 
   isLoading$:any;
+
+  errores: any = {};
 
   constructor(
     public toast: ToastrService,
@@ -56,7 +59,7 @@ export class CreateClientComponent {
 
   listConfig(){    
     this.clientsService.configAll().subscribe((resp:any) => {
-      console.log(resp);
+      //console.log(resp);
       this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
     })
   }
@@ -86,44 +89,16 @@ export class CreateClientComponent {
   }
   
   changeLocalidad($event:any){
-    console.log($event.target.value);
-    this.localidad = $event.target.value;
+    let LOCALIDAD_ID = $event.target.value;
+    let LOCALIDAD_SELECTED = this.LOCALIDADES.find((localidad:any) => localidad.id ==  LOCALIDAD_ID);
+    if(LOCALIDAD_SELECTED){
+      this.localidad = LOCALIDAD_SELECTED.name;
+    }
   }
 
   registrarCliente(){
 
-    if(!this.client_segment_id){
-      this.toast.error("Validación","Necesita seleccionar un tipo de cliente");
-      return false;
-    }
-
-    if(!this.provincia){
-      this.toast.error("Validación","Necesita seleccionar provincia");
-      return false;
-    }
-
-    if(!this.departamento){
-      this.toast.error("Validación","Necesita seleccionar departamento");
-      return false;
-    }
-
-    if(!this.localidad){
-      this.toast.error("Validación","Necesita seleccionar localidad");
-      return false;
-    }
-
-
     let data = {
-<<<<<<< HEAD
-      name: this.name,
-      surname: this.surname,
-      razon_social: this.razon_social,
-      address: this.address,
-      client_segment_id: this.client_segment_id,
-      type_document: this.type_document,
-      n_document: this.n_document,
-=======
->>>>>>> 6bcd4439a770dbeb4379e9ecd85cdcabf53c3152
       code: this.code,
       surname: this.surname,
       name: this.name,
@@ -136,6 +111,7 @@ export class CreateClientComponent {
       n_document: this.n_document,
       cuit: this.cuit,
       address: this.address,
+      state: this.state,
       ubigeo_provincia: this.ubigeo_provincia,
       ubigeo_departamento: this.ubigeo_departamento,
       ubigeo_localidad: this.ubigeo_localidad,
@@ -145,25 +121,45 @@ export class CreateClientComponent {
     }
 
     this.clientsService.registrarCliente(data).subscribe((resp:any) => {
-      console.log(resp);
-<<<<<<< HEAD
-      // Validamos el error del controlador Laravel
-      if(resp.status == 403){
-        this.toast.error("Validación",resp.message_text);        
-      }else{
-        this.toast.success("Éxito",resp.message);        
-=======
-      if (resp.message == 403) {
-        this.toast.error("Validación", resp.message_text);
->>>>>>> 6bcd4439a770dbeb4379e9ecd85cdcabf53c3152
+      //console.log(resp);
+      if (!resp.success) {                
+        this.errores = resp.data;
       }
       else {
-        this.toast.success("Exito", "El Cliente se creó correctamente.");        
+        this.toast.success("Exito",  resp.message);
+        this.cleanForm();
       }
+    }, error => {
+      //console.log(error);
+      this.toast.error("Error Crítico",  error.error.message);
     });
-
-
   }
 
+  cleanForm() {
+    this.code = '';
+    this.surname = '';
+    this.name = '';
+    this.razon_social = '';
+    this.client_segment_id = '';
+    this.phone = '';
+    this.celular = '';
+    this.email = '';
+    this.type_document = '';
+    this.n_document = '';
+    this.cuit = '';
+    this.address = '';
+    this.ubigeo_provincia = '';
+    this.ubigeo_departamento = '';
+    this.ubigeo_localidad = '';
+    this.provincia = '';
+    this.departamento = '';
+    this.localidad = '';
+    this.state = 1;
   
+    this.PROVINCIAS = UBIGEO_PROVINCIAS;
+    this.DEPARTAMENTOS = UBIGEO_DEPARTAMENTOS;
+    this.DEPARTAMENTOS_SELECTEDS = [];
+    this.LOCALIDADES = UBIGEO_LOCALIDADES;
+    this.LOCALIDADES_SELECTEDS = [];
+  } 
 }

@@ -29,7 +29,17 @@ export class ClientsService {
     );
   }
 
+  listClients(page = 1, data:any) {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
+    let URL = URL_SERVICIOS+"/clients/index?page="+page;
+    return this.http.post(URL,data,{ headers: headers }).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
   registrarCliente(data:any){
+    //console.log(data);
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
     let URL = URL_SERVICIOS + "/clients";

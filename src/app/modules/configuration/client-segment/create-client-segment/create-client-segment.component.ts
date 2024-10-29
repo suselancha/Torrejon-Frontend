@@ -42,7 +42,7 @@ export class CreateClientSegmentComponent {
       if(resp.message == 403){
         this.toast.error("Validación",resp.message_text);        
       }else{
-        this.toast.success("Éxito","El segmento se registró corrrectamente");        
+        this.toast.success("Éxito","Tipo de cliente registrado corrrectamente");        
         this.ClientSegmentC.emit(resp.client_segment); // Respuesta del backend
         this.modal.close();
       }
