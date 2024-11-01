@@ -37,6 +37,14 @@
                             [(ngModel)]="name"
                         />
                         <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.name"
+                        >
+                            <p *ngFor="let error of errors.name">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
                     </div>
 
                     <div class="col-md-6">
@@ -51,6 +59,14 @@
                             [(ngModel)]="surname"
                         />
                         <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.surname"
+                        >
+                            <p *ngFor="let error of errors.surname">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
                     </div>
                 </div>
                 
@@ -67,7 +83,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="document"
                         />
-                        <!--end::Input--> 
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.document"
+                        >
+                            <p *ngFor="let error of errors.document">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors--> 
                     </div>
 
                     <div class="col-md-4">
@@ -81,7 +105,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="jobcode"
                         />
-                        <!--end::Input--> 
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.jobcode"
+                        >
+                            <p *ngFor="let error of errors.jobcode">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors--> 
                     </div>
 
                     <div class="col-md-4">
@@ -95,7 +127,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="date_entry"
                         />
-                        <!--end::Input--> 
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.date_entry"
+                        >
+                            <p *ngFor="let error of errors.date_entry">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors--> 
                     </div>
                 </div>
 
@@ -111,7 +151,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="phone"
                         />
-                        <!--end::Input-->                        
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.phone"
+                        >
+                            <p *ngFor="let error of errors.phone">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->                        
                     </div>
 
                     <div class="col-md-4">
@@ -124,7 +172,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="cell"
                         />
-                        <!--end::Input-->                        
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.cell"
+                        >
+                            <p *ngFor="let error of errors.cell">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->                         
                     </div>
 
                     <div class="col-md-4">
@@ -138,7 +194,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="code"
                         />
-                        <!--end::Input--> 
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.code"
+                        >
+                            <p *ngFor="let error of errors.code">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors--> 
                     </div>
                 </div>
 
@@ -156,6 +220,14 @@
                             [(ngModel)]="email"
                         />
                         <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.email"
+                        >
+                            <p *ngFor="let error of errors.email">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
                     </div>
 
                     <div class="col-md-6">
@@ -169,7 +241,15 @@
                             class="form-control mb-3 mb-lg-0"
                             [(ngModel)]="address"
                         />
-                        <!--end::Input--> 
+                        <!--end::Input-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.address"
+                        >
+                            <p *ngFor="let error of errors.address">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors--> 
                     </div> 
                 </div>
 
@@ -192,7 +272,14 @@
                             </ng-container>
                             
                         </select>
-                        <!--end::Select-->
+                        <!--end::Select--><!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors.role_id"
+                        >
+                            <p *ngFor="let error of errors.role_id">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
                     </div>
                 </div>
                 

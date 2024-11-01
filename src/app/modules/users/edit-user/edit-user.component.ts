@@ -31,6 +31,7 @@ export class EditUserComponent {
   
   file_name:any;
   imagen_previsualiza:any;
+  errors:any = {};
   
 
   constructor(
@@ -105,7 +106,7 @@ export class EditUserComponent {
 
   store() {
 
-    if(!this.name) {
+    /* if(!this.name) {
       this.toast.error("Validación", "El nombre es requerido");
       return false;
     }
@@ -170,7 +171,7 @@ export class EditUserComponent {
         this.toast.error("Validación", "La contraseña no coincide con la confirmación");
         return false;
       }
-    }
+    } */
 
     let data = {
       name: this.name,
@@ -193,12 +194,12 @@ export class EditUserComponent {
     this.usersService.updateUser(this.employee_id, data).subscribe((resp:any) => {
       console.log(resp);
 
-      if (resp.message == 403) {
-        this.toast.error("Validación", resp.message_text);
-      }
-      else {
-        this.toast.success("Exito", "El empleado se actualizó correctamente.");
+      if (resp.success) {
+        this.toast.success("Exito", "El empleado se registró correctamente.");
         this.router.navigate(['usuarios/list']);
+      }
+      else if(!resp.success) {
+        this.errors = resp.data;
       }
       
     });
