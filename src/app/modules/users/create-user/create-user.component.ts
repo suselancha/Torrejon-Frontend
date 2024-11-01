@@ -21,13 +21,14 @@ export class CreateUserComponent {
   address:string = '';
   email:string = '';
   password:string = '12345678';
-  password_confirm:string = '12345678';
+  password_confirmation:string = '12345678';
   role_id:string = '';
   create_user:boolean = false;
   is_user:string = '0';
 
-  isLoading:any;
+  isLoading$:any;
   roles:any = [];
+  errors:any = {};
 
   constructor(
     public usersService: UsersService,
@@ -38,6 +39,7 @@ export class CreateUserComponent {
   }
 
   ngOnInit(): void {    
+    this.isLoading$ = this.usersService.isLoading$;
     this.configAll();
   }
 
@@ -65,7 +67,7 @@ export class CreateUserComponent {
 
   store() {
 
-    if(!this.name) {
+    /* if(!this.name) {
       this.toast.error("Validación", "El nombre es requerido");
       return false;
     }
@@ -126,11 +128,11 @@ export class CreateUserComponent {
         return false;
       }
 
-      if(this.password != this.password_confirm) {
+      if(this.password != this.password_confirmation) {
         this.toast.error("Validación", "La contraseña no fué confirmada");
         return false;
       }
-    }
+    } */
 
     let formData = new FormData();
 
@@ -145,6 +147,7 @@ export class CreateUserComponent {
     formData.append("address", this.address);
     formData.append("email", this.email);
     formData.append("password", this.password);
+    formData.append("password_confirmation", this.password_confirmation);
     formData.append("role_id", this.role_id);
     formData.append("is_user", this.is_user);
 
@@ -153,12 +156,12 @@ export class CreateUserComponent {
     this.usersService.registerUser(formData).subscribe((resp:any) => {
       console.log(resp);
 
-      if (resp.message == 403) {
-        this.toast.error("Validación", resp.message_text);
-      }
-      else {
+      if (resp.success) {
         this.toast.success("Exito", "El empleado se registró correctamente.");
         this.router.navigate(['usuarios/list']);
+      }
+      else if(!resp.success) {
+        this.errors = resp.data;
       }
       
     });
