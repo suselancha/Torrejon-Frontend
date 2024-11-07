@@ -3,45 +3,32 @@
     <div class="card-header border-0 pt-6">
         <!--begin::Card title-->
         <div class="card-title">
-           <!--begin::Card title-->
             <div class="card-title">
                 <!--begin::Search-->
                 <div class="row align-items-center">
-                    <div class="col-3">
+                    <div class="col-7">
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span
                                     class="path2"></span></i> <input type="text" [(ngModel)]="search" (keyup.enter)="listClients()" name="search" data-kt-customer-table-filter="search"
-                                class="form-control form-control-solid ps-12" placeholder="Buscar...">
+                                class="form-control form-control-solid ps-12" placeholder="Buscar por dni, código o cuit...">
                         </div>
                     </div>
-                    <div class="col-3">
+
+                    <div class="col-3 d-flex">
                         <select
                             class="form-control form-select-solid fw-bolder"
                             name="client_segment_id"
-                            [(ngModel)]="client_segment_id"
-                            placeholder="Selec. Segmento"
+                            [(ngModel)]="client_segment_id"                                    
                         >
-                            <option value="">Ninguno</option>
-                                <ng-container *ngFor="let client_segment of client_segments">
-                                    <option [value]="client_segment.id">{{ client_segment.name }}</option>
-                                </ng-container>
-                        </select>
-                        <div class="text-muted fs-7">Segmento de cliente</div>
+                        <option value="">Ninguno</option>
+                        <ng-container *ngFor="let CLIENT_SEGMENT of CLIENT_SEGMENTS">
+                            <option [value]="CLIENT_SEGMENT.id">{{ CLIENT_SEGMENT.name }}</option>
+                        </ng-container>
+                    </select>
+
                     </div>
-                    <div class="col-3">
-                        <select
-                            class="form-control form-select-solid fw-bolder"
-                            name="type"
-                            [(ngModel)]="type"
-                            placeholder="Selec. Tipo Cliente"
-                        >
-                            <option value="">Ninguno</option>                            
-                            <option value="1">PERSONA</option>                            
-                            <option value="2">EMPRESA</option>                            
-                        </select>
-                        <div class="text-muted fs-7">Tipo de cliente</div>
-                    </div>
-                    <div class="col-1 d-flex">
+
+                    <div class="col-2 d-flex">
                         <button class="btn btn-primary btn-sm mx-1" (click)="listClients()">
                             <i class="ki-duotone ki-magnifier fs-2"><span class="path1"></span><span class="path2"></span></i> 
                         </button>
@@ -49,28 +36,37 @@
                             <i class="ki-duotone ki-loading fs-2"><span class="path1"></span><span class="path2"></span></i> 
                         </button>
                     </div>
-                    
                 </div>
                 <!--end::Search-->
-            </div>                   
-            <!--end::Search-->
+            </div>
         </div>
         <!--begin::Card title-->
+
         <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
+
         <!--begin::Card toolbar-->
         <div class="card-toolbar">
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                 <!--begin::Add customer-->
-                <button type="button" class="btn btn-primary" (click)="createClientCompany()">
-                    + Agregar Empresa
-                </button>
-                <button type="button" class="btn btn-primary mx-2" (click)="createClientPerson()">
-                    + Agregar Persona
+                <button type="button" class="btn btn-primary" routerLink="/clientes/registro">
+                    + Agregar Cliente
                 </button>
                 <!--end::Add customer-->
             </div>
             <!--end::Toolbar-->
+
+            <!--begin::Group actions-->
+            <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
+                <div class="fw-bold me-5">
+                    <span class="me-2" data-kt-customer-table-select="selected_count"></span> Selected
+                </div>
+
+                <button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">
+                    Delete Selected
+                </button>
+            </div>
+            <!--end::Group actions-->
         </div>
         <!--end::Card toolbar-->
     </div>
@@ -86,72 +82,93 @@
                     style="width: 100%;">
                     <thead>
                         <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Código</span><span
-                                    class="dt-column-order"></span></th>
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Código</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Datos cliente</span><span
-                                    class="dt-column-order"></span></th>                           
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="1" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Customer Name: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Tipo</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Segmento</span><span
-                                    class="dt-column-order"></span></th>
-
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Tipo documento</span><span
-                                    class="dt-column-order"></span></th>
-
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Nº documento</span><span
-                                    class="dt-column-order"></span></th>
-                            
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="2" rowspan="1"
-                                colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Estado</span><span
-                                    class="dt-column-order"></span></th>
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                data-dt-column="2" 
+                                rowspan="1"
+                                colspan="1" 
+                                aria-label="Email: Activate to sort" 
+                                tabindex="0">
+                                <span class="dt-column-title" role="button">Nombre Completo</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
-                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0"><span
-                                    class="dt-column-title" role="button">Fecha de registro</span><span
-                                    class="dt-column-order"></span></th>
+                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                <span class="dt-column-title" role="button">Nº Documento</span>
+                                <span class="dt-column-order"></span>
+                            </th>
 
-                            <th class="text-end min-w-70px dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1"
-                                aria-label="Actions"><span class="dt-column-title">Acciones</span><span
-                                    class="dt-column-order"></span></th>
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                <span class="dt-column-title" role="button">Razón Social</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                <span class="dt-column-title" role="button">Cuit</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                <span class="dt-column-title" role="button">Estado</span>
+                                <span class="dt-column-order"></span>
+                            </th>
+
+                            <th class="text-end min-w-70px dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1" aria-label="Actions">
+                                <span class="dt-column-title">Acciones</span>
+                                <span class="dt-column-order"></span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
+
                         <ng-container *ngFor="let CLIENT of CLIENTS">
+                        
                             <tr>
                                 <td>
-                                    {{ CLIENT.code }}
+                                    {{ CLIENT.code}}
                                 </td>
 
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-felx justify-content-start flex-column">
-                                            <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">{{  CLIENT.full_name }}</a>
-                                            <span class="text-muted fw-semibold text-muted d-block fs-7">Tipo: {{ CLIENT.type == 1 ? 'PERSONA' : 'EMPRESA' }}</span>
-                                        </div>
-                                    </div>
+                                    {{ CLIENT.client_segment.name}}
+                                </td>
+                                
+                                <td>                                    
+                                    {{ CLIENT.surname }} {{ CLIENT.name}}                                    
                                 </td>
                                                             
                                 <td>
-                                    {{ CLIENT.client_segment.name }}
-                                </td>
-
-                                <td>
-                                    {{ CLIENT.type_document }}
-                                </td>
-
-                                <td>
                                     {{ CLIENT.n_document }}
+                                </td>
+
+                                <td>
+                                    {{ CLIENT.razon_social }}
+                                </td>
+
+                                <td>
+                                    {{ CLIENT.cuit }}
                                 </td>
 
                                 <td>
@@ -159,25 +176,35 @@
                                     <span class="badge badge-light-danger" *ngIf="CLIENT.state == 2">Inactivo</span>
                                 </td>
 
-                                <td>
-                                    {{ CLIENT.created_format_at }}
-                                </td>
-
                                 <td class="">
-                                    <a href="#" onclick="return false;" *ngIf="CLIENT.type == 1" (click)="editClientPerson(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                        <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
+                                    <a
+                                        href="#" 
+                                        onclick="return false;"
+                                        (click)="editClient(CLIENT)"
+                                        class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                        <i class="ki-duotone ki-pencil fs-2">
+                                            <span class="path1"></span>
+                                            <span  class="path2"></span>
+                                        </i>
                                     </a>
 
-                                    <a href="#" onclick="return false;" *ngIf="CLIENT.type == 2" (click)="editClientCompany(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                        <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span  class="path2"></span></i>
-                                    </a>
-
-                                    <a href="#" onclick="return false;" (click)="editClientCompany(CLIENT)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                        <i class="ki-duotone ki-trash fs-2"><span class="path1"></span><span  class="path2"></span><span  class="path3"></span><span  class="path4"></span></i>
+                                    <a
+                                        href="#" 
+                                        onclick="return false;" 
+                                        (click)="deleteClient(CLIENT)"
+                                        class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                        <i class="ki-duotone ki-trash fs-2">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                            <span  class="path4"></span>
+                                        </i>
                                     </a>
                                 </td>
                             </tr>
-                        </ng-container>                        
+
+                        </ng-container>
+
                     </tbody>
                     <tfoot></tfoot>
                 </table>

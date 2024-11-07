@@ -1,0 +1,352 @@
+<div id="kt_app_content" class="app-content  flex-column-fluid ">
+
+
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container  container-xxl ">
+        <!--begin::Form-->
+        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
+
+        <form id="kt_ecommerce_edit_order_form"
+            class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
+            data-kt-redirect="/metronic8/demo1/apps/ecommerce/sales/listing.html" data-gtm-form-interact-id="0">
+            <!--begin::Aside column-->
+            <div class="w-100 flex-lg-row-auto w-lg-300px mb-7 me-7 me-lg-10">
+
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <div class="d-flex flex-column gap-10">
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="required form-label">Tipo Cliente</label>
+                                <!--end::Label-->
+
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-control form-select-solid fw-bolder"
+                                    name="client_segment_id"
+                                    [(ngModel)]="client_segment_id"                                    
+                                >
+                                    <option value="">Ninguno</option>
+                                    <ng-container *ngFor="let CLIENT_SEGMENT of CLIENT_SEGMENTS">
+                                        <option [value]="CLIENT_SEGMENT.id">{{ CLIENT_SEGMENT.name }}</option>
+                                    </ng-container>
+                                </select>
+                                <!--end::Select2-->
+                                
+                                <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.client_segment_id"
+                                    >
+                                        <p *ngFor="let error of errores.client_segment_id">{{ error }}</p>
+                                </div>
+
+                            </div>
+                            <!--end::Input group-->
+
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Código interno</label>
+                                <!--end::Label-->
+
+                                <!--begin::Input-->
+                                <input class="form-control" [(ngModel)]="code" name="code">
+                                <!--end::Input-->
+                                <div
+                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                    *ngIf="errores.code"
+                                >
+                                    <p *ngFor="let error of errores.code">{{ error }}</p>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Estado</label>
+                                <!--end::Label-->
+
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-control form-select-solid fw-bolder"
+                                    name="state"
+                                    [(ngModel)]="state"                                    
+                                >
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>    
+                                <!--end::Select2-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Card header-->
+                </div>
+                <!--end::Order details-->
+            </div>
+            <!--end::Aside column-->
+
+            <!--begin::Main column-->
+            <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10">
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Billing address-->
+                        <div class="d-flex flex-column gap-5 gap-md-7">
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <!--begin::Input group-->
+                                <div class="fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Tipo documento</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Select2-->
+                                    <select class="form-select select2-hidden-accessible"
+                                        data-placeholder="Select an option" id="kt_ecommerce_edit_order_billing_country"                                        
+                                        data-select2-id="select2-data-kt_ecommerce_edit_order_billing_country"
+                                        tabindex="-1" aria-hidden="true" name="type_document"
+                                        [(ngModel)]="type_document">
+                                        <option value="">Ninguno</option>
+                                        <option value="dni">Dni</option>
+                                        <option value="libreta">Libreta Enrolamiento</option>
+                                        <option value="libreta">Libreta Cívica</option>
+                                        <option value="otros">Otros</option>
+                                    </select>
+                                    <!--end::Select2-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Número (sin puntos)</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="n_document" name="n_document" placeholder="25263698">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.n_document"
+                                    >
+                                        <p *ngFor="let error of errores.n_document">{{ error }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Apellido</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="surname" name="surname">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Nombre</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="name" name="name">
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="d-flex flex-column flex-md-row gap-5 gap-md-7">
+                                <div class="col">
+                                    <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Cuit (xx-12345678-x)</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <input class="form-control" [(ngModel)]="cuit" name="cuit" placeholder="20-04123596-1">
+                                        <!--end::Input-->
+                                        <div
+                                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                            *ngIf="errores.cuit"
+                                        >
+                                            <p *ngFor="let error of errores.cuit">{{ error }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="flex-row-fluid">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Razon Social</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <input class="form-control" [(ngModel)]="razon_social" name="razon_social">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Dirección</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="address" [(ngModel)]="address">
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Correo electrónico (@)</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="email" [(ngModel)]="email" placeholder="micuenta@gmail.com">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.email"
+                                    >
+                                        <p *ngFor="let error of errores.email">{{ error }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Teléfono Fijo</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="phone" [(ngModel)]="phone">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">                                        
+                                    </div>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Celular</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="celular" [(ngModel)]="celular">
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                             <!--begin::Input group-->
+                             <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Provincia</label>
+                                    <!--end::Label-->
+
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_provincia"
+                                        [(ngModel)]="ubigeo_provincia"
+                                        placeholder="Selec. Provincia"
+                                        (change)="changeProvincia($event)"
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let PROVINCIA of PROVINCIAS">
+                                            <option [value]="PROVINCIA.id">{{ PROVINCIA.name }}</option>
+                                        </ng-container>                                    
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="fw-bold fs-6 mb-2">Departamento: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_departamento"
+                                        [(ngModel)]="ubigeo_departamento"
+                                        (change)="changeDepartamento($event)"                        
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let DEPARTAMENTO of DEPARTAMENTOS_SELECTEDS">
+                                            <option [value]="DEPARTAMENTO.id">{{ DEPARTAMENTO.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="fw-bold fs-6 mb-2">Localidad: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_localidad"
+                                        [(ngModel)]="ubigeo_localidad"
+                                        (change)="changeLocalidad($event)"                                        
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let LOCALIDAD of LOCALIDADES_SELECTEDS">
+                                            <option [value]="LOCALIDAD.id">{{ LOCALIDAD.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Billing address-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Order details-->
+                <div class="d-flex justify-content-end">
+                    <!--begin::Button-->
+                    <button routerLink="/clientes/list" id="kt_ecommerce_edit_order_cancel"
+                        class="btn btn-light me-5">
+                        Cancelar
+                    </button>
+                    <!--end::Button-->
+
+                    <!--begin::Button-->
+                    <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary" (click)="registrarCliente()">
+                        <span class="indicator-label">                            
+                            Registrar
+                        </span>
+                        <span class="indicator-progress">
+                            Espera por favor... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content container-->
+</div>
