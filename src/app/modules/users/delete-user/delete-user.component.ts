@@ -39,7 +39,7 @@ export class DeleteUserComponent {
         this.toast.error("Validación", resp.message_text);
       }
       else {
-        this.toast.success("Exito", "El Usuario fue eliminado correctamente.");
+        this.toast.success("Exito", "El Empleado fue eliminado correctamente.");
         this.UserD.emit(resp.user);
         this.modal.close();
       }

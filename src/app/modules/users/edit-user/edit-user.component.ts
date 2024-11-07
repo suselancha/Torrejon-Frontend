@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 import { UsersService } from '../service/users.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -9,44 +9,87 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent {
-  @Output() UserE: EventEmitter<any> = new EventEmitter();
-  @Input() roles:any = [];
-  @Input() USER_SELECTED:any;
-
+  
+  employee_id:string = '';
   name:string = '';
   surname:string = '';
+  document:string = '';
+  jobcode:string = '';
+  date_entry:string = '';
+  phone:string = '';
+  cell:string = '';  
+  code:string = '';
+  address:string = '';
   email:string = '';
   password:string = '';
   password_confirm:string = '';
-  phone:string = '';
   role_id:string = '';
-  gender:string = '';
-  type_document:string = 'DNI';
-  n_document:string = '';
-  address:string = '';
+  is_user:string = '';
+  create_user:boolean;
+  roles:any = [];
+  isLoading$:any;
+  
   file_name:any;
   imagen_previsualiza:any;
-  isLoading:any;
+  errors:any = {};
+  
 
   constructor(
-    public modal: NgbActiveModal,
     public usersService: UsersService,
     public toast: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit(): void {
-    this.name = this.USER_SELECTED.name;
-    this.surname = this.USER_SELECTED.surname;
-    this.email = this.USER_SELECTED.email;
-    this.phone = this.USER_SELECTED.phone;
-    this.role_id = this.USER_SELECTED.role_id;
-    this.gender = this.USER_SELECTED.gender;
-    this.type_document = this.USER_SELECTED.type_document;
-    this.n_document = this.USER_SELECTED.n_document;
-    this.address   = this.USER_SELECTED.address;
-    this.imagen_previsualiza = this.USER_SELECTED.avatar;
+    this.isLoading$ = this.usersService.isLoading$;
+    this.configAll();
+    this.employee_id = this.route.snapshot.params['id'];
+    this.setUser(this.employee_id);    
+  }
+
+  configAll() {
+    this.usersService.configAll().subscribe((resp: any) => {
+      console.log(resp);
+      this.roles = resp.roles;
+    });
+    
+  }
+
+  setUser(id:string) {
+    this.usersService.getUser(id).subscribe((resp:any) => {
+      console.log(resp);
+      this.name = resp.user.name;
+      this.surname = resp.user.surname;
+      this.document = resp.user.document;
+      this.jobcode = resp.user.jobcode;
+      this.date_entry = resp.user.date_entry_format_at;
+      this.phone = resp.user.phone;
+      this.cell = resp.user.cell;
+      this.code = resp.user.code;
+      this.address   = resp.user.address;
+      this.email = resp.user.email;
+      this.role_id = resp.user.role_id;
+      this.is_user = resp.user.is_user;
+      this.create_user = Boolean(this.is_user);    
+      this.password = '';
+      this.password_confirm = '';
+    });
+  }
+
+  setIsUser() {
+    if(this.is_user == "1") {
+      this.is_user = "0";
+    }
+    else {
+      this.is_user = "1";
+    }
+  }
+
+  back() {    
+    this.router.navigate(['usuarios/list']);
   }
 
   processFile($event:any) {
@@ -63,79 +106,104 @@ export class EditUserComponent {
 
   store() {
 
-    if(!this.name) {
-      this.toast.error("Validación", "El nombre es un campo requerido");
+    /* if(!this.name) {
+      this.toast.error("Validación", "El nombre es requerido");
       return false;
     }
 
     if(!this.surname) {
-      this.toast.error("Validación", "El apellido es un campo requerido");
+      this.toast.error("Validación", "El apellido es requerido");
       return false;
     }
 
-    if(!this.email) {
-      this.toast.error("Validación", "El email es un campo requerido");
+    if(!this.document) {
+      this.toast.error("Validación", "El numero de documento es campo requerido");
       return false;
     }
 
-    if(this.password != this.password_confirm) {
-      this.toast.error("Validación", "La contraseña no fué confirmada");
+    if(!this.jobcode) {
+      this.toast.error("Validación", "El CUIL es campo requerido");
+      return false;
+    }
+
+    if(!this.date_entry) {
+      this.toast.error("Validación", "La fecha de alta es campo requerido");
+      return false;
+    }
+    
+    if(!this.phone) {
+      this.toast.error("Validación", "El numero de teléfono es campo requerido");
+      return false;
+    }
+    
+    if(!this.cell) {
+      this.toast.error("Validación", "El género es campo requerido");
+      return false;
+    }
+    
+    if(!this.code) {
+      this.toast.error("Validación", "El código es campo requerido");
+      return false;
+    }
+
+    if(!this.address) {
+      this.toast.error("Validación", "La dirección es campo requerido");
       return false;
     }
 
     if(!this.role_id) {
-      this.toast.error("Validación", "El rol es un campo requerido");
+      this.toast.error("Validación", "El rol es campo requerido");
       return false;
     }
 
-    if(!this.phone) {
-      this.toast.error("Validación", "El telefono es un campo requerido");
+    if(!this.email) {
+      this.toast.error("Validación", "El email es campo requerido");
       return false;
     }
 
-    if(!this.gender) {
-      this.toast.error("Validación", "El genero es un campo requerido");
-      return false;
-    }
+    if(this.create_user) {
+      if(!this.password) {
+        this.toast.error("Validación", "La contraseña es requerida");
+        return false;
+      }
 
-    if(!this.n_document || !this.type_document) {
-      this.toast.error("Validación", "El tipo y numero de documento son campos requeridos");
-      return false;
-    }
+      if(this.password != this.password_confirm) {
+        this.toast.error("Validación", "La contraseña no coincide con la confirmación");
+        return false;
+      }
+    } */
 
-    let formData = new FormData();
+    let data = {
+      name: this.name,
+      surname: this.surname,
+      document: this.document,
+      jobcode: this.jobcode,
+      date_entry: this.date_entry,
+      phone: this.phone,
+      cell: this.cell,
+      code: this.code,
+      address: this.address,
+      email: this.email,
+      password: this.password,
+      role_id: this.role_id,
+      is_user: this.is_user
+    }    
 
-    formData.append("name", this.name);
-    formData.append("surname", this.surname);
-    formData.append("email", this.email);
-    formData.append("password", this.password);
-    formData.append("phone", this.phone);
-    formData.append("role_id", this.role_id);
-    formData.append("gender", this.gender);
-    formData.append("type_document", this.type_document);
-    formData.append("n_document", this.n_document);
-    
-    if(this.address) {
-      formData.append("address", this.address);
-    }
-    
-    if(this.file_name) {
-      formData.append("image", this.file_name);      
-    }
+    console.log(data);
 
-    this.usersService.updateUser(this.USER_SELECTED.id, formData).subscribe((resp:any) => {
+    this.usersService.updateUser(this.employee_id, data).subscribe((resp:any) => {
       console.log(resp);
 
-      if (resp.message == 403) {
-        this.toast.error("Validación", resp.message_text);
+      if (resp.success) {
+        this.toast.success("Exito", "El empleado se registró correctamente.");
+        this.router.navigate(['usuarios/list']);
       }
-      else {
-        this.toast.success("Exito", "El Usuario fue modificado correctamente.");
-        this.UserE.emit(resp.user);
-        this.modal.close();
+      else if(!resp.success) {
+        this.errors = resp.data;
       }
       
-    });    
+    });
 
-  }
+  }  
+
 }

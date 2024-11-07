@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateUserComponent } from '../create-user/create-user.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { UsersService } from '../service/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-users',
@@ -23,6 +23,7 @@ export class ListUsersComponent {
   constructor(
     public modalService: NgbModal,
     public usersService: UsersService,
+    public router: Router,
   ) {
 
   }
@@ -63,16 +64,18 @@ export class ListUsersComponent {
   }
 
   createUser() {
-    const modalRef = this.modalService.open(CreateUserComponent,{centered: true, size: 'md'});
+    this.router.navigate(['usuarios/create']);
+    /* const modalRef = this.modalService.open(CreateUserComponent,{centered: true, size: 'md'});
     modalRef.componentInstance.roles = this.roles;
 
     modalRef.componentInstance.UserC.subscribe((user:any) => {
       this.USERS.push(user);
-    });
+    }); */
   }
 
   editUser(USER:any) {
-    const modalRef = this.modalService.open(EditUserComponent,{centered: true, size: 'md'});
+    this.router.navigate(['usuarios/edit', USER.id])
+    /* const modalRef = this.modalService.open(EditUserComponent,{centered: true, size: 'md'});
     modalRef.componentInstance.USER_SELECTED = USER;
     modalRef.componentInstance.roles = this.roles;
 
@@ -82,7 +85,7 @@ export class ListUsersComponent {
         this.USERS[INDEX] = user;
       }
       
-    });
+    }); */
   }
 
   deleteUser(USER:any) {

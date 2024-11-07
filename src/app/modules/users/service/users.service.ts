@@ -65,4 +65,13 @@ export class UsersService {
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
+
+  getUser(ID_USER:string) {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS+"/users/"+ID_USER;
+    return this.http.get(URL, { headers: headers }).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
 }

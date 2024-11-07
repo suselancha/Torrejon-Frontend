@@ -3,7 +3,7 @@
     <!--begin::Modal header-->
     <div class="modal-header" id="kt_modal_add_user_header">
         <!--begin::Modal title-->
-        <h2 class="fw-bolder">Eliminar Usuario: #{{ USER_SELECTED.full_name }}</h2>
+        <h2 class="fw-bolder">Eliminar Empleado: #{{ USER_SELECTED.fullname }}</h2>
         
         <!--end::Modal title-->
         <!--begin::Close-->
@@ -25,12 +25,12 @@
         <!--begin::Form-->
         <form id="kt_modal_add_user_form" class="form" action="#">
             <p>
-                ¿ESTAS SEGURO DE ELIMINAR ESTE USUARIO?
+                ¿Esta seguro de eliminar este empleado?
             </p>
             <div class="text-center pt-15">
                 <button type="reset" class="btn btn-light me-3" (click)="modal.dismiss()">Cerrar</button>
                 <button type="button" (click)="delete()" class="btn btn-danger" data-kt-users-modal-action="submit">
-                    <span class="indicator-label">ELIMINAR</span>
+                    <span class="indicator-label">Eliminar</span>
 
                     <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
                 </button>
