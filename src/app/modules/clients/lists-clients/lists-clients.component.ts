@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ClientsService } from '../service/clients.service';
+import { ImportClientsComponent } from '../import-clients/import-clients.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-lists-clients',
@@ -19,6 +21,7 @@ export class ListsClientsComponent {
 
   constructor(    
     public clientsService: ClientsService,
+    public modalService: NgbModal,
   ) {
 
   }
@@ -69,5 +72,13 @@ export class ListsClientsComponent {
 
   deleteClient(CLIENT:any) {
     
+  }
+
+  importClients(){
+    const modalRef = this.modalService.open(ImportClientsComponent,{centered: true, size: 'md'});
+    // Output: importClient
+    modalRef.componentInstance.importClient.subscribe((resp:any) => {
+      this.listClients();
+    })
   }
 }

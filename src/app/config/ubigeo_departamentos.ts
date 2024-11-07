@@ -497,7 +497,7 @@ export const UBIGEO_DEPARTAMENTOS =
   },
   {
     "id": "1013",
-    "name": "Palpalá",
+    "name": "Palpala",
     "provincia_id": "10"
   },
   {

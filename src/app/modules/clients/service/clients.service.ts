@@ -48,4 +48,14 @@ export class ClientsService {
     );
   }
 
+  importClient(data:any){
+    //console.log(data);
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
+    let URL = URL_SERVICIOS + "/clients/import";
+    return this.http.post(URL, data, { headers: headers }).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
 }

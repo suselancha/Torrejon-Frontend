@@ -11,6 +11,7 @@ import { NgbModalModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { CreateClientComponent } from './create-client/create-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { ImportClientsComponent } from './import-clients/import-clients.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { EditClientComponent } from './edit-client/edit-client.component';
     ListsClientsComponent,
     CreateClientComponent,
     EditClientComponent,
+    ImportClientsComponent,
   ],
   imports: [
     CommonModule,
