@@ -41,12 +41,13 @@ export class ImportClientsComponent {
     formData.append("import_file",this.file_excel);
 
     this.clientService.importClient(formData).subscribe((resp:any) => {
-      console.log(resp);
+        console.log(resp);
         this.toast.success("Exito","Los clientes han sido importados exitosamente");
         this.importClient.emit(resp.message);
-        this.modal.close();
     },error => {
       console.log(error);
+      this.toast.error("Error","Falla en la importacion de clientes");
     })
+    this.modal.close();
   }
 }
