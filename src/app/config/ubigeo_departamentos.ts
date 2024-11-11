@@ -437,82 +437,82 @@ export const UBIGEO_DEPARTAMENTOS =
   },
   {
     "id": "1001",
-    "name": "Susques",
+    "name": "SUSQUES",
     "provincia_id": "10"
   },
   {
     "id": "1002",
-    "name": "Rinconada",
+    "name": "RINCONADA",
     "provincia_id": "10"
   },
   {
     "id": "1003",
-    "name": "Santa Catalina",
+    "name": "SANTA CATALINA",
     "provincia_id": "10"
   },
   {
     "id": "1004",
-    "name": "Yavi",
+    "name": "YAVI",
     "provincia_id": "10"
   },
   {
     "id": "1005",
-    "name": "Cochinoca",
+    "name": "COCHINOCA",
     "provincia_id": "10"
   },
   {
     "id": "1006",
-    "name": "Humahuaca",
+    "name": "HUMAHUACA",
     "provincia_id": "10"
   },
   {
     "id": "1007",
-    "name": "Tumbaya",
+    "name": "TUMBAYA",
     "provincia_id": "10"
   },
   {
     "id": "1008",
-    "name": "Tilcara",
+    "name": "TILCARA",
     "provincia_id": "10"
   },
   {
     "id": "1009",
-    "name": "Valle Grande",
+    "name": "VALLE GRANDE",
     "provincia_id": "10"
   },
   {
     "id": "1010",
-    "name": "Doctor Manuel Belgrano",
+    "name": "DR. MANUEL BELGRANO",
     "provincia_id": "10"
   },
   {
     "id": "1011",
-    "name": "Ledesma",
+    "name": "LEDESMA",
     "provincia_id": "10"
   },
   {
     "id": "1012",
-    "name": "San Antonio",
+    "name": "SAN ANTONIO",
     "provincia_id": "10"
   },
   {
     "id": "1013",
-    "name": "Palpala",
+    "name": "PALPALA",
     "provincia_id": "10"
   },
   {
     "id": "1014",
-    "name": "El Carmen",
+    "name": "EL CARMEN",
     "provincia_id": "10"
   },
   {
     "id": "1015",
-    "name": "San Pedro",
+    "name": "SAN PEDRO",
     "provincia_id": "10"
   },
   {
     "id": "1016",
-    "name": "Santa Bárbara",
+    "name": "SANTA BARBARA",
     "provincia_id": "10"
   },
   {
