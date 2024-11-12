@@ -48,4 +48,32 @@ export class ClientsService {
     );
   }
 
+  importClient(data:any){
+    //console.log(data);
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
+    let URL = URL_SERVICIOS + "/clients/import";
+    return this.http.post(URL, data, { headers: headers }).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  showClient(CLIENTE_ID:string){
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
+    let URL = URL_SERVICIOS+"/clients/"+CLIENTE_ID;
+    return this.http.get(URL,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  actualizarCliente(CLIENTE_ID:string,data:any){
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+ this.authService.token});
+    let URL = URL_SERVICIOS+"/clients/"+CLIENTE_ID;
+    return this.http.put(URL, data, {headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
 }

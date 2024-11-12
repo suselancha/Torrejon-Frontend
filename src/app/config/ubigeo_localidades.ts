@@ -5450,518 +5450,2564 @@ export const UBIGEO_LOCALIDADES =
   },
   {
     "id": "100101",
-    "name": "Huanuco",
+    "name": "CIENAGA GRANDE",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100102",
-    "name": "Amarilis",
+    "name": "EL PORVENIR",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100103",
-    "name": "Chinchao",
+    "name": "LOMA BLANCA",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100104",
-    "name": "Churubamba",
+    "name": "MEDANITOS",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100105",
-    "name": "Margos",
+    "name": "MINA PROVIDENCIA",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100106",
-    "name": "Quisqui (Kichki)",
+    "name": "OLAROZ GRANDE",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100107",
-    "name": "San Francisco de Cayran",
+    "name": "POTRERO",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100108",
-    "name": "San Pedro de Chaulan",
+    "name": "SALAR DE JAMA",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100109",
-    "name": "Santa María del Valle",
+    "name": "SIJES",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100110",
-    "name": "Yarumayo",
+    "name": "CATUA",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100111",
-    "name": "Pillco Marca",
+    "name": "CORANZULI",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100112",
-    "name": "Yacus",
+    "name": "EL TORO",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100113",
-    "name": "San Pablo de Pillao",
+    "name": "HUANCAR",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100114",
+    "name": "JAMA",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100115",
+    "name": "MINA PROVIDENCIA",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100116",
+    "name": "OLACAPATO",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100117",
+    "name": "OLAROZ CHICO",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100118",
+    "name": "PASTOS CHICOS",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100119",
+    "name": "PUESTO SEY",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100120",
+    "name": "SAN JUAN DE QUILLAQUES",
+    "departamento_id": "1001",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100121",
+    "name": "SUSQUES",
     "departamento_id": "1001",
     "provincia_id": "10"
   },
   {
     "id": "100201",
-    "name": "Ambo",
+    "name": "CARAHUASI",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100202",
-    "name": "Cayna",
+    "name": "GUAYATAYOC",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100203",
-    "name": "Colpas",
+    "name": "LAGUNA LARGA",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100204",
-    "name": "Conchamarca",
+    "name": "LOPIARA",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100205",
-    "name": "Huacar",
+    "name": "MINA PAN DE AZUCAR",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100206",
-    "name": "San Francisco",
+    "name": "MINA PIRQUITAS",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100207",
-    "name": "San Rafael",
+    "name": "NAZARENO",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100208",
-    "name": "Tomay Kichwa",
+    "name": "POZUELOS",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100209",
+    "name": "RAMADAS",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100210",
+    "name": "RAMALLO",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100211",
+    "name": "SALITRE",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100212",
+    "name": "SAN JUAN Y MISA RUMI",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100213",
+    "name": "SANTA ANA",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100214",
+    "name": "SANTO DOMINGO",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100215",
+    "name": "CASA COLORADA",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100216",
+    "name": "COYAGUAIMA",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100217",
+    "name": "LAGUNILLAS DE FARALLON",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100218",
+    "name": "LIVIARA",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100219",
+    "name": "LOMA BLANCA",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100220",
+    "name": "NUEVO PIRQUITAS",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100221",
+    "name": "OROSMAYO",
+    "departamento_id": "1002",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100222",
+    "name": "RINCONADA",
     "departamento_id": "1002",
     "provincia_id": "10"
   },
   {
     "id": "100301",
-    "name": "La Unión",
+    "name": "CALAHOYO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100302",
+    "name": "EL FILO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100303",
+    "name": "HORNILLOS",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100304",
+    "name": "LA CRUZ",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100305",
+    "name": "LA PALCA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100306",
+    "name": "MERCO",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100307",
-    "name": "Chuquis",
+    "name": "MINA EUREKA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100308",
+    "name": "OJO DE AGUA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100309",
+    "name": "PIZCUNO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100310",
+    "name": "PUEBLO VIEJO",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100311",
-    "name": "Marías",
+    "name": "PUESTO CHICO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100312",
+    "name": "PUESTO GRANDE",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100313",
-    "name": "Pachas",
+    "name": "RODEO CHICO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100314",
+    "name": "SAN FRANCISCO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100315",
+    "name": "SAN JUAN DE ORO",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100316",
-    "name": "Quivilla",
+    "name": "SAN LEON",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100317",
-    "name": "Ripan",
+    "name": "TIMON CRUZ",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100318",
+    "name": "VILLA MARIA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100319",
+    "name": "VIZCACHERAS",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100320",
+    "name": "CASIRA",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100321",
-    "name": "Shunqui",
+    "name": "CIENEGA DE PAICONE",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100322",
-    "name": "Sillapata",
+    "name": "CIENEGUILLAS",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100323",
-    "name": "Yanas",
+    "name": "CUSI CUSI",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100324",
+    "name": "EL ANGOSTO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100325",
+    "name": "LA CIENEGA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100326",
+    "name": "MISARRUMI",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100327",
+    "name": "ORATORIO",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100328",
+    "name": "PAICONE",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100329",
+    "name": "SAN JUAN DE OROS",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100330",
+    "name": "SANTA CATALINA",
+    "departamento_id": "1003",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100331",
+    "name": "YOSCABA",
     "departamento_id": "1003",
     "provincia_id": "10"
   },
   {
     "id": "100401",
-    "name": "Huacaybamba",
+    "name": "ABRA COLORADA",
     "departamento_id": "1004",
     "provincia_id": "10"
   },
   {
     "id": "100402",
-    "name": "Canchabamba",
+    "name": "CANGREJOS",
     "departamento_id": "1004",
     "provincia_id": "10"
   },
   {
     "id": "100403",
-    "name": "Cochabamba",
+    "name": "CASTI",
     "departamento_id": "1004",
     "provincia_id": "10"
   },
   {
     "id": "100404",
-    "name": "Pinra",
+    "name": "CERRILLOS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100405",
+    "name": "CERRO COLORADO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100406",
+    "name": "CHALGUAMAYOC",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100407",
+    "name": "CHOCOITE",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100408",
+    "name": "CHOLACOR",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100409",
+    "name": "CORRAL BLANCO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100410",
+    "name": "ESCOBAR",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100411",
+    "name": "ESQUINA GRANDE",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100412",
+    "name": "LA AGUADA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100413",
+    "name": "LA CIENAGA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100414",
+    "name": "LARCAS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100415",
+    "name": "MINA BELGICA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100416",
+    "name": "OVEJERIA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100417",
+    "name": "PASAJES",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100418",
+    "name": "PIEDRA NEGRA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100419",
+    "name": "PUEBLO VIEJO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100420",
+    "name": "PULPERA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100421",
+    "name": "PUNTA DEL AGUA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100422",
+    "name": "QUIRQUINCHOS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100423",
+    "name": "RODEO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100424",
+    "name": "SALADILLO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100425",
+    "name": "SANSANA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100426",
+    "name": "SANSANA NORTE",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100427",
+    "name": "SOL DE MAYO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100428",
+    "name": "TAFNA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100429",
+    "name": "BARRIOS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100430",
+    "name": "CANGREJILLOS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100431",
+    "name": "EL CONDOR",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100432",
+    "name": "LA INTERMEDIA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100433",
+    "name": "LA QUIACA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100434",
+    "name": "LLULLUCHAYOC",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100435",
+    "name": "PUMAHUASI",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100436",
+    "name": "SAN JOSE",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100437",
+    "name": "YAVI CHICO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100438",
+    "name": "YAVI",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100439",
+    "name": "SURIPUGIO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100440",
+    "name": "INTICANCHA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100441",
+    "name": "CARA CARA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100442",
+    "name": "MULLI PUNCO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100443",
+    "name": "ESCAYA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100444",
+    "name": "OJO DE AGUA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100445",
+    "name": "PUNTA DE AGUA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100446",
+    "name": "TALA PUNCO",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100447",
+    "name": "RINCON DE CAJAS",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100448",
+    "name": "YUTUCANCHA",
+    "departamento_id": "1004",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100449",
+    "name": "HORNADITAS DE LA CORDILLERA",
     "departamento_id": "1004",
     "provincia_id": "10"
   },
   {
     "id": "100501",
-    "name": "Llata",
+    "name": "AGUA CALIENTE DE LA PUNA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100502",
-    "name": "Arancay",
+    "name": "AGUA CHICA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100503",
-    "name": "Chavín de Pariarca",
+    "name": "ARBOLITO NUEVO",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100504",
-    "name": "Jacas Grande",
+    "name": "COCHAGOSTA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100505",
-    "name": "Jircan",
+    "name": "DONCELLAS",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100506",
-    "name": "Miraflores",
+    "name": "ENCRUCIJADA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100507",
-    "name": "Monzón",
+    "name": "MACHO CRUZ",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100508",
-    "name": "Punchao",
+    "name": "MIRAFLORES DE LA CANDELARIA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100509",
-    "name": "Puños",
+    "name": "OJO DE AGUA",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100510",
-    "name": "Singa",
+    "name": "ORATORIO",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100511",
-    "name": "Tantamayo",
+    "name": "PASAJES",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100512",
+    "name": "POTRERO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100513",
+    "name": "PUEBLO VIEJO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100514",
+    "name": "QUETA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100515",
+    "name": "QUINILICAN",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100516",
+    "name": "RACHAITE",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100517",
+    "name": "RIO GRANDE",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100518",
+    "name": "RUMI CRUZ",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100519",
+    "name": "SALADO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100520",
+    "name": "SAN JOSE",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100521",
+    "name": "SANTA ANA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100522",
+    "name": "SANTA ROSA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100523",
+    "name": "SAUZALITO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100524",
+    "name": "SAYATE",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100525",
+    "name": "TABLADITAS",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100526",
+    "name": "TOLARITO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100527",
+    "name": "TRANCAS",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100528",
+    "name": "ABDON CASTRO TOLAY",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100529",
+    "name": "ABRA PAMPA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100530",
+    "name": "ABRALAITE",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100531",
+    "name": "AGUA DE CASTILLA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100532",
+    "name": "CASABINDO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100533",
+    "name": "COCHINOCA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100534",
+    "name": "LA REDONDA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100535",
+    "name": "PUESTO DEL MARQUEZ",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100536",
+    "name": "QUEBRALEÑA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100537",
+    "name": "QUERA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100538",
+    "name": "RINCONADILLAS",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100539",
+    "name": "SAN FRANCISCO DE ALFARCITO",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100540",
+    "name": "SANTA ANA DE LA PUNA",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100541",
+    "name": "SANTUARIO DE TRES POZOS",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100542",
+    "name": "TAMBILLOS",
+    "departamento_id": "1005",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100543",
+    "name": "TUSAQUILLAS",
     "departamento_id": "1005",
     "provincia_id": "10"
   },
   {
     "id": "100601",
-    "name": "Rupa-Rupa",
+    "name": "AZUL PAMPA",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100602",
-    "name": "Daniel Alomía Robles",
+    "name": "CALETE",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100603",
-    "name": "Hermílio Valdizan",
+    "name": "CAPLA",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100604",
-    "name": "José Crespo y Castillo",
+    "name": "CASA GRANDE",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100605",
-    "name": "Luyando",
+    "name": "CASA PUCA",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100606",
-    "name": "Mariano Damaso Beraun",
+    "name": "CASILLAS",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100607",
-    "name": "Pucayacu",
+    "name": "CHORCAN",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100608",
-    "name": "Castillo Grande",
+    "name": "CHORRILLOS",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100609",
-    "name": "Pueblo Nuevo",
+    "name": "CHUCALEZNA",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100610",
-    "name": "Santo Domingo de Anda",
+    "name": "CONDOR",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100611",
+    "name": "CORAYA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100612",
+    "name": "EL PORTILLO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100613",
+    "name": "HORNADITAS",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100614",
+    "name": "LA CUEVA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100615",
+    "name": "LA POMA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100616",
+    "name": "MIYUYOC",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100617",
+    "name": "NEGRA MUERTA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100618",
+    "name": "OCUMAZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100619",
+    "name": "OVARA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100620",
+    "name": "PUCARA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100621",
+    "name": "PUEBLO VIEJO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100622",
+    "name": "QUERAGUA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100623",
+    "name": "RIO GRANDE",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100624",
+    "name": "RONQUE",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100625",
+    "name": "SAN ROQUE",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100626",
+    "name": "VALIAZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100627",
+    "name": "VARAS",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100628",
+    "name": "VIZCARRA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100629",
+    "name": "APARZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100630",
+    "name": "CIANZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100631",
+    "name": "COCTACA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100632",
+    "name": "EL AGUILAR",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100633",
+    "name": "HIPOLITO YRIGOYEN",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100634",
+    "name": "HUMAHUACA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100635",
+    "name": "PALCA DE APARZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100636",
+    "name": "PALCA DE VARAS",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100637",
+    "name": "RODERO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100638",
+    "name": "TRES CRUCES",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100639",
+    "name": "UQUIA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100640",
+    "name": "VICUÑAYOC",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100641",
+    "name": "PEÑA BLANCA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100642",
+    "name": "CHAUPI RODEO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100643",
+    "name": "ZENTA DE CIANZO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100644",
+    "name": "JUIRI",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100645",
+    "name": "CHALLAMAYO",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100646",
+    "name": "CIENAGUITA",
+    "departamento_id": "1006",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100647",
+    "name": "TIONSO",
     "departamento_id": "1006",
     "provincia_id": "10"
   },
   {
     "id": "100701",
-    "name": "Huacrachuco",
+    "name": "AGUA BENDITA",
     "departamento_id": "1007",
     "provincia_id": "10"
   },
   {
     "id": "100702",
-    "name": "Cholon",
+    "name": "AGUADITA",
     "departamento_id": "1007",
     "provincia_id": "10"
   },
   {
     "id": "100703",
-    "name": "San Buenaventura",
+    "name": "CARCEL",
     "departamento_id": "1007",
     "provincia_id": "10"
   },
   {
     "id": "100704",
-    "name": "La Morada",
+    "name": "CHILCAYOC",
     "departamento_id": "1007",
     "provincia_id": "10"
   },
   {
     "id": "100705",
-    "name": "Santa Rosa de Alto Yanajanca",
+    "name": "CIENAGA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100706",
+    "name": "CIENAGA GRANDE",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100707",
+    "name": "COIRURO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100708",
+    "name": "COLORADOS",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100709",
+    "name": "ESTANCIA GRANDE",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100710",
+    "name": "MOLLE PUNCO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100711",
+    "name": "PIEDRAS BLANCAS",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100712",
+    "name": "POZO BRAVO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100713",
+    "name": "POZO COLORADO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100714",
+    "name": "PUERTA DE LIPAN",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100715",
+    "name": "PUNTA CORRAL",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100716",
+    "name": "SALADILLO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100717",
+    "name": "SAN BERNARDO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100718",
+    "name": "SAN JUAN DE POZO COLORA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100719",
+    "name": "SANTA ROSA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100720",
+    "name": "TRES MORROS",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100721",
+    "name": "TUMBAYA GRANDE",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100722",
+    "name": "TUNALITO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100723",
+    "name": "BARCENA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100724",
+    "name": "EL MORENO",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100725",
+    "name": "PUERTA DE COLORADOS",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100726",
+    "name": "PURMAMARCA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100727",
+    "name": "TUMBAYA",
+    "departamento_id": "1007",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100728",
+    "name": "VOLCAN",
     "departamento_id": "1007",
     "provincia_id": "10"
   },
   {
     "id": "100801",
-    "name": "Panao",
+    "name": "ABRA MAYO",
     "departamento_id": "1008",
     "provincia_id": "10"
   },
   {
     "id": "100802",
-    "name": "Chaglla",
+    "name": "ALFARCITO",
     "departamento_id": "1008",
     "provincia_id": "10"
   },
   {
     "id": "100803",
-    "name": "Molino",
+    "name": "ALONSO",
     "departamento_id": "1008",
     "provincia_id": "10"
   },
   {
     "id": "100804",
-    "name": "Umari",
+    "name": "BELLA VISTA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100805",
+    "name": "DURAZNOS",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100806",
+    "name": "EL PERCHEL",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100807",
+    "name": "HORNILLOS",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100808",
+    "name": "HUICHAIRA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100809",
+    "name": "LA BANDA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100810",
+    "name": "LOMA LARGA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100811",
+    "name": "MOLULO",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100812",
+    "name": "ABRA DE PUNTA CORRAL",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100813",
+    "name": "SAN ANTONIO",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100814",
+    "name": "TASTAS",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100815",
+    "name": "VOLCAN DE YACORAITE",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100816",
+    "name": "YALA DE MONTE CARMELO",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100817",
+    "name": "YAQUISPAMPA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100818",
+    "name": "COLONIA SAN JOSE",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100819",
+    "name": "YACORAITE",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100820",
+    "name": "HUACALERA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100821",
+    "name": "JUELLA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100822",
+    "name": "MAIMARA",
+    "departamento_id": "1008",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100823",
+    "name": "TILCARA",
     "departamento_id": "1008",
     "provincia_id": "10"
   },
   {
     "id": "100901",
-    "name": "Puerto Inca",
+    "name": "ALTO CALILEGUA",
     "departamento_id": "1009",
     "provincia_id": "10"
   },
   {
     "id": "100902",
-    "name": "Codo del Pozuzo",
+    "name": "JURANCO",
     "departamento_id": "1009",
     "provincia_id": "10"
   },
   {
     "id": "100903",
-    "name": "Honoria",
+    "name": "SAN LUCA",
     "departamento_id": "1009",
     "provincia_id": "10"
   },
   {
     "id": "100904",
-    "name": "Tournavista",
+    "name": "SANTA BARBARA",
     "departamento_id": "1009",
     "provincia_id": "10"
   },
   {
     "id": "100905",
-    "name": "Yuyapichis",
+    "name": "TIPAL",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100906",
+    "name": "TORO MUERTO",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100907",
+    "name": "CASPALA",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100908",
+    "name": "PAMPICHUELA",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100909",
+    "name": "SAN FRANCISCO",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100910",
+    "name": "SANTA ANA",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100911",
+    "name": "VALLE COLORADO",
+    "departamento_id": "1009",
+    "provincia_id": "10"
+  },
+  {
+    "id": "100912",
+    "name": "VALLE GRANDE",
     "departamento_id": "1009",
     "provincia_id": "10"
   },
   {
     "id": "101001",
-    "name": "La Almona",
+    "name": "DURAZNAL",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101002",
-    "name": "Ocloyas",
+    "name": "JAIRE",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101003",
-    "name": "Los Nogales",
+    "name": "JUAN GALAN",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101004",
-    "name": "Guerrero",
+    "name": "LAS CAPILLAS",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101005",
-    "name": "León",
+    "name": "OVEJERIA",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101006",
-    "name": "San Pablo de Reyes",
+    "name": "PAYO",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101007",
-    "name": "Yala",
+    "name": "REYES",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101008",
-    "name": "Lozano",
+    "name": "SAN JOSE DE CHIJRA",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101009",
-    "name": "San Salvador de Jujuy",
+    "name": "TERMAS DE REYES",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101010",
+    "name": "TILQUIZA",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101011",
+    "name": "TIRAXI",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101012",
+    "name": "TIRAXI GRANDE",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101013",
+    "name": "YERBA BUENA",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101014",
+    "name": "GUERRERO",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101015",
+    "name": "LA ALMONA",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101016",
+    "name": "LEON",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101017",
+    "name": "LOZANO",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101018",
+    "name": "OCLOYAS",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101019",
+    "name": "SAN SALVADOR DE JUJUY",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101020",
+    "name": "TESORERO",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101021",
+    "name": "LOS NOGALES",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101022",
+    "name": "SAN PABLO DE REYES",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101023",
+    "name": "YALA",
+    "departamento_id": "1010",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101024",
+    "name": "TERMAS DE REYES",
     "departamento_id": "1010",
     "provincia_id": "10"
   },
   {
     "id": "101101",
-    "name": "Chavinillo",
+    "name": "AGUA BLANCA",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101102",
-    "name": "Cahuac",
+    "name": "AGUA NEGRA",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101103",
-    "name": "Chacabamba",
+    "name": "BELLA VISTA",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101104",
-    "name": "Aparicio Pomares",
+    "name": "LA BAJADA",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101105",
-    "name": "Jacas Chico",
+    "name": "MANANTIAL",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101106",
-    "name": "Obas",
+    "name": "PALMITAS",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101107",
-    "name": "Pampamarca",
+    "name": "RIO BLANCO",
     "departamento_id": "1011",
     "provincia_id": "10"
   },
   {
     "id": "101108",
-    "name": "Choras",
+    "name": "SAN BORJAS",
     "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101109",
+    "name": "TORTUGAS",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101110",
+    "name": "URUNDEL",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101111",
+    "name": "YERBA BUENA",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101112",
+    "name": "BANANAL",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101113",
+    "name": "BERMEJITO",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101114",
+    "name": "CAIMANCITO",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101115",
+    "name": "CALILEGUA",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101116",
+    "name": "CHALICAN",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101117",
+    "name": "FRAILE PINTADO",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101118",
+    "name": "LIBERTAD",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101119",
+    "name": "LTADOR. GRAL. SAN MARTIN",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101120",
+    "name": "PUEBLO LEDESMA",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101121",
+    "name": "MAIZ NEGRO",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101122",
+    "name": "PAULINA",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101123",
+    "name": "YUTO",
+    "departamento_id": "1011",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101201",
+    "name": "CERRO NEGRO",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101202",
+    "name": "PUEBLO VIEJO",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101203",
+    "name": "RIO BLANCO",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101204",
+    "name": "EL CEIBAL",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101205",
+    "name": "LA TOMA",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101206",
+    "name": "LOS ALISOS",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101207",
+    "name": "LOTEO NAVEA",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101208",
+    "name": "SAN ANTONIO",
+    "departamento_id": "1012",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101301",
+    "name": "EL ALGARROBAL",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101302",
+    "name": "EL BRETE",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101303",
+    "name": "EL CUCHO",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101304",
+    "name": "EL PONGO",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101305",
+    "name": "EL REMATE",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101306",
+    "name": "LAS ESCALERAS",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101307",
+    "name": "LOS BLANCOS",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101308",
+    "name": "MINA 9 DE OCTUBRE",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101309",
+    "name": "CARAHUNCO",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101310",
+    "name": "CENTRO FORESTAL",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101311",
+    "name": "PALPALA",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101312",
+    "name": "RIO BLANCO",
+    "departamento_id": "1013",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101401",
+    "name": "ALTO VERDE",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101402",
+    "name": "LOS AVALOS",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101403",
+    "name": "BORDO LA ISLA",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101404",
+    "name": "CORONEL ARIAS",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101405",
+    "name": "DIQUE LA CIENAGA",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101406",
+    "name": "EL CADILLAL",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101407",
+    "name": "EL CHAMICAL",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101408",
+    "name": "EL SUNCHAL",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101409",
+    "name": "LA POSTA",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101410",
+    "name": "LAS PAMPITAS",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101411",
+    "name": "LAS PICHANAS",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101412",
+    "name": "PAMPA VIEJA",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101413",
+    "name": "SEVERINO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101414",
+    "name": "AGUAS CALIENTES",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101415",
+    "name": "FLEMING",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101416",
+    "name": "PILA PARDO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101417",
+    "name": "BARRIO EL MILAGRO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101418",
+    "name": "BARRIO LA UNION",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101419",
+    "name": "EL CARMEN",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101420",
+    "name": "LOS LAPACHOS",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101421",
+    "name": "SAN VICENTE",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101422",
+    "name": "MANANTIALES",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101423",
+    "name": "MONTERRICO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101424",
+    "name": "PAMPA BLANCA",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101425",
+    "name": "PERICO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101426",
+    "name": "PUESTO VIEJO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101427",
+    "name": "SAN ISIDRO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101428",
+    "name": "SAN JUANCITO",
+    "departamento_id": "1014",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101501",
+    "name": "ARROYO DEL MEDIO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101502",
+    "name": "BELLA VISTA",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101503",
+    "name": "EL MOLLAR",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101504",
+    "name": "LAVAYEN",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101505",
+    "name": "PALO HACHADO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101506",
+    "name": "PUERTA VERDE",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101507",
+    "name": "SAN JUAN DE DIOS",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101508",
+    "name": "TUNALITO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101509",
+    "name": "VILLA CAROLINA",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101510",
+    "name": "VILLA LAS ROSAS",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101511",
+    "name": "ARRAYANAL",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101512",
+    "name": "ARROYO COLORADO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101513",
+    "name": "DON EMILIO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101514",
+    "name": "EL ACHERAL",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101515",
+    "name": "EL PUESTO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101516",
+    "name": "EL QUEMADO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101517",
+    "name": "LA ESPERANZA",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101518",
+    "name": "LA MANGA",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101519",
+    "name": "LA MENDIETA",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101520",
+    "name": "MIRAFLORES",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101521",
+    "name": "PALOS BLANCOS",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101522",
+    "name": "PARAPETI",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101523",
+    "name": "PIEDRITAS",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101524",
+    "name": "RODEITO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101525",
+    "name": "ROSARIO DE RIO GRANDE",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101526",
+    "name": "SAN ANTONIO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101527",
+    "name": "SAN LUCAS",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101528",
+    "name": "SAN PEDRO",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101529",
+    "name": "SAUZAL",
+    "departamento_id": "1015",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101601",
+    "name": "AGUA BLANCA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101602",
+    "name": "AGUA SALADA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101603",
+    "name": "ARROYO DEL MEDIO",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101604",
+    "name": "BELLA VISTA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101605",
+    "name": "EL PALMAR",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101606",
+    "name": "ISLA CHICA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101607",
+    "name": "LA LUCRECIA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101608",
+    "name": "LA QUINTA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101609",
+    "name": "LAS DELICIAS",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101610",
+    "name": "LECHERONAL",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101611",
+    "name": "OJO DE AGUA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101612",
+    "name": "REAL DE LOS TOROS",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101613",
+    "name": "RETIRO",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101614",
+    "name": "SALADILLO",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101615",
+    "name": "SAN ANTONIO",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101616",
+    "name": "SAN RAFAEL",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101617",
+    "name": "SANTA CORNELIA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101618",
+    "name": "SANTA RITA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101619",
+    "name": "SAUCE GUACHO",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101620",
+    "name": "VILLA MONTES",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101621",
+    "name": "EL FUERTE",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101622",
+    "name": "EL PIQUETE",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101623",
+    "name": "EL TALAR",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101624",
+    "name": "PALMA SOLA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101625",
+    "name": "PUENTE LAVAYEN",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101626",
+    "name": "SANTA CLARA",
+    "departamento_id": "1016",
+    "provincia_id": "10"
+  },
+  {
+    "id": "101627",
+    "name": "VINALITO",
+    "departamento_id": "1016",
     "provincia_id": "10"
   },
   {

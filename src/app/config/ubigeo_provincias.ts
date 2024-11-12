@@ -1,98 +1,98 @@
 export const UBIGEO_PROVINCIAS = [
   {
     "id": "01",
-    "name": "Buenos Aires"
+    "name": "BUENOS AIRES"
   },
   {
     "id": "02",
-    "name": "Ciudad Autónoma de Buenos Aires"
+    "name": "CIUDAD AUTONOMA DE BS.AS."
   },
   {
     "id": "03",
-    "name": "Catamarca"
+    "name": "CATAMARCA"
   },
   {
     "id": "04",
-    "name": "Chaco"
+    "name": "CHACO"
   },
   {
     "id": "05",
-    "name": "Chubut"
+    "name": "CHUBUT"
   },
   {
     "id": "06",
-    "name": "Córdoba"
+    "name": "CORDOBA"
   },
   {
     "id": "07",
-    "name": "Corrientes"
+    "name": "CORRIENTES"
   },
   {
     "id": "08",
-    "name": "Entre Ríos"
+    "name": "ENTRE RIOS"
   },
   {
     "id": "09",
-    "name": "Formosa"
+    "name": "FORMOSA"
   },
   {
     "id": "10",
-    "name": "Jujuy"
+    "name": "JUJUY"
   },
   {
     "id": "11",
-    "name": "La Pampa"
+    "name": "LA PAMPA"
   },
   {
     "id": "12",
-    "name": "La Rioja"
+    "name": "LA RIOJA"
   },
   {
     "id": "13",
-    "name": "Mendoza"
+    "name": "MENDOZA"
   },
   {
     "id": "14",
-    "name": "Misiones"
+    "name": "MISIONES"
   },
   {
     "id": "15",
-    "name": "Neuquén"
+    "name": "NEUQUEN"
   },
   {
     "id": "16",
-    "name": "Río Negro"
+    "name": "RIO NEGRO"
   },
   {
     "id": "17",
-    "name": "Salta"
+    "name": "SALTA"
   },
   {
     "id": "18",
-    "name": "San Juan"
+    "name": "SAN JUAN"
   },
   {
     "id": "19",
-    "name": "San Luis"
+    "name": "SAN LUIS"
   },
   {
     "id": "20",
-    "name": "Santa Cruz"
+    "name": "SANTA CRUZ"
   },
   {
     "id": "21",
-    "name": "Santa Fe"
+    "name": "SANTA FE"
   },
   {
     "id": "22",
-    "name": "Santiado del Estero"
+    "name": "SANTIAGO DEL ESTERO"
   },
   {
     "id": "23",
-    "name": "Tierra del Fuego"
+    "name": "TIERRA DEL FUEGO"
   },
   {
     "id": "24",
-    "name": "Tucumám"
+    "name": "TUCUMAN"
   }
 ]
