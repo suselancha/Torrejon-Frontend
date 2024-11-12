@@ -67,73 +67,6 @@ export class CreateUserComponent {
 
   store() {
 
-    /* if(!this.name) {
-      this.toast.error("Validación", "El nombre es requerido");
-      return false;
-    }
-
-    if(!this.surname) {
-      this.toast.error("Validación", "El apellido es requerido");
-      return false;
-    }
-
-    if(!this.document) {
-      this.toast.error("Validación", "El numero de documento es campo requerido");
-      return false;
-    }
-
-    if(!this.jobcode) {
-      this.toast.error("Validación", "El CUIL es campo requerido");
-      return false;
-    }
-
-    if(!this.date_entry) {
-      this.toast.error("Validación", "La fecha de alta es campo requerido");
-      return false;
-    }
-    
-    if(!this.phone) {
-      this.toast.error("Validación", "El numero de teléfono es campo requerido");
-      return false;
-    }
-    
-    if(!this.cell) {
-      this.toast.error("Validación", "El género es campo requerido");
-      return false;
-    }
-    
-    if(!this.code) {
-      this.toast.error("Validación", "El código es campo requerido");
-      return false;
-    }
-
-    if(!this.address) {
-      this.toast.error("Validación", "La dirección es campo requerido");
-      return false;
-    }
-
-    if(!this.role_id) {
-      this.toast.error("Validación", "El rol es campo requerido");
-      return false;
-    }
-
-    if(!this.email) {
-      this.toast.error("Validación", "El email es campo requerido");
-      return false;
-    }
-
-    if(this.create_user) {
-      if(!this.password) {
-        this.toast.error("Validación", "La contraseña es requerida");
-        return false;
-      }
-
-      if(this.password != this.password_confirmation) {
-        this.toast.error("Validación", "La contraseña no fué confirmada");
-        return false;
-      }
-    } */
-
     let formData = new FormData();
 
     formData.append("name", this.name);
@@ -155,12 +88,12 @@ export class CreateUserComponent {
 
     this.usersService.registerUser(formData).subscribe((resp:any) => {
       console.log(resp);
-
-      if (resp.success) {
+      let success = resp.message == 200;
+      if (success) {
         this.toast.success("Exito", "El empleado se registró correctamente.");
         this.router.navigate(['usuarios/list']);
       }
-      else if(!resp.success) {
+      else if(!success) {
         this.errors = resp.data;
       }
       
