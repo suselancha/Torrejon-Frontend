@@ -4,7 +4,6 @@ import { UBIGEO_DEPARTAMENTOS } from 'src/app/config/ubigeo_departamentos';
 import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { ClientsService } from '../service/clients.service';
-import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-client',

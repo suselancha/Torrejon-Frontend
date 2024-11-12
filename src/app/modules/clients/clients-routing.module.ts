@@ -19,7 +19,7 @@ const routes: Routes = [
         component: CreateClientComponent
       },
       {
-        path: 'editar/:id',
+        path: 'list/editar/:id',
         component: EditClientComponent
       }
     ]

@@ -14,18 +14,18 @@
                         </div>
                     </div>
 
-                    <div class="col-3 d-flex">
+                    <div class="col-3">
                         <select
                             class="form-control form-select-solid fw-bolder"
                             name="client_segment_id"
                             [(ngModel)]="client_segment_id"                                    
                         >
-                        <option value="">Ninguno</option>
-                        <ng-container *ngFor="let CLIENT_SEGMENT of CLIENT_SEGMENTS">
-                            <option [value]="CLIENT_SEGMENT.id">{{ CLIENT_SEGMENT.name }}</option>
-                        </ng-container>
-                    </select>
-
+                            <option value="">Ninguno</option>
+                            <ng-container *ngFor="let CLIENT_SEGMENT of CLIENT_SEGMENTS">
+                                <option [value]="CLIENT_SEGMENT.id">{{ CLIENT_SEGMENT.name }}</option>
+                            </ng-container>
+                        </select>
+                        <div class="text-muted fs-7">Tipo cliente</div>
                     </div>
 
                     <div class="col-1 d-flex">
@@ -181,9 +181,7 @@
 
                                 <td class="">
                                     <a
-                                        href="#" 
-                                        onclick="return false;"
-                                        (click)="editClient(CLIENT)"
+                                        [routerLink]="'/clientes/list/editar/'+CLIENT.id"
                                         class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                         <i class="ki-duotone ki-pencil fs-2">
                                             <span class="path1"></span>

@@ -1,11 +1,26 @@
 <div id="kt_app_content" class="app-content  flex-column-fluid ">
-
-
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                <!--begin::Title-->
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Registrar Cliente</h1>
+                <!--end::Title-->
+            </div>
+            <!--end::Page title-->
+            <!--begin::Actions-->
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+            </div>
+            <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+    </div>
+    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container  container-xxl ">
         <!--begin::Form-->
-        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
-
         <form id="kt_ecommerce_edit_order_form"
             class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
             data-kt-redirect="/metronic8/demo1/apps/ecommerce/sales/listing.html" data-gtm-form-interact-id="0">
@@ -51,7 +66,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row fv-plugins-icon-container">
                                 <!--begin::Label-->
-                                <label class="form-label">Código interno</label>
+                                <label class="form-label">Código interno (12A4)</label>
                                 <!--end::Label-->
 
                                 <!--begin::Input-->
