@@ -22,7 +22,8 @@ export class EditUserComponent {
   address:string = '';
   email:string = '';
   password:string = '';
-  password_confirm:string = '';
+  password_confirmation:string = '';
+  password_default: string = '12345678';
   role_id:string = '';
   is_user:string = '';
   create_user:boolean;
@@ -73,9 +74,16 @@ export class EditUserComponent {
       this.email = resp.user.email;
       this.role_id = resp.user.role_id;
       this.is_user = resp.user.is_user;
-      this.create_user = Boolean(this.is_user);    
-      this.password = '';
-      this.password_confirm = '';
+      this.create_user = Boolean(this.is_user);
+      if (!this.create_user){
+        this.password = this.password_default;
+        this.password_confirmation = this.password_default;
+      }
+      else {
+        this.password = '';
+        this.password_confirmation = '';
+      }    
+      
     });
   }
 
@@ -106,73 +114,6 @@ export class EditUserComponent {
 
   store() {
 
-    /* if(!this.name) {
-      this.toast.error("Validación", "El nombre es requerido");
-      return false;
-    }
-
-    if(!this.surname) {
-      this.toast.error("Validación", "El apellido es requerido");
-      return false;
-    }
-
-    if(!this.document) {
-      this.toast.error("Validación", "El numero de documento es campo requerido");
-      return false;
-    }
-
-    if(!this.jobcode) {
-      this.toast.error("Validación", "El CUIL es campo requerido");
-      return false;
-    }
-
-    if(!this.date_entry) {
-      this.toast.error("Validación", "La fecha de alta es campo requerido");
-      return false;
-    }
-    
-    if(!this.phone) {
-      this.toast.error("Validación", "El numero de teléfono es campo requerido");
-      return false;
-    }
-    
-    if(!this.cell) {
-      this.toast.error("Validación", "El género es campo requerido");
-      return false;
-    }
-    
-    if(!this.code) {
-      this.toast.error("Validación", "El código es campo requerido");
-      return false;
-    }
-
-    if(!this.address) {
-      this.toast.error("Validación", "La dirección es campo requerido");
-      return false;
-    }
-
-    if(!this.role_id) {
-      this.toast.error("Validación", "El rol es campo requerido");
-      return false;
-    }
-
-    if(!this.email) {
-      this.toast.error("Validación", "El email es campo requerido");
-      return false;
-    }
-
-    if(this.create_user) {
-      if(!this.password) {
-        this.toast.error("Validación", "La contraseña es requerida");
-        return false;
-      }
-
-      if(this.password != this.password_confirm) {
-        this.toast.error("Validación", "La contraseña no coincide con la confirmación");
-        return false;
-      }
-    } */
-
     let data = {
       name: this.name,
       surname: this.surname,
@@ -185,6 +126,7 @@ export class EditUserComponent {
       address: this.address,
       email: this.email,
       password: this.password,
+      password_confirmation: this.password_confirmation,
       role_id: this.role_id,
       is_user: this.is_user
     }    
@@ -193,12 +135,12 @@ export class EditUserComponent {
 
     this.usersService.updateUser(this.employee_id, data).subscribe((resp:any) => {
       console.log(resp);
-
-      if (resp.success) {
-        this.toast.success("Exito", "El empleado se registró correctamente.");
+      let success = resp.message == 200;
+      if (success) {
+        this.toast.success("Exito", "El empleado se actualizó correctamente.");
         this.router.navigate(['usuarios/list']);
       }
-      else if(!resp.success) {
+      else if(!success) {
         this.errors = resp.data;
       }
       
