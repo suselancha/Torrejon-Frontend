@@ -79,6 +79,75 @@
             <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10">
                 <!--begin::Order details-->
                 <div class="card card-flush py-4">
+                    <div class="card-header" style="display: block;">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center">Selección de Cliente:</h2>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-sm mx-1 btn-primary" placement="top-start" ngbTooltip="Buscar">
+                                    <i class="ki-duotone ki-magnifier fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>
+                                <button class="btn btn-sm mx-1 btn-success" placement="top-start" ngbTooltip="Cliente">
+                                    <i class="ki-duotone ki-user fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>                                
+                                <button class="btn btn-sm mx-1 btn-dark" placement="top-start" ngbTooltip="Limpiar">
+                                    <i class="ki-duotone ki-arrows-circle fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-4">                                
+                                <input type="text" class="form-control mb-2" name="code_client" [(ngModel)]="code_client" placeholder="Código...">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control mb-2" name="n_document_client" [(ngModel)]="n_document_client" placeholder="Nº dni o cuit...">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control mb-2" name="full_name_client" [(ngModel)]="full_name_client" placeholder="Nombre completo...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-flush py-4">
+                    <div class="card-header" style="display: block;">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center">Selección de Zona:</h2>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-sm mx-1 btn-primary" placement="top-start" ngbTooltip="Buscar">
+                                    <i class="ki-duotone ki-magnifier fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>
+                                <button class="btn btn-sm mx-1 btn-success" placement="top-start" ngbTooltip="Cliente">
+                                    <i class="ki-duotone ki-user fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>                                
+                                <button class="btn btn-sm mx-1 btn-dark" placement="top-start" ngbTooltip="Limpiar">
+                                    <i class="ki-duotone ki-arrows-circle fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-4">                                
+                                <input type="text" class="form-control mb-2" name="code_client" [(ngModel)]="code_client" placeholder="Código...">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control mb-2" name="n_document_client" [(ngModel)]="n_document_client" placeholder="Nº dni o cuit...">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control mb-2" name="full_name_client" [(ngModel)]="full_name_client" placeholder="Nombre completo...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-flush py-4">
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <!--begin::Billing address-->

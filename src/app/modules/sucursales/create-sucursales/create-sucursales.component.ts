@@ -11,6 +11,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-sucursales.component.scss']
 })
 export class CreateSucursalesComponent {
+
+  code_client:string = '';
+  n_document_client:string = '';
+  full_name_client:string = '';
+
   code:string = '';
   nombre:string = '';
   referencia:string = '';
