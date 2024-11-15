@@ -4,6 +4,10 @@ import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { SucursalesService } from '../service/sucursales.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreateClientComponent } from '../../clients/create-client/create-client.component';
+import { SearchClientsComponent } from '../components/search-clients/search-clients.component';
+import { SearchZonasComponent } from '../components/search-zonas/search-zonas.component';
 
 @Component({
   selector: 'app-create-sucursales',
@@ -14,7 +18,11 @@ export class CreateSucursalesComponent {
 
   code_client:string = '';
   n_document_client:string = '';
-  full_name_client:string = '';
+  surname_client:string = '';
+  zona_client:string = '';
+
+  CLIENT_SELECTED:any;
+  ZONA_SELECTED:any;
 
   code:string = '';
   nombre:string = '';
@@ -46,6 +54,7 @@ export class CreateSucursalesComponent {
   constructor(
     public toast: ToastrService,
     public sucursalesService : SucursalesService,
+    public modalService: NgbModal,
   ) {
 
   }
@@ -150,4 +159,34 @@ export class CreateSucursalesComponent {
     this.LOCALIDADES = UBIGEO_LOCALIDADES;
     this.LOCALIDADES_SELECTEDS = [];
   } 
+
+  buscarClientes(){
+    console.log("buscando clientes....")
+    // this.sucursalesService.searchClients(this.code_client, this.n_document_client, this.surname_client).subscribe((resp:any) => {
+    //   console.log(resp);
+    //   if(resp.clients.length > 1){
+    //     this.openSelectedClients(resp.clients);
+    //   }else{
+    //     if(resp.clients.length==1){
+    //       this.CLIENT_SELECTED = resp.clients[0];
+    //     }else{
+    //       alert("NO EXISTE COINCIDENCIA EN LA BUSQUEDA");
+    //     }
+    //   }
+    // });    
+  }
+
+  limpiarBusquedaClientes() {
+    // this.code_client = '';
+    // this.n_document_client = '';
+    // this.surname_client = '';
+  }
+
+  openSelectedClients(clients:any=[]){
+    const modalRef = this.modalService.open(SearchClientsComponent,{size:'lg',centered:true});
+    // Paso lista de clientes
+    // Debo declarar @Input() clientes en el modal
+    modalRef.componentInstance.clientes = clients;
+  }
+  
 }

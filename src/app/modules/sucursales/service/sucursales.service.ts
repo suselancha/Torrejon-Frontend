@@ -65,4 +65,30 @@ export class SucursalesService {
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
+
+  searchClients(code_client:string, n_document_client:string, surname_client:string){
+    let LINK = "";
+    if(code_client){
+      LINK += "&code="+code_client;
+    }
+    if(n_document_client){
+      LINK += "&n_document="+n_document_client;
+    }
+    if(surname_client){
+      LINK += "&surname="+surname_client;
+    }
+    let URL = URL_SERVICIOS + "/sucursales/search-clients?p=1"+LINK;
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    return this.http.get(URL, { headers: headers });
+  }
+
+  searchZonas(zona_client:string){
+    let LINK = "";
+    if(zona_client){
+      LINK += "&name="+zona_client;
+    }
+    let URL = URL_SERVICIOS + "/sucursales/search-zonas?p=1"+LINK;
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    return this.http.get(URL, { headers: headers });
+  }
 }

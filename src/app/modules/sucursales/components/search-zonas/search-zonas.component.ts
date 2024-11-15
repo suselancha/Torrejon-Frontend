@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-zonas',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-zonas.component.scss']
 })
 export class SearchZonasComponent {
-
+  @Input() zonas:any = [];
+  
+  ngOnInit(): void {
+    console.log(this.zonas);
+  }
 }

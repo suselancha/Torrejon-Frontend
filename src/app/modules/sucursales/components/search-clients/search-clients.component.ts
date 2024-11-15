@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-clients',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-clients.component.scss']
 })
 export class SearchClientsComponent {
+  @Input() clientes:any = [];
+  
+  ngOnInit(): void {
+    console.log(this.clientes);
+  }
 
 }
