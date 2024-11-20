@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateClientComponent } from '../../clients/create-client/create-client.component';
 import { SearchClientsComponent } from '../components/search-clients/search-clients.component';
 import { SearchZonasComponent } from '../components/search-zonas/search-zonas.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-sucursales',
@@ -55,6 +56,7 @@ export class CreateSucursalesComponent {
     public toast: ToastrService,
     public sucursalesService : SucursalesService,
     public modalService: NgbModal,
+    private router: Router,
   ) {
 
   }
@@ -64,11 +66,23 @@ export class CreateSucursalesComponent {
     this.listConfig();
   }
 
+  isLoadingProcess(){
+    this.sucursalesService.isLoadingSubject.next(true);
+    setTimeout(() => {
+      this.sucursalesService.isLoadingSubject.next(false);
+    },50);
+  }
+
   listConfig(){    
     this.sucursalesService.configAll().subscribe((resp:any) => {
       //console.log(resp);
       this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
     })
+  }
+
+  back() {
+    //this.location.back();
+    this.router.navigate(['sucursales/listado']);
   }
 
   changeProvincia($event:any){
@@ -161,25 +175,35 @@ export class CreateSucursalesComponent {
   } 
 
   buscarClientes(){
-    console.log("buscando clientes....")
-    // this.sucursalesService.searchClients(this.code_client, this.n_document_client, this.surname_client).subscribe((resp:any) => {
-    //   console.log(resp);
-    //   if(resp.clients.length > 1){
-    //     this.openSelectedClients(resp.clients);
-    //   }else{
-    //     if(resp.clients.length==1){
-    //       this.CLIENT_SELECTED = resp.clients[0];
-    //     }else{
-    //       alert("NO EXISTE COINCIDENCIA EN LA BUSQUEDA");
-    //     }
-    //   }
-    // });    
+    //console.log("buscando clientes....");
+    if(!this.code_client && !this.n_document_client && !this.surname_client){
+      this.toast.error("Validación","Necesitas ingresar al menos uno de los campos de Selec.Cliente");
+      return;
+    }
+    this.sucursalesService.searchClients(this.code_client, this.n_document_client, this.surname_client).subscribe((resp:any) => {
+      console.log(resp);
+      if(resp.clients.length > 1){
+        this.openSelectedClients(resp.clients);
+      }else{
+        if(resp.clients.length==1){
+          this.CLIENT_SELECTED = resp.clients[0];
+          this.code_client = this.CLIENT_SELECTED.code;
+          this.n_document_client = this.CLIENT_SELECTED.n_document;
+          this.surname_client = this.CLIENT_SELECTED.surname;
+          this.toast.success("Exito","Se selecciono el cliente");
+        }else{
+          //alert("NO EXISTE COINCIDENCIA EN LA BUSQUEDA");
+          this.toast.error("Validación","No hay coincidencia en al búsqueda");
+        }
+      }
+    });    
   }
 
   limpiarBusquedaClientes() {
-    // this.code_client = '';
-    // this.n_document_client = '';
-    // this.surname_client = '';
+    //console.log("limpiando clientes....");
+    this.code_client = '';
+    this.n_document_client = '';
+    this.surname_client = '';
   }
 
   openSelectedClients(clients:any=[]){
@@ -187,6 +211,17 @@ export class CreateSucursalesComponent {
     // Paso lista de clientes
     // Debo declarar @Input() clientes en el modal
     modalRef.componentInstance.clientes = clients;
+
+    // Recibo el valor del componente hijo
+    modalRef.componentInstance.ClientSelected.subscribe((client:any) => {
+      //console.log(client);
+      this.CLIENT_SELECTED = client;      
+      this.code_client = this.CLIENT_SELECTED.code;
+      this.n_document_client = this.CLIENT_SELECTED.n_document;
+      this.surname_client = this.CLIENT_SELECTED.surname;
+      this.isLoadingProcess();
+      this.toast.success("Exito","Se selecciono el cliente");
+    });
   }
   
 }

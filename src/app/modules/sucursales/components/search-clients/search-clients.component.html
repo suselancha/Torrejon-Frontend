@@ -1,1 +1,112 @@
-<p>search-clients works!</p>
+<div class="modal-content">
+    <!--begin::Modal header-->
+    <div class="modal-header" id="kt_modal_add_user_header">
+        <!--begin::Modal title-->
+        <h2 class="fw-bolder">Clientes({{clientes.length}})</h2>
+
+        <!--end::Modal title-->
+        <!--begin::Close-->
+        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close"
+            (click)="modal.dismiss()">
+            <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+            <span class="svg-icon svg-icon-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)"
+                        fill="currentColor" />
+                    <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                        fill="currentColor" />
+                </svg>
+            </span>
+            <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+    </div>
+    <!--end::Modal header-->
+    <!--begin::Modal body-->
+    <div class="modal-body scroll-y mx-5 my-7">
+        <!--begin::Form-->
+        <form id="kt_modal_add_user_form" class="form" action="#">
+            <div class="row">
+                <div class="col-12">
+                    <div id="" class="table-responsive">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable" id="kt_customers_table"
+                            style="width: 100%;">
+                            <thead>
+                                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
+                                    <th class="min-w-35px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
+                                        colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                            class="dt-column-title" role="button">Código</span><span
+                                            class="dt-column-order"></span></th>                               
+
+                                    <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
+                                        colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                            class="dt-column-title" role="button">Nombre/Razon Social</span><span
+                                            class="dt-column-order"></span></th>
+
+                                    <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
+                                        colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                            class="dt-column-title" role="button">Dni/Cuit</span><span
+                                            class="dt-column-order"></span></th>
+
+                                    <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="1" rowspan="1"
+                                        colspan="1" aria-label="Customer Name: Activate to sort" tabindex="0"><span
+                                            class="dt-column-title" role="button">Tipo cliente</span><span
+                                            class="dt-column-order"></span></th>
+        
+                                    <th class="text-end min-w-70px dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1"
+                                        aria-label="Actions"><span class="dt-column-title">Acciones</span><span
+                                            class="dt-column-order"></span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-semibold text-gray-600">
+                                <ng-container *ngFor="let client of clientes">
+                                    <tr>
+                                        <td>
+                                            {{ client.code }}
+                                        </td>
+
+                                        <td>        
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ client.nombre_completo }}</span>
+                                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ client.razon_social }}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ client.n_document }}</span>
+                                                    <span class="text-muted fw-semibold text-muted d-block fs-7">{{ client.cuit }}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                                                    
+                                        <td>
+                                            {{ client.client_segment.name }}
+                                        </td>
+        
+                                        <td class="">
+                                            <a href="#" onclick="return false;" (click)="selectClient(client)" class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                <i class="ki-duotone ki-switch fs-2"><span class="path1"></span><span  class="path2"></span></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--begin::Actions-->
+            <div class="text-center pt-15">
+                <button type="reset" class="btn btn-light me-3" (click)="modal.dismiss()">Cerrar</button>                
+            </div>
+            <!--end::Actions-->
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Modal body-->
+</div>

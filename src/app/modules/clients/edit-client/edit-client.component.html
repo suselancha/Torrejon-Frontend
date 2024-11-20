@@ -186,7 +186,7 @@
                             <!--end::Input group-->
 
                             <div class="d-flex flex-column flex-md-row gap-5 gap-md-7">
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <div class="fv-row flex-row-fluid fv-plugins-icon-container">
                                         <!--begin::Label-->
                                         <label class="form-label">Cuit (xx-12345678-x)</label>
@@ -342,7 +342,7 @@
                 <!--end::Order details-->
                 <div class="d-flex justify-content-end">
                     <!--begin::Button-->
-                    <button routerLink="/clientes/list" id="kt_ecommerce_edit_order_cancel"
+                    <button type="button" (click)="back()" id="kt_ecommerce_edit_order_cancel"
                         class="btn btn-light me-5">
                         Cancelar
                     </button>
