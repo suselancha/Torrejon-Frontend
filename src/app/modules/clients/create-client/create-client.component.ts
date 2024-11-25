@@ -134,6 +134,7 @@ export class CreateClientComponent {
       else {
         this.toast.success("Exito",  resp.message);
         this.cleanForm();
+        this.router.navigate(['clientes/list']);
       }
     }, error => {
       //console.log(error);

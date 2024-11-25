@@ -5,10 +5,9 @@ import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { SucursalesService } from '../service/sucursales.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateClientComponent } from '../../clients/create-client/create-client.component';
 import { SearchClientsComponent } from '../components/search-clients/search-clients.component';
-import { SearchZonasComponent } from '../components/search-zonas/search-zonas.component';
 import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-create-sucursales',
@@ -19,19 +18,18 @@ export class CreateSucursalesComponent {
 
   code_client:string = '';
   n_document_client:string = '';
-  surname_client:string = '';
-  zona_client:string = '';
+  surname_client:string = '';  
 
   CLIENT_SELECTED:any;
   ZONA_SELECTED:any;
 
   code:string = '';
   nombre:string = '';
-  referencia:string = '';
-  phone:string = '';
+  direccion:string = '';  
+  telefono:string = '';
   celular:string = '';
-  email:string = '';  
-  direccion:string = '';
+  email:string = '';
+  referencia:string = '';
   ubigeo_provincia:string = '';
   ubigeo_departamento:string = '';
   ubigeo_localidad:string = '';
@@ -39,6 +37,8 @@ export class CreateSucursalesComponent {
   departamento:string = '';
   localidad:string = '';
   state:number = 1;
+  zona_id:string = '';
+  client_id:string = '';
 
   PROVINCIAS:any = UBIGEO_PROVINCIAS;
   DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
@@ -46,10 +46,8 @@ export class CreateSucursalesComponent {
   LOCALIDADES:any = UBIGEO_LOCALIDADES;
   LOCALIDADES_SELECTEDS:any = [];
  
-  CLIENT_SEGMENTS:any = [];
-
+  ZONAS:any = [];
   isLoading$:any;
-
   errores: any = {};
 
   constructor(
@@ -57,6 +55,7 @@ export class CreateSucursalesComponent {
     public sucursalesService : SucursalesService,
     public modalService: NgbModal,
     private router: Router,
+    private cdr: ChangeDetectorRef,
   ) {
 
   }
@@ -66,17 +65,10 @@ export class CreateSucursalesComponent {
     this.listConfig();
   }
 
-  isLoadingProcess(){
-    this.sucursalesService.isLoadingSubject.next(true);
-    setTimeout(() => {
-      this.sucursalesService.isLoadingSubject.next(false);
-    },50);
-  }
-
   listConfig(){    
     this.sucursalesService.configAll().subscribe((resp:any) => {
       //console.log(resp);
-      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
+      this.ZONAS = resp.zonas; // Respuesta del backend      
     })
   }
 
@@ -117,23 +109,25 @@ export class CreateSucursalesComponent {
     }
   }
 
-  registrarCliente(){
+  registrarSucursal(){
 
     let data = {
       code: this.code,      
       nombre: this.nombre,
-      referencia: this.referencia,      
-      phone: this.phone,
+      direccion: this.direccion,
+      telefono: this.telefono,
       celular: this.celular,
       email: this.email,      
-      direccion: this.direccion,
-      state: this.state,
+      referencia: this.referencia,            
       ubigeo_provincia: this.ubigeo_provincia,
       ubigeo_departamento: this.ubigeo_departamento,
       ubigeo_localidad: this.ubigeo_localidad,
       provincia: this.provincia,
       departamento: this.departamento,
-      localidad: this.localidad
+      localidad: this.localidad,
+      state: this.state,
+      client_id: this.client_id,
+      zona_id: this.zona_id
     }
 
     this.sucursalesService.registrarSucursal(data).subscribe((resp:any) => {
@@ -144,6 +138,7 @@ export class CreateSucursalesComponent {
       else {
         this.toast.success("Exito",  resp.message);
         this.cleanForm();
+        this.router.navigate(['sucursales/listado']);
       }
     }, error => {
       //console.log(error);
@@ -155,7 +150,7 @@ export class CreateSucursalesComponent {
     this.code = '';    
     this.nombre = '';
     this.referencia = '';    
-    this.phone = '';
+    this.telefono = '';
     this.celular = '';
     this.email = '';    
     this.direccion = '';
@@ -187,10 +182,13 @@ export class CreateSucursalesComponent {
       }else{
         if(resp.clients.length==1){
           this.CLIENT_SELECTED = resp.clients[0];
+          this.client_id = this.CLIENT_SELECTED.id;
           this.code_client = this.CLIENT_SELECTED.code;
-          this.n_document_client = this.CLIENT_SELECTED.n_document;
-          this.surname_client = this.CLIENT_SELECTED.surname;
-          this.toast.success("Exito","Se selecciono el cliente");
+          this.n_document_client = this.CLIENT_SELECTED.n_document+"/"+this.CLIENT_SELECTED.cuit;
+      this.surname_client = this.CLIENT_SELECTED.surname+"/"+this.CLIENT_SELECTED.razon_social;
+          this.toast.success("Exito","Se selecciono el cliente");      
+          // Manually trigger change detection
+          this.cdr.detectChanges();
         }else{
           //alert("NO EXISTE COINCIDENCIA EN LA BUSQUEDA");
           this.toast.error("Validación","No hay coincidencia en al búsqueda");
@@ -204,6 +202,8 @@ export class CreateSucursalesComponent {
     this.code_client = '';
     this.n_document_client = '';
     this.surname_client = '';
+    this.client_id = '';
+    this.CLIENT_SELECTED = '';
   }
 
   openSelectedClients(clients:any=[]){
@@ -215,12 +215,13 @@ export class CreateSucursalesComponent {
     // Recibo el valor del componente hijo
     modalRef.componentInstance.ClientSelected.subscribe((client:any) => {
       //console.log(client);
-      this.CLIENT_SELECTED = client;      
+      this.CLIENT_SELECTED = client;
+      this.client_id = this.CLIENT_SELECTED.id;
       this.code_client = this.CLIENT_SELECTED.code;
-      this.n_document_client = this.CLIENT_SELECTED.n_document;
-      this.surname_client = this.CLIENT_SELECTED.surname;
-      this.isLoadingProcess();
+      this.n_document_client = this.CLIENT_SELECTED.n_document+"/"+this.CLIENT_SELECTED.cuit;
+      this.surname_client = this.CLIENT_SELECTED.surname+"/"+this.CLIENT_SELECTED.razon_social;
       this.toast.success("Exito","Se selecciono el cliente");
+      this.cdr.detectChanges();
     });
   }
   
