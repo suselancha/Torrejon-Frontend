@@ -73,7 +73,11 @@ export class EditSucursalesComponent {
     this.sucursalesService.showSucursal(this.SUCURSAL_ID).subscribe((resp:any) => {
       console.log(resp);
       this.SUCURSAL_SELECCIONADA = resp.sucursal;
-      //this.CLIENT_SELECTED = resp.
+      this.CLIENT_SELECTED = resp.sucursal.client;
+    
+      this.code_client =  this.SUCURSAL_SELECCIONADA.client.codigo;
+      this.n_document_client = this.SUCURSAL_SELECCIONADA.client.n_document+"/"+this.SUCURSAL_SELECCIONADA.client.cuit;
+      this. surname_client = this.SUCURSAL_SELECCIONADA.client.surname+"/"+this.SUCURSAL_SELECCIONADA.client.razon_social;
 
       this.code = this.SUCURSAL_SELECCIONADA.code;
       this.nombre = this.SUCURSAL_SELECCIONADA.nombre;
@@ -163,7 +167,7 @@ export class EditSucursalesComponent {
       zona_id: this.zona_id
     }
 
-    this.sucursalesService.registrarSucursal(data).subscribe((resp:any) => {
+    this.sucursalesService.actualizarSucursal(this.SUCURSAL_ID,data).subscribe((resp:any) => {
       //console.log(resp);
       if (!resp.success) {                
         this.errores = resp.data;
