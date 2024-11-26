@@ -3,24 +3,22 @@ import { ToastrService } from 'ngx-toastr';
 import { UBIGEO_DEPARTAMENTOS } from 'src/app/config/ubigeo_departamentos';
 import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
-import { ClientsService } from '../service/clients.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { ProvidersService } from '../service/providers.service';
 
 @Component({
-  selector: 'app-edit-client',
-  templateUrl: './edit-client.component.html',
-  styleUrls: ['./edit-client.component.scss']
+  selector: 'app-create-providers',
+  templateUrl: './create-providers.component.html',
+  styleUrls: ['./create-providers.component.scss']
 })
-export class EditClientComponent {
+export class CreateProvidersComponent {
   code:string = '';
   surname:string = '';
   name:string = '';
-  razon_social:string = '';
-  client_segment_id:string = '';
+  razon_social:string = '';  
   phone:string = '';
   celular:string = '';
   email:string = '';
-  type_document:string = '';
   n_document:string = '';
   cuit:string = '';
   address:string = '';
@@ -44,72 +42,26 @@ export class EditClientComponent {
 
   errores: any = {};
 
-  CLIENTE_ID:string = '';
-  CLIENTE_SELECCIONADO:any = null;
-
   constructor(
     public toast: ToastrService,
-    public clientsService : ClientsService,
-    public activatedRoute: ActivatedRoute,
+    public providersService : ProvidersService,
     private router: Router,
   ) {
 
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((resp:any) => {
-      console.log(resp);
-      this.CLIENTE_ID = resp.id;
-    })
-    this.isLoading$ = this.clientsService.isLoading$;
-
-    this.clientsService.showClient(this.CLIENTE_ID).subscribe((resp:any) => {
-      console.log(resp);
-      this.CLIENTE_SELECCIONADO =resp.client;
-
-      this.code = this.CLIENTE_SELECCIONADO.code;
-      this.surname = this.CLIENTE_SELECCIONADO.surname;
-      this.name = this.CLIENTE_SELECCIONADO.name;
-      this.razon_social = this.CLIENTE_SELECCIONADO.razon_social;
-      this.client_segment_id = this.CLIENTE_SELECCIONADO.client_segment_id;
-      this.phone = this.CLIENTE_SELECCIONADO.phone;
-      this.celular = this.CLIENTE_SELECCIONADO.celular;
-      this.email = this.CLIENTE_SELECCIONADO.email;
-      this.type_document = this.CLIENTE_SELECCIONADO.type_document;
-      this.n_document = this.CLIENTE_SELECCIONADO.n_document;
-      this.cuit = this.CLIENTE_SELECCIONADO.cuit;
-      this.address = this.CLIENTE_SELECCIONADO.address
-      this.ubigeo_provincia = this.CLIENTE_SELECCIONADO.ubigeo_provincia;
-      this.ubigeo_departamento = this.CLIENTE_SELECCIONADO.ubigeo_departamento;
-      this.ubigeo_localidad = this.CLIENTE_SELECCIONADO.ubigeo_localidad;
-      this.provincia = this.CLIENTE_SELECCIONADO.provincia;
-      this.departamento = this.CLIENTE_SELECCIONADO.departamento;
-      this.localidad = this.CLIENTE_SELECCIONADO.localidad;
-      this.state = this.CLIENTE_SELECCIONADO.state;
-      this.changeProvincia({target:{value: this.CLIENTE_SELECCIONADO.ubigeo_provincia}});
-      this.changeDepartamento({target:{value: this.ubigeo_departamento}});
-    });
-
-    this.listConfig();
-    
-  }
-
-  listConfig(){    
-    this.clientsService.configAll().subscribe((resp:any) => {
-      //console.log(resp);
-      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
-    })
+    this.isLoading$ = this.providersService.isLoading$;
   }
 
   back() {
     //this.location.back();
-    this.router.navigate(['clientes/list']);
+    this.router.navigate(['providers/list']);
   }
 
   changeProvincia($event:any){
     console.log($event.target.value);
     let PROVINCIA_ID = $event.target.value;
-    console.log(PROVINCIA_ID);
     let PROVINCIA_SELECTED = this.PROVINCIAS.find((provincia:any) => provincia.id ==  PROVINCIA_ID);
     if(PROVINCIA_SELECTED){
       this.provincia = PROVINCIA_SELECTED.name;
@@ -139,18 +91,16 @@ export class EditClientComponent {
     }
   }
 
-  registrarCliente(){
+  registrarProvider(){
 
     let data = {
       code: this.code,
       surname: this.surname,
       name: this.name,
-      razon_social: this.razon_social,
-      client_segment_id: this.client_segment_id,
+      razon_social: this.razon_social,      
       phone: this.phone,
       celular: this.celular,
-      email: this.email,
-      type_document: this.type_document,
+      email: this.email,      
       n_document: this.n_document,
       cuit: this.cuit,
       address: this.address,
@@ -163,7 +113,7 @@ export class EditClientComponent {
       localidad: this.localidad
     }
 
-    this.clientsService.actualizarCliente(this.CLIENTE_ID,data).subscribe((resp:any) => {
+    this.providersService.registrarProvider(data).subscribe((resp:any) => {
       //console.log(resp);
       if (!resp.success) {                
         this.errores = resp.data;
@@ -171,7 +121,7 @@ export class EditClientComponent {
       else {
         this.toast.success("Exito",  resp.message);
         this.cleanForm();
-        this.router.navigate(['clientes/list']);
+        this.router.navigate(['providers/list']);
       }
     }, error => {
       //console.log(error);
@@ -183,12 +133,10 @@ export class EditClientComponent {
     this.code = '';
     this.surname = '';
     this.name = '';
-    this.razon_social = '';
-    this.client_segment_id = '';
+    this.razon_social = '';    
     this.phone = '';
     this.celular = '';
-    this.email = '';
-    this.type_document = '';
+    this.email = '';    
     this.n_document = '';
     this.cuit = '';
     this.address = '';
