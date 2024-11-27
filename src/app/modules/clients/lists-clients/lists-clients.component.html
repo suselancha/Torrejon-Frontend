@@ -180,7 +180,7 @@
                                 </td>
 
                                 <td class="">
-                                    <div class="d-flex">
+                                    <div class="d-flex align-bottom">
                                         <a
                                             [routerLink]="'/clientes/list/editar/'+CLIENT.id"
                                             class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
@@ -204,62 +204,35 @@
                                         </a>
 
                                         <!--begin::Menu Button Create Account-->
-                                        <div class="me-0">
-                                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" 
-                                                data-kt-menu-trigger="click" 
-                                                data-kt-menu-placement="bottom-end">
+                                        <div ngbDropdown> 
+                                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" id="gfg" 
+                                                ngbDropdownToggle>
                                                 <i class="ki-solid ki-dots-horizontal fs-2x"></i>
-                                            </button>
-                                            
-                                            <!--begin::Menu 3-->
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true" style="">
-                                                <!--begin::Heading-->
-                                                <div class="menu-item px-3">
-                                                    <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">
-                                                        Cuentas
-                                                    </div>
-                                                </div>
-                                                <!--end::Heading-->
-                                            
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a 
-                                                        href="#" 
-                                                        onclick="return false;"
-                                                        (click)="createAccount(CLIENT)"
-                                                        class="menu-link flex-stack px-3">
-                                                        Crear Cuenta
-                                                    </a>
-                                                </div>
-                                                <!--end::Menu item-->
-
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a
-                                                        href="#" 
-                                                        onclick="return false;"
-                                                        (click)="showAccounts(CLIENT, 'EDIT')"
-                                                        class="menu-link flex-stack px-3">
-                                                        Modificar una Cuenta
-                                                    </a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                                
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a
-                                                        href="#" 
-                                                        onclick="return false;"
-                                                        (click)="showAccounts(CLIENT, 'DELETE')"
-                                                        class="menu-link flex-stack px-3">
-                                                        Eliminar una Cuenta
-                                                    </a>
-                                                </div>
-                                                <!--end::Menu item-->
-
-                                            </div>
-                                            <!--end::Menu 3-->
-                                        </div>
+                                            </button> 
+                                            <div ngbDropdownMenu="gfg">
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="createAccount(CLIENT)"
+                                                    class="menu-link flex-stack px-3">
+                                                    Crear Cuenta
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'EDIT')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Modificar una Cuenta
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'DELETE')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Eliminar una Cuenta
+                                                </a>
+                                            </div> 
+                                          </div>                                      
                                         <!--end::Menu Button Create Account-->
                                     </div>
                                 </td>

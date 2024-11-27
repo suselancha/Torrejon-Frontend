@@ -87,6 +87,15 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
 
+                                <ng-container *ngIf="ACCOUNTS.length == 0; else elseTemplate">
+                                    <tr>
+                                        <td colspan="4" class="h4 text-center">
+                                            SIN REGISTROS
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                
+                                <ng-template #elseTemplate>
                                 <ng-container *ngFor="let ACCOUNT of ACCOUNTS">
                                 
                                     <tr>
@@ -123,7 +132,7 @@
                                     </tr>
 
                                 </ng-container>
-
+                                </ng-template>
                             </tbody>
                             <tfoot></tfoot>
                         </table>
