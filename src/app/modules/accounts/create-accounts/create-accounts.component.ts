@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AccountsService } from '../service/accounts.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ShowAccountsComponent } from '../show-accounts/show-accounts.component';
 
 @Component({
   selector: 'app-create-accounts',
@@ -26,6 +27,7 @@ export class CreateAccountsComponent {
 
   constructor(
     public modal: NgbActiveModal,
+    public modalService: NgbModal,
     public accountsService: AccountsService,
     public toast: ToastrService,
   ) {
@@ -57,6 +59,11 @@ export class CreateAccountsComponent {
       if (resp.success) {
         this.toast.success("Exito", resp.message);
         this.modal.close();
+        const modalRef = this.modalService.open(ShowAccountsComponent,{centered: true, size: 'md'});
+        // Paso el id del cliente con la variable "CLIENT_SELECTED"
+        modalRef.componentInstance.ACCOUNTABLE_TYPE = this.accountable_type;
+        modalRef.componentInstance.ACCOUNTABLE_ID = this.accountable_id;
+        modalRef.componentInstance.ACCOUNT_ACTION = 'VIEW';
       }
       else if(!resp.success) {
         this.errors = resp.data;

@@ -45,6 +45,17 @@
                         disabled
                     />
                     <!--end::Input-->
+                    <!-- begin::Errors-->
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                        *ngIf="errors?.accountable_type || errors?.accountable_id">
+                        <div *ngIf="errors?.accountable_type">
+                            <p *ngFor="let error of errors.accountable_type">{{ error }}</p>
+                        </div>
+                        <div *ngIf="errors?.accountable_id">
+                            <p *ngFor="let error of errors.accountable_id">{{ error }}</p>
+                        </div>
+                    </div>
+                    <!-- end::Errors-->
                 </div>
 
                 <div class="fv-row mb-7">

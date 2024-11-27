@@ -213,6 +213,13 @@
                                                 <a ngbDropdownItem
                                                     href="#" 
                                                     onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'VIEW')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Ver Cuentas
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
                                                     (click)="createAccount(CLIENT)"
                                                     class="menu-link flex-stack px-3">
                                                     Crear Cuenta

@@ -29,6 +29,8 @@
 
     <!--begin::Modal body-->
     <div class="modal-body scroll-y mx-5 my-7">
+        <h5>Listado de Cuentas</h5>
+
         <!--begin::Form-->
         <form id="kt_modal_add_user_form" class="form" action="#">
             <!--begin::Scroll-->
@@ -74,8 +76,8 @@
                                         <span class="dt-column-title" role="button">Alias</span>
                                         <span class="dt-column-order"></span>
                                     </th>
-
-                                    <th class="text-end min-w-70px dt-orderable-none" 
+                                    
+                                    <th *ngIf="ACCOUNT_ACTION != 'VIEW'" class="text-end min-w-70px dt-orderable-none" 
                                         data-dt-column="6" 
                                         rowspan="1" 
                                         colspan="1" 
@@ -111,7 +113,7 @@
                                             {{ ACCOUNT.alias }}
                                         </td>
 
-                                        <td class="">
+                                        <td *ngIf="ACCOUNT_ACTION != 'VIEW'">
                                             <div class="text-end">                                                
                                                 <a  *ngIf="ACCOUNT_ACTION == 'EDIT'"
                                                     href="#" 
