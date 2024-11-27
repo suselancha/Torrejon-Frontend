@@ -76,7 +76,7 @@ export class ListAccountsComponent {
 
     modalRef.componentInstance.AccountD.subscribe((user:any) => {
       let INDEX = this.ACCOUNTS.findIndex((account:any) => account.id == ACCOUNT.id);
-      if(INDEX != 1) {
+      if(INDEX != -1) {
         this.ACCOUNTS.splice(INDEX, 1)
       }
       
