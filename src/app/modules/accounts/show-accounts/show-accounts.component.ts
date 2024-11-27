@@ -23,6 +23,7 @@ export class ShowAccountsComponent {
   accountable_type:string = '';
   accountable_id:string = '0';
   ACCOUNTS:any;
+  ACCOUNTS_EMPTY:boolean = false;
   ACCOUNTABLE:any = {};
   ACCOUNT:any = {};
   
@@ -47,6 +48,7 @@ export class ShowAccountsComponent {
     let data = { accountable_type: this.ACCOUNTABLE_TYPE, accountable_id: this.ACCOUNTABLE_ID }
     this.accountsService.filterAccounts(data).subscribe((resp:any) => {      
       this.ACCOUNTS = resp.accounts; // Respuesta del backend
+      this.ACCOUNTS_EMPTY = this.ACCOUNTS.length === 0;
       this.ACCOUNTABLE = resp.accountable;
     })
   }
@@ -58,13 +60,12 @@ export class ShowAccountsComponent {
 
     modalRef.componentInstance.AccountE.subscribe((account:any) => {
       let INDEX = this.ACCOUNTS.findIndex((account:any) => account.id == ACCOUNT.id);
-      if(INDEX != 1) {
+      console.log('INDEX: '+INDEX);
+      if(INDEX != -1) {
         this.ACCOUNTS[INDEX] = account;
       }
     });
   }
-
-
 
   deleteAccount(ACCOUNT:any) {
     const modalRef = this.modalService.open(DeleteAccountsComponent,{centered: true, size: 'md'});
@@ -72,7 +73,7 @@ export class ShowAccountsComponent {
 
     modalRef.componentInstance.AccountD.subscribe((account:any) => {
       let INDEX = this.ACCOUNTS.findIndex((account:any) => account.id == ACCOUNT.id);
-      if(INDEX != 1) {
+      if(INDEX != -1) {
         this.ACCOUNTS.splice(INDEX, 1);
       }
     });

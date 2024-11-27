@@ -205,11 +205,13 @@
 
                                         <!--begin::Menu Button Create Account-->
                                         <div ngbDropdown> 
-                                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" id="gfg" 
+                                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" 
+                                                id="menu-accounts" 
                                                 ngbDropdownToggle>
                                                 <i class="ki-solid ki-dots-horizontal fs-2x"></i>
                                             </button> 
-                                            <div ngbDropdownMenu="gfg">
+                                            <div ngbDropdownMenu
+                                                aria-labelledby="menu-accounts">
                                                 <a ngbDropdownItem
                                                     href="#" 
                                                     onclick="return false;"
