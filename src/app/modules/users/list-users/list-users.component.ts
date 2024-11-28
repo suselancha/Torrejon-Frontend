@@ -94,7 +94,7 @@ export class ListUsersComponent {
 
     modalRef.componentInstance.UserD.subscribe((user:any) => {
       let INDEX = this.USERS.findIndex((user:any) => user.id == USER.id);
-      if(INDEX != 1) {
+      if(INDEX != -1) {
         this.USERS.splice(INDEX, 1)
       }
       

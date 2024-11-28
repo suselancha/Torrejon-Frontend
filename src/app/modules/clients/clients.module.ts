@@ -34,7 +34,7 @@ import { ImportClientsComponent } from './import-clients/import-clients.componen
     ReactiveFormsModule,
     InlineSVGModule,
     NgbModalModule,
-    NgbPaginationModule,
+    NgbPaginationModule
     //
   ]
 })

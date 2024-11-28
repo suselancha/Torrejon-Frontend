@@ -180,27 +180,70 @@
                                 </td>
 
                                 <td class="">
-                                    <a
-                                        [routerLink]="'/clientes/list/editar/'+CLIENT.id"
-                                        class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                        <i class="ki-duotone ki-pencil fs-2">
-                                            <span class="path1"></span>
-                                            <span  class="path2"></span>
-                                        </i>
-                                    </a>
+                                    <div class="d-flex align-bottom">
+                                        <a
+                                            [routerLink]="'/clientes/list/editar/'+CLIENT.id"
+                                            class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                            <i class="ki-duotone ki-pencil fs-2">
+                                                <span class="path1"></span>
+                                                <span  class="path2"></span>
+                                            </i>
+                                        </a>
 
-                                    <a
-                                        href="#" 
-                                        onclick="return false;" 
-                                        (click)="deleteClient(CLIENT)"
-                                        class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                        <i class="ki-duotone ki-trash fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span  class="path4"></span>
-                                        </i>
-                                    </a>
+                                        <a
+                                            href="#" 
+                                            onclick="return false;" 
+                                            (click)="deleteClient(CLIENT)"
+                                            class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                            <i class="ki-duotone ki-trash fs-2">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span  class="path4"></span>
+                                            </i>
+                                        </a>
+
+                                        <!--begin::Menu Button Create Account-->
+                                        <div ngbDropdown> 
+                                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" 
+                                                id="menu-accounts" 
+                                                ngbDropdownToggle>
+                                                <i class="ki-solid ki-dots-horizontal fs-2x"></i>
+                                            </button> 
+                                            <div ngbDropdownMenu
+                                                aria-labelledby="menu-accounts">
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'VIEW')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Ver Cuentas
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="createAccount(CLIENT)"
+                                                    class="menu-link flex-stack px-3">
+                                                    Crear Cuenta
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'EDIT')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Modificar una Cuenta
+                                                </a>
+                                                <a ngbDropdownItem
+                                                    href="#" 
+                                                    onclick="return false;"
+                                                    (click)="showAccounts(CLIENT, 'DELETE')"
+                                                    class="menu-link flex-stack px-3">
+                                                    Eliminar una Cuenta
+                                                </a>
+                                            </div> 
+                                          </div>                                      
+                                        <!--end::Menu Button Create Account-->
+                                    </div>
                                 </td>
                             </tr>
 

@@ -146,7 +146,7 @@
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
-                                    <input class="form-control" [(ngModel)]="n_document" name="n_document" placeholder="25263698">
+                                    <input class="form-control" [(ngModel)]="n_document" name="n_document" />
                                     <!--end::Input-->
                                     <div
                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
@@ -166,7 +166,7 @@
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
-                                    <input class="form-control" [(ngModel)]="surname" name="surname">
+                                    <input class="form-control" [(ngModel)]="surname" name="surname" />
                                     <!--end::Input-->
                                     <div
                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
@@ -179,21 +179,21 @@
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
-                                    <input class="form-control" [(ngModel)]="name" name="name">
+                                    <input class="form-control" [(ngModel)]="name" name="name" />
                                     <!--end::Input-->
                                 </div>
                             </div>
                             <!--end::Input group-->
 
                             <div class="d-flex flex-column flex-md-row gap-5 gap-md-7">
-                                <div class="col">
+                                <div class="col-sm-3">
                                     <div class="fv-row flex-row-fluid fv-plugins-icon-container">
                                         <!--begin::Label-->
-                                        <label class="form-label">Cuit (xx-12345678-x)</label>
+                                        <label class="form-label">Cuit (sin guiones)</label>
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
-                                        <input class="form-control" [(ngModel)]="cuit" name="cuit" placeholder="20-04123596-1">
+                                        <input class="form-control" [(ngModel)]="cuit" name="cuit" />
                                         <!--end::Input-->
                                         <div
                                             class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
@@ -238,7 +238,7 @@
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
-                                    <input class="form-control" name="email" [(ngModel)]="email" placeholder="micuenta@gmail.com">
+                                    <input class="form-control" name="email" [(ngModel)]="email" />
                                     <!--end::Input-->
                                     <div
                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
@@ -342,9 +342,10 @@
                 <!--end::Order details-->
                 <div class="d-flex justify-content-end">
                     <!--begin::Button-->
-                    <button routerLink="/clientes/list" id="kt_ecommerce_edit_order_cancel"
-                        class="btn btn-light me-5">
-                        Cancelar
+                    <button type="button" id="kt_ecommerce_edit_order_submit" class="btn btn-danger mx-1" (click)="back()">
+                        <span class="indicator-label">                            
+                            Cancelar
+                        </span>
                     </button>
                     <!--end::Button-->
 

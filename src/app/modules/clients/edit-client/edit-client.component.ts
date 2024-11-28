@@ -4,7 +4,7 @@ import { UBIGEO_DEPARTAMENTOS } from 'src/app/config/ubigeo_departamentos';
 import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { ClientsService } from '../service/clients.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-client',
@@ -50,7 +50,8 @@ export class EditClientComponent {
   constructor(
     public toast: ToastrService,
     public clientsService : ClientsService,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
 
   }
@@ -98,6 +99,11 @@ export class EditClientComponent {
       //console.log(resp);
       this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
     })
+  }
+
+  back() {
+    //this.location.back();
+    this.router.navigate(['clientes/list']);
   }
 
   changeProvincia($event:any){
@@ -165,6 +171,7 @@ export class EditClientComponent {
       else {
         this.toast.success("Exito",  resp.message);
         this.cleanForm();
+        this.router.navigate(['clientes/list']);
       }
     }, error => {
       //console.log(error);

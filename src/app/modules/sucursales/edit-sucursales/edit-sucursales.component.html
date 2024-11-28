@@ -1,0 +1,328 @@
+<div id="kt_app_content" class="app-content  flex-column-fluid ">
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                <!--begin::Title-->
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Editar Sucursal</h1>
+                <!--end::Title-->
+            </div>
+            <!--end::Page title-->
+            <!--begin::Actions-->
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+            </div>
+            <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+    </div>
+
+    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
+    
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container  container-xxl ">
+        <!--begin::Form-->
+        <form id="kt_ecommerce_edit_order_form"
+                class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
+                data-kt-redirect="/metronic8/demo1/apps/ecommerce/sales/listing.html"
+                data-select2-id="select2-data-kt_ecommerce_edit_order_form">
+            <!--begin::Aside column-->
+            <div class="w-100 flex-lg-row-auto w-lg-300px mb-7 me-7 me-lg-10">
+
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <div class="d-flex flex-column gap-10">
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Código interno (12A4)</label>
+                                <!--end::Label-->
+
+                                <!--begin::Input-->
+                                <input class="form-control" [(ngModel)]="code" name="code">
+                                <!--end::Input-->
+                                <div
+                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                    *ngIf="errores.code"
+                                >
+                                    <p *ngFor="let error of errores.code">{{ error }}</p>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Estado</label>
+                                <!--end::Label-->
+
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-control form-select-solid fw-bolder"
+                                    name="state"
+                                    [(ngModel)]="state"                                    
+                                >
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>    
+                                <!--end::Select2-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Card header-->
+                </div>
+                <!--end::Order details-->
+            </div>
+            <!--end::Aside column-->
+
+            <!--begin::Main column-->
+            <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10">
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+                    <div class="card-header" style="display: block;">
+                        <div class="row justify-content-between">
+                            <div class="col-9 d-flex align-items-center">
+                                <h2 class="d-flex align-items-center">Selección de Cliente:</h2>
+                                <small class="mx-2 {{ CLIENT_SELECTED ? '' : 'text-danger' }}">
+                                    {{ CLIENT_SELECTED ? CLIENT_SELECTED.code : 'NO HA SELECCIONADO UN CLIENTE.' }}
+                                </small>
+                            </div>
+                            <div class="col-3">
+                                <button type="button" class="btn btn-sm mx-1 btn-primary" placement="top-start" ngbTooltip="Buscar" (click)="buscarClientes()">
+                                    <i class="ki-duotone ki-magnifier fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>                                
+                                <button type="button" class="btn btn-sm mx-1 btn-dark" placement="top-start" ngbTooltip="Limpiar" (click)="limpiarBusquedaClientes()">
+                                    <i class="ki-duotone ki-arrows-circle fs-2"><span class="path1"></span><span class="path2"></span></i> 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-2">                                
+                                <input type="text" (keyup.enter)="buscarClientes()" class="form-control mb-2" name="code_client" [(ngModel)]="code_client" placeholder="Código..." />
+                            </div>
+                            <div class="col-4">
+                                <input type="text" (keyup.enter)="buscarClientes()" class="form-control mb-2" name="n_document_client" [(ngModel)]="n_document_client" placeholder="Nº dni/cuit..." />
+                            </div>
+                            <div class="col-6">
+                                <input type="text" (keyup.enter)="buscarClientes()" class="form-control mb-2" name="surname_client" [(ngModel)]="surname_client" placeholder="Apellido/Razon Social..." />
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-flush py-4">
+                    <div class="card-header" style="display: block;">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center">Selección de Zona:</h2>
+                            </div>
+                            <select
+                                class="form-control form-select-solid fw-bolder"
+                                name="zona_id"
+                                [(ngModel)]="zona_id"                                    
+                            >
+                                <option value="">Ninguno</option>
+                                <ng-container *ngFor="let ZONA of ZONAS">
+                                    <option [value]="ZONA.id">{{ ZONA.name }} ({{ ZONA.description }})</option>
+                                </ng-container>
+                            </select>                            
+                                
+                            <div
+                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                *ngIf="errores.zona_id"
+                            >
+                                <p *ngFor="let error of errores.zona_id">{{ error }}</p>
+                            </div>                                                 
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-flush py-4">
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Billing address-->
+                        <div class="d-flex flex-column gap-5 gap-md-7">                            
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">                               
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Nombre</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" [(ngModel)]="nombre" name="nombre" />
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.nombre"
+                                    >
+                                        <p *ngFor="let error of errores.nombre">{{ error }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Dirección</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="direccion" [(ngModel)]="direccion" />
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Referencia</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="referencia" [(ngModel)]="referencia" />
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Correo electrónico (@)</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="email" [(ngModel)]="email" />
+                                    <!--end::Input-->
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Teléfono Fijo</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="telefono" [(ngModel)]="telefono" />
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">                                        
+                                    </div>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Celular</label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Input-->
+                                    <input class="form-control" name="celular" [(ngModel)]="celular" />
+                                    <!--end::Input-->
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                             <!--begin::Input group-->
+                             <div class="d-flex flex-column flex-md-row gap-5">
+                                <div class="flex-row-fluid">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Provincia</label>
+                                    <!--end::Label-->
+
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_provincia"
+                                        [(ngModel)]="ubigeo_provincia"
+                                        placeholder="Selec. Provincia"
+                                        (change)="changeProvincia($event)"
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let PROVINCIA of PROVINCIAS">
+                                            <option [value]="PROVINCIA.id">{{ PROVINCIA.name }}</option>
+                                        </ng-container>                                    
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="fw-bold fs-6 mb-2">Departamento: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_departamento"
+                                        [(ngModel)]="ubigeo_departamento"
+                                        (change)="changeDepartamento($event)"                        
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let DEPARTAMENTO of DEPARTAMENTOS_SELECTEDS">
+                                            <option [value]="DEPARTAMENTO.id">{{ DEPARTAMENTO.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+
+                                <div class="fv-row flex-row-fluid fv-plugins-icon-container">
+                                    <label class="fw-bold fs-6 mb-2">Localidad: </label>
+                                    <select
+                                        class="form-control form-select-solid fw-bolder"
+                                        name="ubigeo_localidad"
+                                        [(ngModel)]="ubigeo_localidad"
+                                        (change)="changeLocalidad($event)"                                        
+                                    >
+                                        <option value="">Ninguno</option>
+                                        <ng-container *ngFor="let LOCALIDAD of LOCALIDADES_SELECTEDS">
+                                            <option [value]="LOCALIDAD.id">{{ LOCALIDAD.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Billing address-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Order details-->
+                <div class="d-flex justify-content-end">
+                    <!--begin::Button-->
+                    <button type="button" id="kt_ecommerce_edit_order_submit" class="btn btn-danger mx-1" (click)="back()">
+                        <span class="indicator-label">                            
+                            Cancelar
+                        </span>
+                    </button>
+                    <!--end::Button-->
+
+                    <!--begin::Button-->
+                    <button type="button" id="kt_ecommerce_edit_order_submit" class="btn btn-primary" (click)="registrarSucursal()">
+                        <span class="indicator-label">                            
+                            Guardar Cambios
+                        </span>
+                        <span class="indicator-progress">
+                            Espera por favor... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content container-->
+</div>

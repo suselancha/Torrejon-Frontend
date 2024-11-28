@@ -67,6 +67,18 @@ const Routing: Routes = [
     loadChildren: () => import('../modules/clients/clients.module').then((m) => m.ClientsModule),
   },
   {
+    path: 'sucursales',
+    loadChildren: () => import('../modules/sucursales/sucursales.module').then((m) => m.SucursalesModule),
+  },
+  {
+    path: 'providers',
+    loadChildren: () => import('../modules/providers/providers.module').then((m) => m.ProvidersModule),
+  },
+  {
+    path: 'cuentas',
+    loadChildren: () => import('../modules/accounts/accounts.module').then((m) => m.AccountsModule),
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',
