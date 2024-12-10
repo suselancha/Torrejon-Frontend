@@ -752,17 +752,7 @@ export const UBIGEO_DEPARTAMENTOS =
   },
   {
     "id": "1701",
-    "name": "Tambopata ",
-    "provincia_id": "17"
-  },
-  {
-    "id": "1702",
-    "name": "Manu ",
-    "provincia_id": "17"
-  },
-  {
-    "id": "1703",
-    "name": "Tahuamanu ",
+    "name": "IRUYA",
     "provincia_id": "17"
   },
   {
