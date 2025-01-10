@@ -98,31 +98,27 @@
                                 </ng-container>
                                 
                                 <ng-template #elseTemplate>
-                                <ng-container *ngFor="let ACCOUNT of ACCOUNTS">
-                                
+                                <ng-container *ngFor="let ACCOUNT of ACCOUNTS">                                
                                     <tr>
                                         <td>
                                             {{ ACCOUNT.name}}
                                         </td>
-
                                         <td>
-                                            {{ ACCOUNT.bank}}
-                                        </td>
-                                        
+                                            {{ ACCOUNT.bank.name}}
+                                        </td>                                        
                                         <td>                                    
                                             {{ ACCOUNT.alias }}
                                         </td>
-
                                         <td *ngIf="ACCOUNT_ACTION != 'VIEW'">
                                             <div class="text-end">                                                
-                                                <a  *ngIf="ACCOUNT_ACTION == 'EDIT'"
+                                                <a *ngIf="ACCOUNT_ACTION == 'EDIT'"
                                                     href="#" 
                                                     onclick="return false;" 
                                                     (click)="editAccount(ACCOUNT)"
                                                     class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                     MODIFICAR
                                                 </a>
-                                                <a  *ngIf="ACCOUNT_ACTION == 'DELETE'"
+                                                <a *ngIf="ACCOUNT_ACTION == 'DELETE'"
                                                     href="#" 
                                                     onclick="return false;" 
                                                     (click)="deleteAccount(ACCOUNT)"
@@ -132,7 +128,6 @@
                                             </div>
                                         </td>
                                     </tr>
-
                                 </ng-container>
                                 </ng-template>
                             </tbody>

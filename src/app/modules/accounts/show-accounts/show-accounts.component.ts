@@ -4,6 +4,7 @@ import { AccountsService } from '../service/accounts.service';
 import { ToastrService } from 'ngx-toastr';
 import { EditAccountsComponent } from '../edit-accounts/edit-accounts.component';
 import { DeleteAccountsComponent } from '../delete-accounts/delete-accounts.component';
+import { BanksService } from '../../configuration/banks/service/banks.service';
 
 @Component({
   selector: 'app-show-accounts',
@@ -45,8 +46,14 @@ export class ShowAccountsComponent {
   }
 
   listAccounts(){    
-    let data = { accountable_type: this.ACCOUNTABLE_TYPE, accountable_id: this.ACCOUNTABLE_ID }
-    this.accountsService.filterAccounts(data).subscribe((resp:any) => {      
+    let data = { 
+      accountable_type: this.ACCOUNTABLE_TYPE, 
+      accountable_id: this.ACCOUNTABLE_ID 
+    }
+    
+    console.log(data);
+    this.accountsService.filterAccounts(data).subscribe((resp:any) => {
+      console.log(resp);
       this.ACCOUNTS = resp.accounts; // Respuesta del backend
       this.ACCOUNTS_EMPTY = this.ACCOUNTS.length === 0;
       this.ACCOUNTABLE = resp.accountable;

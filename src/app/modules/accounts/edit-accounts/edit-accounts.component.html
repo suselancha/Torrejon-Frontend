@@ -106,22 +106,26 @@
                     <!--begin::Label-->
                     <label class="required fw-bold fs-6 mb-2">Banco: </label>
                     <!--end::Label-->
-                    <!--begin::Input-->
-                    <input
-                        type="text" 
-                        name="bank"
-                        class="form-control form-control-solid mb-3 mb-lg-0"
-                        [(ngModel)]="bank"
-                    />
-                    <!--end::Input-->
+
+                    <!--begin::Select-->
+                    <select 
+                        class="form-control form-select-solid fw-bolder"
+                        name="BANK_SELECTED"
+                        [(ngModel)]="bank_id">
+                        <ng-container *ngFor="let BANK of BANKS">
+                            <option [value]="BANK.id">{{ BANK.name }}</option>                              
+                        </ng-container>
+                        
+                    </select>
+                    <!--end::Select-->
                     <!-- begin::Errors-->
                     <div
-                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-                    *ngIf="errors?.bank"
-                >
-                    <p *ngFor="let error of errors.bank">{{ error }}</p>
-                </div>
-                <!-- end::Errors-->
+                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                        *ngIf="errors?.bank"
+                    >
+                        <p *ngFor="let error of errors.bank">{{ error }}</p>
+                    </div>
+                    <!-- end::Errors-->
                 </div>
 
                 <div class="fv-row mb-7">

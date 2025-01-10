@@ -5,6 +5,7 @@ import { ConfigurationRoutingModule } from './configuration-routing.module';
 import { EmployeeFunctionModule } from './employee-function/employee-function.module';
 import { ClientSegmentModule } from './client-segment/client-segment.module';
 import { ZonasModule } from './zonas/zonas.module';
+import { BanksModule } from './banks/banks.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ZonasModule } from './zonas/zonas.module';
     // Modulos
     EmployeeFunctionModule,
     ClientSegmentModule,
-    ZonasModule
+    ZonasModule,
+    BanksModule
   ]
 })
 export class ConfigurationModule { }

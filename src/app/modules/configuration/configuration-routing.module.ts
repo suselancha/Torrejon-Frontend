@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'zonas',
     loadChildren: () => import('./zonas/zonas.module').then((m) => m.ZonasModule),
   },
+  {
+    path: 'banks',
+    loadChildren: () => import('./banks/banks.module').then((m) => m.BanksModule),
+  },
 ];
 
 @NgModule({

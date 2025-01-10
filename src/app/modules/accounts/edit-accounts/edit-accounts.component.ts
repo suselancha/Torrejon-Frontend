@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountsService } from '../service/accounts.service';
 import { ToastrService } from 'ngx-toastr';
+import { BanksService } from '../../configuration/banks/service/banks.service';
 
 @Component({
   selector: 'app-edit-accounts',
@@ -20,6 +21,9 @@ export class EditAccountsComponent {
   ubc:string = '';
   accountable_type:string = '';
   accountable_id:string = '0';
+
+  BANKS:any = [];
+  bank_id: string = '';
   
   isLoading$:any;
   errors:any = {};
@@ -27,6 +31,7 @@ export class EditAccountsComponent {
   constructor(
     public modal: NgbActiveModal,
     public accountsService: AccountsService,
+    public banksService: BanksService,
     public toast: ToastrService,
   ) {
 
@@ -35,17 +40,24 @@ export class EditAccountsComponent {
   ngOnInit(): void {    
     this.isLoading$ = this.accountsService.isLoading$;
     this.name = this.ACCOUNT_SELECTED.name;
-    this.bank = this.ACCOUNT_SELECTED.bank;
+    this.bank_id = this.ACCOUNT_SELECTED.bank_id;
     this.alias = this.ACCOUNT_SELECTED.alias;
     this.number = this.ACCOUNT_SELECTED.number;
     this.ubc = this.ACCOUNT_SELECTED.ubc;
+    this.listBanks();
+  }
+
+  listBanks(){
+    this.banksService.listBanks().subscribe((resp: any) => {
+      this.BANKS = resp.banks;
+    });
   }
 
   store() {
 
     let data = {
       name: this.name,
-      bank: this.bank,
+      bank_id: this.bank_id,
       alias: this.alias,
       number: this.number,
       ubc: this.ubc

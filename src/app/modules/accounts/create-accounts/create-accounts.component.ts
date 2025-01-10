@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShowAccountsComponent } from '../show-accounts/show-accounts.component';
+import { BanksService } from '../../configuration/banks/service/banks.service';
 
 @Component({
   selector: 'app-create-accounts',
@@ -21,6 +22,9 @@ export class CreateAccountsComponent {
   ubc:string = '';
   accountable_type:string = '';
   accountable_id:string = '0';
+
+  BANKS:any = [];
+  bank_id: string = '';
   
   isLoading$:any;
   errors:any = {};
@@ -29,6 +33,7 @@ export class CreateAccountsComponent {
     public modal: NgbActiveModal,
     public modalService: NgbModal,
     public accountsService: AccountsService,
+    public banksService: BanksService,
     public toast: ToastrService,
   ) {
 
@@ -38,13 +43,20 @@ export class CreateAccountsComponent {
     this.isLoading$ = this.accountsService.isLoading$;
     this.accountable_id = this.ACCOUNTABLE_SELECTED.id;
     this.accountable_type = this.ACCOUNTABLE_TYPE;
+    this.listBanks();
+  }
+
+  listBanks(){
+    this.banksService.listBanks().subscribe((resp: any) => {
+      this.BANKS = resp.banks;
+    });
   }
 
   store() {
 
     let data = {
       name: this.name,
-      bank: this.bank,
+      bank_id: this.bank_id,
       alias: this.alias,
       number: this.number,
       ubc: this.ubc,
