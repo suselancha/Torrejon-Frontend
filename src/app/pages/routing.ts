@@ -79,8 +79,12 @@ const Routing: Routes = [
     loadChildren: () => import('../modules/accounts/accounts.module').then((m) => m.AccountsModule),
   },
   {
-    path: 'banks',
-    loadChildren: () => import('../modules/configuration/banks/banks.module').then((m) => m.BanksModule),
+    path: 'warehouses',
+    loadChildren: () => import('../modules/warehouses/warehouses.module').then((m) => m.WarehousesModule),
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('../modules/products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: '',

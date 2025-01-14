@@ -1,0 +1,69 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, finalize, Observable } from 'rxjs';
+import { AuthService } from '../../../auth';
+import { URL_SERVICIOS } from 'src/app/config/config';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SubcategoriesService {
+  isLoading$: Observable<boolean>;
+  isLoadingSubject: BehaviorSubject<boolean>;
+  
+  constructor(
+    private http: HttpClient,
+    public authservice: AuthService,
+  ) {
+    this.isLoadingSubject = new BehaviorSubject<boolean>(false);
+    this.isLoading$ = this.isLoadingSubject.asObservable();
+  }
+
+  listSubcategories(page = 1, search:string = '') {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS + "/subcategories?page="+page+"&search="+search;
+    return this.http.get(URL,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  listSubcategoriesFilter(data:any, page = 1, search:string = '') {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS + "/subcategories/filter/?page="+page+"&search="+search;
+    return this.http.post(URL, data,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  registerSubcategory(data:any) {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS + "/subcategories";
+    return this.http.post(URL, data, { headers: headers }).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  updateSubcategory(ID_SUBCATEGORY:string, data:any) {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS+"/subcategories/"+ID_SUBCATEGORY;
+    return this.http.put(URL,data,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+  deleteSubcategory(ID_SUBCATEGORY:string) {
+    this.isLoadingSubject.next(true);
+    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
+    let URL = URL_SERVICIOS+"/subcategories/"+ID_SUBCATEGORY;
+    return this.http.delete(URL,{headers: headers}).pipe(
+      finalize(() => this.isLoadingSubject.next(false))
+    );
+  }
+
+}
+
+

@@ -6,6 +6,8 @@ import { EmployeeFunctionModule } from './employee-function/employee-function.mo
 import { ClientSegmentModule } from './client-segment/client-segment.module';
 import { ZonasModule } from './zonas/zonas.module';
 import { BanksModule } from './banks/banks.module';
+import { CategoriesModule } from './categories/categories.module';
+import { SubcategoriesModule } from './subcategories/subcategories.module';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { BanksModule } from './banks/banks.module';
     EmployeeFunctionModule,
     ClientSegmentModule,
     ZonasModule,
-    BanksModule
+    BanksModule,
+    CategoriesModule,
+    SubcategoriesModule
   ]
 })
 export class ConfigurationModule { }

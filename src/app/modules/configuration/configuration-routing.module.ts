@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'banks',
     loadChildren: () => import('./banks/banks.module').then((m) => m.BanksModule),
   },
+  { //Rubros
+    path: 'categories',
+    loadChildren: () => import('./categories/categories.module').then((m) => m.CategoriesModule),
+  },
+  { //Subrubros
+    path: 'subcategories',
+    loadChildren: () => import('./subcategories/subcategories.module').then((m) => m.SubcategoriesModule),
+  },
 ];
 
 @NgModule({
