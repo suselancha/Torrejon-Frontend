@@ -5,6 +5,7 @@ import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { ClientsService } from '../service/clients.service';
 import { Router } from '@angular/router';
+import { ZonaService } from '../../configuration/zonas/service/zona.service';
 
 @Component({
   selector: 'app-create-client',
@@ -32,6 +33,7 @@ export class CreateClientComponent {
   departamento:string = '';
   localidad:string = '';
   state:number = 1;
+  zona_id:string = '';
 
   PROVINCIAS:any = UBIGEO_PROVINCIAS;
   DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
@@ -40,6 +42,7 @@ export class CreateClientComponent {
   LOCALIDADES_SELECTEDS:any = [];
  
   CLIENT_SEGMENTS:any = [];
+  ZONAS:any = [];
 
   isLoading$:any;
 
@@ -48,6 +51,7 @@ export class CreateClientComponent {
   constructor(
     public toast: ToastrService,
     public clientsService : ClientsService,
+    public zonasService: ZonaService,
     private router: Router,
   ) {
 
@@ -60,8 +64,9 @@ export class CreateClientComponent {
 
   listConfig(){    
     this.clientsService.configAll().subscribe((resp:any) => {
-      //console.log(resp);
-      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
+      console.log(resp);
+      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend
+      this.ZONAS = resp.zonas;
     })
   }
 
@@ -123,7 +128,8 @@ export class CreateClientComponent {
       ubigeo_localidad: this.ubigeo_localidad,
       provincia: this.provincia,
       departamento: this.departamento,
-      localidad: this.localidad
+      localidad: this.localidad,
+      zona_id: this.zona_id
     }
 
     this.clientsService.registrarCliente(data).subscribe((resp:any) => {
@@ -162,6 +168,7 @@ export class CreateClientComponent {
     this.departamento = '';
     this.localidad = '';
     this.state = 1;
+    this.zona_id = '';
   
     this.PROVINCIAS = UBIGEO_PROVINCIAS;
     this.DEPARTAMENTOS = UBIGEO_DEPARTAMENTOS;

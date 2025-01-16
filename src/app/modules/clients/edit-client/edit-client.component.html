@@ -98,6 +98,65 @@
                                 </select>    
                                 <!--end::Select2-->
                             </div>
+
+                            <ng-container *ngIf="no_sucursales; else elseTemplate">
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Zona</label>
+                                <!--end::Label-->
+                                
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-control form-select-solid fw-bolder"
+                                    name="zona_id"
+                                    [(ngModel)]="zona_id"                                    
+                                >
+                                    <option value="">Ninguno</option>
+                                    <ng-container *ngFor="let ZONA of ZONAS">
+                                        <option [value]="ZONA.id">{{ ZONA.name }}</option>
+                                    </ng-container>
+                                </select>
+                                <!--end::Select2-->
+                                
+                                <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.zona_id"
+                                    >
+                                        <p *ngFor="let error of errores.zona_id">{{ error }}</p>
+                                </div>
+
+                            </div>
+                            <!--end::Input group-->    
+                            </ng-container>
+                            <ng-template #elseTemplate>
+                            <!--begin::Input group-->
+                            <div class="fv-row fv-plugins-icon-container">
+                                <!--begin::Label-->
+                                <label class="form-label">Zona</label>
+                                <!--end::Label-->
+                                
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-control form-select-solid fw-bolder"
+                                    (click)="hasSucursales()"         
+                                >
+                                    <option value="">Ninguno</option>
+                                </select>
+                                <!--end::Select2-->
+                                
+                                <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                                        *ngIf="errores.zona_id"
+                                    >
+                                        <p *ngFor="let error of errores.zona_id">{{ error }}</p>
+                                </div>
+
+                            </div>
+                            <!--end::Input group-->
+                            </ng-template>
+                            
+
                         </div>
                     </div>
                     <!--end::Card header-->
@@ -234,7 +293,7 @@
                             <div class="d-flex flex-column flex-md-row gap-5">
                                 <div class="flex-row-fluid">
                                     <!--begin::Label-->
-                                    <label class="form-label">Correo electrónico (@)</label>
+                                    <label class="form-label">Correo electrónico <i class="fas fa-at"></i></label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->

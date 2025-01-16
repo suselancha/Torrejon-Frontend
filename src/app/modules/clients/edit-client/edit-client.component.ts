@@ -5,6 +5,7 @@ import { UBIGEO_LOCALIDADES } from 'src/app/config/ubigeo_localidades';
 import { UBIGEO_PROVINCIAS } from 'src/app/config/ubigeo_provincias';
 import { ClientsService } from '../service/clients.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ZonaService } from '../../configuration/zonas/service/zona.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -30,7 +31,9 @@ export class EditClientComponent {
   provincia:string = '';
   departamento:string = '';
   localidad:string = '';
+  zona_id:string = '';
   state:number = 1;
+  no_sucursales:boolean;
 
   PROVINCIAS:any = UBIGEO_PROVINCIAS;
   DEPARTAMENTOS:any = UBIGEO_DEPARTAMENTOS;
@@ -39,6 +42,7 @@ export class EditClientComponent {
   LOCALIDADES_SELECTEDS:any = [];
  
   CLIENT_SEGMENTS:any = [];
+  ZONAS:any = [];
 
   isLoading$:any;
 
@@ -50,6 +54,7 @@ export class EditClientComponent {
   constructor(
     public toast: ToastrService,
     public clientsService : ClientsService,
+    public zonasService: ZonaService,
     public activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
@@ -64,7 +69,7 @@ export class EditClientComponent {
     this.isLoading$ = this.clientsService.isLoading$;
 
     this.clientsService.showClient(this.CLIENTE_ID).subscribe((resp:any) => {
-      console.log(resp);
+      console.log(resp.client);
       this.CLIENTE_SELECCIONADO =resp.client;
 
       this.code = this.CLIENTE_SELECCIONADO.code;
@@ -85,7 +90,10 @@ export class EditClientComponent {
       this.provincia = this.CLIENTE_SELECCIONADO.provincia;
       this.departamento = this.CLIENTE_SELECCIONADO.departamento;
       this.localidad = this.CLIENTE_SELECCIONADO.localidad;
-      this.state = this.CLIENTE_SELECCIONADO.state;
+      this.state = this.CLIENTE_SELECCIONADO.state;      
+      this.no_sucursales = this.CLIENTE_SELECCIONADO.sucursales.length > 0 ? false : true;
+      this.zona_id = this.CLIENTE_SELECCIONADO.zona_id == null ? '': this.CLIENTE_SELECCIONADO.zona_id;
+
       this.changeProvincia({target:{value: this.CLIENTE_SELECCIONADO.ubigeo_provincia}});
       this.changeDepartamento({target:{value: this.ubigeo_departamento}});
     });
@@ -98,7 +106,12 @@ export class EditClientComponent {
     this.clientsService.configAll().subscribe((resp:any) => {
       //console.log(resp);
       this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
+      this.ZONAS = resp.zonas;
     })
+  }
+
+  hasSucursales(){
+    this.toast.warning("Advertencia", "No puede seleccionar una zona, el cliente tiene sucursales asociadas");
   }
 
   back() {
@@ -160,7 +173,8 @@ export class EditClientComponent {
       ubigeo_localidad: this.ubigeo_localidad,
       provincia: this.provincia,
       departamento: this.departamento,
-      localidad: this.localidad
+      localidad: this.localidad,
+      zona_id: this.zona_id
     }
 
     this.clientsService.actualizarCliente(this.CLIENTE_ID,data).subscribe((resp:any) => {
@@ -198,6 +212,7 @@ export class EditClientComponent {
     this.provincia = '';
     this.departamento = '';
     this.localidad = '';
+    this.zona_id = '';
     this.state = 1;
   
     this.PROVINCIAS = UBIGEO_PROVINCIAS;
