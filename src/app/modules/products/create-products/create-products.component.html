@@ -182,7 +182,7 @@
                         [(ngModel)]="provider_id"
                     >
                         <ng-container *ngFor="let PROVIDER of PROVIDERS">
-                            <option [value]="PROVIDER.id">{{PROVIDER.surname}}, {{ PROVIDER.name }}</option>
+                            <option [value]="PROVIDER.id">{{PROVIDER.razon_social}}</option>
                         </ng-container>                        
                     </select>
                     <!--end::Select-->
