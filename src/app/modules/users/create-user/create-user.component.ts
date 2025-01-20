@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { UsersService } from '../service/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { EmployeeFunctionService } from '../../configuration/employee-function/service/employee-function.service';
+import { ZonaService } from '../../configuration/zonas/service/zona.service';
+import { RolesService } from '../../roles/service/roles.service';
 
 @Component({
   selector: 'app-create-user',
@@ -23,15 +26,23 @@ export class CreateUserComponent {
   password:string = '12345678';
   password_confirmation:string = '12345678';
   role_id:string = '';
+  employee_function_id:string = '';
+  zona_id:string = '';
   create_user:boolean = false;
   is_user:string = '0';
+  notFunction:boolean;
 
   isLoading$:any;
-  roles:any = [];
+  ROLES:any = [];
+  FUNCTIONS:any = [];
+  ZONAS:any = [];
   errors:any = {};
 
   constructor(
     public usersService: UsersService,
+    public roleService: RolesService,
+    public employeeFunctionService: EmployeeFunctionService,
+    public zonaService: ZonaService,
     public toast: ToastrService,
     private router: Router,
   ) {
@@ -41,12 +52,15 @@ export class CreateUserComponent {
   ngOnInit(): void {    
     this.isLoading$ = this.usersService.isLoading$;
     this.configAll();
+    this.notFunction = true;
   }
 
   configAll() {
     this.usersService.configAll().subscribe((resp: any) => {
       console.log(resp);
-      this.roles = resp.roles;
+      this.ROLES = resp.roles;
+      this.FUNCTIONS = resp.functions;
+      this.ZONAS = resp.zonas;
     });
     
   }
@@ -58,6 +72,12 @@ export class CreateUserComponent {
     else {
       this.is_user = "1";
     }
+  }
+
+  changeFunction($event:any) {
+    let function_allowed = ["1","2","3"];
+    let id_selected = $event.target.value;
+    this.notFunction = !function_allowed.includes(id_selected);
   }
 
   back() {
@@ -82,6 +102,8 @@ export class CreateUserComponent {
     formData.append("password", this.password);
     formData.append("password_confirmation", this.password_confirmation);
     formData.append("role_id", this.role_id);
+    formData.append("employee_function_id", this.employee_function_id);
+    formData.append("zona_id", this.zona_id);
     formData.append("is_user", this.is_user);
 
     console.log(formData);

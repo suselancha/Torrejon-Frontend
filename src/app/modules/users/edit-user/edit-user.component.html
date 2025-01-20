@@ -216,6 +216,91 @@
                     </div>
                 </div>
 
+                <!--begin::Input group-->
+                <div class="fv-row row mb-4">                    
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Roles: </label>
+                        <!--end::Label-->
+                        <!--begin::Select-->
+                        <select 
+                            class="form-control form-select-solid fw-bolder"
+                            name="role_selected"
+                            [(ngModel)]="role_id"
+                            placeholder="Selec. Rol"
+                        >
+                            <option value="">Selec. Rol</option>
+                            <ng-container *ngFor="let ROL of ROLES">
+                                <option [value]="ROL.id">{{ ROL.name }}</option>                              
+                            </ng-container>
+                            
+                        </select>
+                        <!--end::Select--><!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors?.role_id"
+                        >
+                            <p *ngFor="let error of errors.role_id">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Funcion: </label>
+                        <!--end::Label-->
+                        <!--begin::Select-->
+                        <select 
+                            class="form-control form-select-solid fw-bolder"
+                            name="employee_function_id"
+                            [(ngModel)]="employee_function_id"
+                            (change)="changeFunction()"
+                        >
+                            <option value="0">Selec. Funcion</option>
+                            <ng-container *ngFor="let FUNCTION of FUNCTIONS">
+                                <option [value]="FUNCTION.id">{{ FUNCTION.name }}</option>                              
+                            </ng-container>
+                            
+                        </select>
+                        <!--end::Select-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors?.employee_function_id"
+                        >
+                            <p *ngFor="let error of errors.employee_function_id">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Zona: </label>
+                        <!--end::Label-->
+                        <!--begin::Select-->
+                        <select 
+                            class="form-control form-select-solid fw-bolder"
+                            name="zona_id"
+                            [(ngModel)]="zona_id"
+                            [disabled]="notFunction"
+                        >
+                            <option value="0">Selec. Zona</option>
+                            <ng-container *ngFor="let ZONA of ZONAS">
+                                <option [value]="ZONA.id">{{ ZONA.name }}</option>                              
+                            </ng-container>
+                            
+                        </select>
+                        <!--end::Select-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors?.zona_id"
+                        >
+                            <p *ngFor="let error of errors.zona_id">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
+                    </div>
+                </div>
 
                 <div class="fv-row row mb-4">
                     <div class="col-md-6">
@@ -261,36 +346,6 @@
                         </div>
                         <!-- end::Errors--> 
                     </div> 
-                </div>
-
-                <!--begin::Input group-->
-                <div class="fv-row row mb-4">                    
-                    <div class="col-md-6">
-                        <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Roles: </label>
-                        <!--end::Label-->
-                        <!--begin::Select-->
-                        <select 
-                            class="form-control form-select-solid fw-bolder"
-                            name="role_selected"
-                            [(ngModel)]="role_id"
-                            placeholder="Selec. Rol"
-                        >
-                            <option value="">Selec. Rol</option>
-                            <ng-container *ngFor="let rol of roles">
-                                <option [value]="rol.id">{{ rol.name }}</option>                              
-                            </ng-container>
-                            
-                        </select>
-                        <!--end::Select--><!-- begin::Errors-->
-                        <div
-                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-                            *ngIf="errors?.role_id"
-                        >
-                            <p *ngFor="let error of errors.role_id">{{ error }}</p>
-                        </div>
-                        <!-- end::Errors-->
-                    </div>
                 </div>
                 
                 <div class="fv-row row mb-4">

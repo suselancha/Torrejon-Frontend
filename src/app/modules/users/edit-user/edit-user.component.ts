@@ -2,11 +2,16 @@ import { Component } from '@angular/core';
 import { UsersService } from '../service/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RoleService } from 'src/app/_fake/services/role.service';
+import { EmployeeFunctionService } from '../../configuration/employee-function/service/employee-function.service';
+import { ZonaService } from '../../configuration/zonas/service/zona.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  styleUrls: ['./edit-user.component.scss'],
+  providers: [DatePipe]
 })
 export class EditUserComponent {
   
@@ -25,18 +30,28 @@ export class EditUserComponent {
   password_confirmation:string = '';
   password_default: string = '12345678';
   role_id:string = '';
+  employee_function_id:string = '';
+  zona_id:string = '';
   is_user:string = '';
   create_user:boolean;
   roles:any = [];
-  isLoading$:any;
+  notFunction:boolean;
+  function_allowed:any = [];
   
   file_name:any;
   imagen_previsualiza:any;
+  isLoading$:any;  
+  ROLES:any = [];
+  FUNCTIONS:any = [];
+  ZONAS:any = [];
   errors:any = {};
   
 
   constructor(
     public usersService: UsersService,
+    public roleService: RoleService,
+    public employeeFunctionService: EmployeeFunctionService,
+    public zonaService: ZonaService,
     public toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
@@ -46,15 +61,18 @@ export class EditUserComponent {
 
   ngOnInit(): void {
     this.isLoading$ = this.usersService.isLoading$;
+    this.function_allowed = ["0","1","2","3"];
     this.configAll();
     this.employee_id = this.route.snapshot.params['id'];
-    this.setUser(this.employee_id);    
+    this.setUser(this.employee_id);
   }
 
   configAll() {
     this.usersService.configAll().subscribe((resp: any) => {
       console.log(resp);
-      this.roles = resp.roles;
+      this.ROLES = resp.roles;
+      this.FUNCTIONS = resp.functions;
+      this.ZONAS = resp.zonas;
     });
     
   }
@@ -66,13 +84,16 @@ export class EditUserComponent {
       this.surname = resp.user.surname;
       this.document = resp.user.document;
       this.jobcode = resp.user.jobcode;
-      this.date_entry = resp.user.date_entry_format_at;
+      let fecha = new Date(resp.user.date_entry);
+      this.date_entry = fecha.toISOString().split('T')[0];
       this.phone = resp.user.phone;
       this.cell = resp.user.cell;
       this.code = resp.user.code;
       this.address   = resp.user.address;
       this.email = resp.user.email;
       this.role_id = resp.user.role_id;
+      this.employee_function_id = resp.user.employee_function_id ??= 0;
+      this.zona_id = resp.user.zona_id ??= 0;
       this.is_user = resp.user.is_user;
       this.create_user = Boolean(this.is_user);
       if (!this.create_user){
@@ -82,8 +103,8 @@ export class EditUserComponent {
       else {
         this.password = '';
         this.password_confirmation = '';
-      }    
-      
+      }
+      this.changeFunction();
     });
   }
 
@@ -94,6 +115,11 @@ export class EditUserComponent {
     else {
       this.is_user = "1";
     }
+  }
+
+  changeFunction() {    
+    this.notFunction = !this.function_allowed.includes(this.employee_function_id.toString());
+    console.log(this.notFunction, this.employee_function_id);
   }
 
   back() {    
@@ -128,6 +154,8 @@ export class EditUserComponent {
       password: this.password,
       password_confirmation: this.password_confirmation,
       role_id: this.role_id,
+      employee_function_id: this.employee_function_id,
+      zona_id: this.zona_id,
       is_user: this.is_user
     }    
 

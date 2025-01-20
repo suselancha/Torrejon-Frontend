@@ -39,8 +39,7 @@
         </div>
         <!--begin::Card title-->
 
-        <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
-
+        
         <!--begin::Card toolbar-->
         <div class="card-toolbar">
             <!--begin::Toolbar-->
@@ -68,10 +67,10 @@
         <!--end::Card toolbar-->
     </div>
     <!--end::Card header-->
-
+    
     <!--begin::Card body-->
     <div class="card-body pt-0">
-
+        
         <!--begin::Table-->
         <div id="kt_customers_table_wrapper" class="dt-container dt-bootstrap5 dt-empty-footer">
             <div id="" class="table-responsive">
@@ -122,11 +121,11 @@
                             <td>
                                 {{ i+1 }}
                             </td>
-                                              
+                            
                             <td>
                                 {{ WAREHOUSE.name }}
                             </td>
-                                              
+                            
                             <td>
                                 {{ WAREHOUSE.address }}
                             </td>
@@ -169,6 +168,7 @@
                     </tbody>
                     <tfoot></tfoot>
                 </table>
+                <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
             </div>
             <!-- pageSize: Debe coincidir con el index del contralador laravel -->
             <ngb-pagination
