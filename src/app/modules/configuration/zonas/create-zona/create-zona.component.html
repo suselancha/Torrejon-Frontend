@@ -52,10 +52,39 @@
                 </div>
                 <div class="fv-row mb-7">
                     <!--begin::Label-->
-                    <label class="required fw-bold fs-6 mb-2">Descripción:(Opcional) </label>
+                    <label class="fw-bold fs-6 mb-2">Descripción:(Opcional) </label>
                     <!--end::Label-->
                     <textarea class="form-control form-control-solid" rows="3" [(ngModel)]="description" name="description" placeholder="Descripción"></textarea>
-                </div>           
+                </div>
+                
+                <div class="fv-row mb7">
+                    <div class="col-md-4">
+                        <!--begin::Label-->
+                        <label class="required fw-bold fs-6 mb-2">Región: </label>
+                        <!--end::Label-->
+                        <!--begin::Select-->
+                        <select 
+                            class="form-control form-select-solid fw-bolder"
+                            name="region_id"
+                            [(ngModel)]="region_id"
+                        >
+                            <option value="">Selec. Región</option>
+                            <ng-container *ngFor="let REGION of REGIONS">
+                                <option [value]="REGION.id">{{ REGION.name }}</option>                              
+                            </ng-container>
+                            
+                        </select>
+                        <!--end::Select-->
+                        <!-- begin::Errors-->
+                        <div
+                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                            *ngIf="errors?.region_id"
+                        >
+                            <p *ngFor="let error of errors.region_id">{{ error }}</p>
+                        </div>
+                        <!-- end::Errors-->
+                    </div>
+                </div>
             </div>
             <!--end::Scroll-->
 
@@ -65,14 +94,14 @@
                 <button type="button" (click)="store()" class="btn btn-primary" data-kt-users-modal-action="submit">
                     <span class="indicator-label">Registrar</span>
 
-                    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
                     <!-- <span class="indicator-progress">Please wait...
-                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
-                </button>
-            </div>
-            <!--end::Actions-->
-        </form>
-        <!--end::Form-->
-    </div>
-    <!--end::Modal body-->
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+                    </button>
+                </div>
+                <!--end::Actions-->
+            </form>
+            <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading | async"></span>
 </div>

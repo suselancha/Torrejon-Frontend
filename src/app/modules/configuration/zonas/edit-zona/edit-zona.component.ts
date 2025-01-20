@@ -16,10 +16,12 @@ export class EditZonaComponent {
   name:string = '';
   location:string = '';  
   description:string = '';
-  state:string = '';  
+  state:string = '';
+  region_id:string = '';
   isLoading$:any;
   errors:any = {};
   SIDEBAR:any = SIDEBAR;
+  REGIONS:any = [];
 
   constructor(
     public modal: NgbActiveModal,
@@ -36,6 +38,15 @@ export class EditZonaComponent {
     this.location = this.ZONA_SELECTED.location;
     this.description = this.ZONA_SELECTED.description;
     this.state = this.ZONA_SELECTED.state;
+    this.region_id = this.ZONA_SELECTED.region_id ??= 0;
+    this.configAll();
+  }
+
+  configAll(){
+    this.zonasService.configAll().subscribe((resp: any) => {
+      console.log(resp);
+      this.REGIONS = resp.regions;
+    })
   }
 
   store() {
@@ -44,7 +55,8 @@ export class EditZonaComponent {
       name: this.name,
       location: this.location,      
       description: this.description,      
-      state: this.state
+      state: this.state,
+      region_id: this.region_id,
     };
 
     this.zonasService.updateZona(this.ZONA_SELECTED.id, data).subscribe((resp:any) => {

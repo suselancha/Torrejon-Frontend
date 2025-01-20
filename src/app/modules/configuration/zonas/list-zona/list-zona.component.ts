@@ -40,6 +40,11 @@ export class ListZonaComponent {
     })
   }
 
+  resetListZonas(){
+    this.search = '';    
+    this.listZonas();
+  }
+  
   loadPage($event:any){
     this.listZonas($event);
   }

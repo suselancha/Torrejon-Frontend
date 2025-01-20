@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ZonaService } from '../service/zona.service';
+import { RegionsService } from '../../regions/service/regions.service';
 
 
 @Component({
@@ -15,20 +16,32 @@ export class CreateZonaComponent {
   name:string = '';
   location:string = '';
   description:string = '';
+  region_id:string = '';
   isLoading:any;
+  errors:any = {};
+
+  REGIONS:any = [];
 
   constructor(
     public modal: NgbActiveModal,
     public toast: ToastrService,
-    public zonaService : ZonaService,
+    public zonasService : ZonaService
   ) {
 
   }
 
   ngOnInit(): void {
-    
+    this.isLoading = this.zonasService.isLoading$;
+    this.configAll();
   }
 
+  configAll(){
+    this.zonasService.configAll().subscribe((resp: any) => {
+      console.log(resp);
+      this.REGIONS = resp.regions;
+    })
+  }
+  
   store(){
     if(!this.name){
       this.toast.error("Validación","El nombre de la zona es requerido");
@@ -38,18 +51,19 @@ export class CreateZonaComponent {
     let data = {
       name: this.name,
       location: this.location,
-      description: this.description
+      description: this.description,
+      region_id: this.region_id
     }
 
-    this.zonaService.registerZona(data).subscribe((resp:any) => {
+    this.zonasService.registerZona(data).subscribe((resp:any) => {
       console.log(resp);
-      // Validamos el error del controlador Laravel
-      if(resp.message == 403){
-        this.toast.error("Validación",resp.message_text);        
-      }else{
-        this.toast.success("Éxito","La zona se registró corrrectamente");        
+      if (resp.success) {
+        this.toast.success("Exito", resp.message);
         this.ZonaC.emit(resp.zona); // Respuesta del backend
         this.modal.close();
+      }
+      else if(!resp.success) {
+        this.errors = resp.data;
       }
     })
   }

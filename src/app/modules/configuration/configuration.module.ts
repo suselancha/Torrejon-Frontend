@@ -8,6 +8,7 @@ import { BanksModule } from './banks/banks.module';
 import { CategoriesModule } from './categories/categories.module';
 import { SubcategoriesModule } from './subcategories/subcategories.module';
 import { ZonasModule } from './zonas/zonas.module';
+import { RegionsModule } from './regions/regions.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ZonasModule } from './zonas/zonas.module';
     ZonasModule,
     BanksModule,
     CategoriesModule,
-    SubcategoriesModule
+    SubcategoriesModule,
+    RegionsModule
   ]
 })
 export class ConfigurationModule { }
