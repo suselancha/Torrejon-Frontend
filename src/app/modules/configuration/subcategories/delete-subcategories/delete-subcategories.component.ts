@@ -37,16 +37,11 @@ export class DeleteSubcategoriesComponent {
       if(resp.success) {
         this.toast.success("Exito", resp.message);
         this.SubcategoryD.emit(resp.subcategory);
-        this.modal.close();
       }
       else {
-        if(resp.status === 500){
-          this.toast.error("Error", resp.message);
-        }
-        else {          
-          this.errors = resp.data;
-        }
+        this.toast.error("Error", resp.message);
       }
+      this.modal.close();
     });    
   }
 }

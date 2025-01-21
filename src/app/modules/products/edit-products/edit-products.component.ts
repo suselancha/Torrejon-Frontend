@@ -49,8 +49,7 @@ export class EditProductsComponent {
   ngOnInit(): void {
     this.isLoading = this.productsService.isLoading$;
     
-    this.configAll();
-
+    
     this.productsService.getProduct(this.PRODUCT_SELECTED.id).subscribe((resp:any) => {
       this.PRODUCT_SELECTED = resp.product;
       console.log(this.PRODUCT_SELECTED);
@@ -61,7 +60,7 @@ export class EditProductsComponent {
       this.subcategory_id = this.PRODUCT_SELECTED.subcategory_id;
       this.warehouse_id = this.PRODUCT_SELECTED.warehouse_id;
       this.provider_id = this.PRODUCT_SELECTED.provider_id;
-      this.changeCategory({target:{value: this.PRODUCT_SELECTED.category_id}});
+      this.configAll();
     });
     
   }
@@ -73,6 +72,7 @@ export class EditProductsComponent {
       this.SUBCATEGORIES = resp.subcategories;
       this.WAREHOUSES = resp.warehouses;
       this.PROVIDERS = resp.providers;
+      this.changeCategory({target:{value: this.PRODUCT_SELECTED.category_id}});
     });    
   }
 
