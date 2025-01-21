@@ -31,7 +31,7 @@ export class SubcategoriesService {
   listSubcategoriesFilter(data:any, page = 1, search:string = '') {
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authservice.token});
-    let URL = URL_SERVICIOS + "/subcategories/filter/?page="+page+"&search="+search;
+    let URL = URL_SERVICIOS + "/subcategories/filter?page="+page+"&search="+search;
     return this.http.post(URL, data,{headers: headers}).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
