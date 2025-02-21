@@ -16,6 +16,7 @@ export class ListRegionsComponent {
   
   search:string = '';
   REGIONS:any = [];
+  ZONAS:any = [];
   isLoading$:any;
 
   totalPages:number = 0;
@@ -42,6 +43,11 @@ export class ListRegionsComponent {
       this.totalPages = resp.total;
       this.currentPage = page;
     });
+
+    this.regionsService.configAll().subscribe((resp: any) => {
+      console.log(resp);
+      this.ZONAS = resp.zonas;
+    });
   }
   
   resetListRegions(){
@@ -55,6 +61,8 @@ export class ListRegionsComponent {
 
   createRegion() {
     const modalRef = this.modalService.open(CreateRegionsComponent,{centered: true, size: 'md'});
+    modalRef.componentInstance.ZONAS = this.ZONAS;
+    
     // Recepciono variable del modal
     modalRef.componentInstance.RegionC.subscribe((region:any) => {
       // Agrega al principio de la lista
@@ -65,6 +73,8 @@ export class ListRegionsComponent {
   editRegion(REGION:any) {
     const modalRef = this.modalService.open(EditRegionsComponent,{centered: true, size: 'md'});
     modalRef.componentInstance.REGION_SELECTED = REGION;
+    modalRef.componentInstance.ZONAS = this.ZONAS;
+    
     modalRef.componentInstance.RegionE.subscribe((Region:any) => {
       let INDEX = this.REGIONS.findIndex((region:any) => region.id == REGION.id);
       if(INDEX != -1) {

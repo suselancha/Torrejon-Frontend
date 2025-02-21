@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { RegionsComponent } from './regions.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { RegionsComponent } from './regions.component';
     InlineSVGModule,
     NgbModalModule,
     NgbPaginationModule,
+    NgSelectModule,
   ]
 })
 export class RegionsModule { }

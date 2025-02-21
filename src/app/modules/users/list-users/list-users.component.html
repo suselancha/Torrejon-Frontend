@@ -135,10 +135,12 @@
                             </td>
      
                             <td>
-                                <ng-container *ngIf="USER.zona; else elseZona">
-                                    <span>{{ USER.zona.name }}</span>
+                                <ng-container *ngIf="USER.zonas; else elseZonas">
+                                    <ul>
+                                        <li *ngFor="let zona of USER.zonas">{{ zona.name }}</li>
+                                    </ul>
                                 </ng-container>
-                                <ng-template #elseZona>
+                                <ng-template #elseZonas>
                                     <span>Sin Zona</span>
                                 </ng-template>
                             </td>

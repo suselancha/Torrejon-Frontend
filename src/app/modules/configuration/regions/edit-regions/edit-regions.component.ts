@@ -10,9 +10,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-regions.component.scss']
 })
 export class EditRegionsComponent {
-
-  @Output() RegionE: EventEmitter<any> = new EventEmitter();
   @Input() REGION_SELECTED:any;
+  @Input() ZONAS:any;
+  @Output() RegionE: EventEmitter<any> = new EventEmitter();
 
   isLoading:any;
   SIDEBAR:any = SIDEBAR;
@@ -20,6 +20,7 @@ export class EditRegionsComponent {
   name:string = '';
   description:string = '';
   errors:any = {};
+  zonas: any=[];
 
   constructor(
     public modal: NgbActiveModal,
@@ -32,15 +33,18 @@ export class EditRegionsComponent {
   ngOnInit(): void {
     this.name = this.REGION_SELECTED.name;
     this.description = this.REGION_SELECTED.description;
+    this.zonas = this.REGION_SELECTED.zonas.map((zona:any) => zona.id);
+    console.log(this.zonas);
   }
 
   store() {
     
     let data = {
       name: this.name,
-      description: this.description
+      description: this.description,
+      zonas: this.zonas,
     }
-
+    console.log(data);
     this.regionsService.updateRegion(this.REGION_SELECTED.id, data).subscribe((resp:any) => {
       console.log(resp);
       if(resp.success) {

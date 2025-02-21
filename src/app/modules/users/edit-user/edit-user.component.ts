@@ -31,7 +31,7 @@ export class EditUserComponent {
   password_default: string = '12345678';
   role_id:string = '';
   employee_function_id:string = '';
-  zona_id:string = '';
+  zonas:any = [];
   is_user:string = '';
   create_user:boolean;
   roles:any = [];
@@ -93,7 +93,7 @@ export class EditUserComponent {
       this.email = resp.user.email;
       this.role_id = resp.user.role_id;
       this.employee_function_id = resp.user.employee_function_id ??= 0;
-      this.zona_id = resp.user.zona_id ??= 0;
+      this.zonas = resp.user.zonas ?? [];
       this.is_user = resp.user.is_user;
       this.create_user = Boolean(this.is_user);
       if (!this.create_user){
@@ -155,7 +155,7 @@ export class EditUserComponent {
       password_confirmation: this.password_confirmation,
       role_id: this.role_id,
       employee_function_id: this.employee_function_id,
-      zona_id: this.zona_id,
+      zonas: this.zonas,
       is_user: this.is_user
     }    
 

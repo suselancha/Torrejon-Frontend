@@ -101,7 +101,7 @@
                                 <span class="dt-column-order"></span>
                             </th>
 
-                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc text-center" data-dt-column="5" rowspan="1"
+                            <th class="min-w-125px dt-orderable-asc dt-orderable-desc text-left" data-dt-column="5" rowspan="1"
                                 colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
                                 <span class="dt-column-title" role="button">Subrubros</span>
                                 <span class="dt-column-order"></span>
@@ -131,13 +131,13 @@
                                 {{ CATEGORY.description }}
                             </td>
                                               
-                            <td class="text-center">                                
-                                <nav>
-                                    <a [routerLink]="['/configuraciones/subcategories/list/', CATEGORY.id]">Ver Subrubros</a>
-                                </nav>
+                            <td class="text-left pl-2">
+                                <ul>
+                                    <li *ngFor="let subcategory of CATEGORY.subcategories">{{ subcategory.name }}</li>
+                                </ul>
                             </td>
 
-                            <td class="text-center">
+                            <td class="text-center d-flex justify-content-around">
                                 <a *ngIf="CATEGORY.id > 0"
                                     title="Modificar Rubro" 
                                     href="#" 
@@ -161,6 +161,14 @@
                                         <span  class="path2"></span>
                                         <span  class="path3"></span>
                                         <span  class="path4"></span>
+                                    </i>
+                                </a>
+
+                                <a 
+                                    title="Ver Subrubros" 
+                                    [routerLink]="['/configuraciones/subcategories/list/', CATEGORY.id]"
+                                    class="bnt btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                    <i class="ki-solid ki-data fs-2">
                                     </i>
                                 </a>
                             </td>

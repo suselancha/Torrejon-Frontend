@@ -275,30 +275,31 @@
                         <!-- end::Errors-->
                     </div>
 
-                    <div class="col-md-4">
+                </div>
+
+                <div class="fv-row row mb-4">
+                    <div class="col-md-12">
                         <!--begin::Label-->
-                        <label class="required fw-bold fs-6 mb-2">Zona: </label>
+                        <label class="required fw-bold fs-6 mb-2">Zonas: </label>
                         <!--end::Label-->
                         <!--begin::Select-->
-                        <select 
-                            class="form-control form-select-solid fw-bolder"
-                            name="zona_id"
-                            [(ngModel)]="zona_id"
-                            [disabled]="notFunction"
-                        >
-                            <option value="">Selec. Funcion</option>
-                            <ng-container *ngFor="let ZONA of ZONAS">
-                                <option [value]="ZONA.id">{{ ZONA.name }}</option>                              
-                            </ng-container>
-                            
-                        </select>
+                        <ng-select
+                            [items]="ZONAS"
+                            bindLabel="name"
+                            bindValue="id"
+                            placeholder="Seleccione Zonas"
+                            [(ngModel)]="zonas"
+                            name="zonas"
+                            [multiple]="true"
+                            [closeOnSelect]="false">                            
+                        </ng-select>
                         <!--end::Select-->
                         <!-- begin::Errors-->
                         <div
                             class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-                            *ngIf="errors?.zona_id"
+                            *ngIf="errors?.zonas"
                         >
-                            <p *ngFor="let error of errors.zona_id">{{ error }}</p>
+                            <p *ngFor="let error of errors.zonas">{{ error }}</p>
                         </div>
                         <!-- end::Errors-->
                     </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SIDEBAR } from 'src/app/config/config';
 import { RegionsService } from '../service/regions.service';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-regions.component.scss']
 })
 export class CreateRegionsComponent {
-
+  @Input() ZONAS:any;
   @Output() RegionC: EventEmitter<any> = new EventEmitter();
 
   name:string = '';
@@ -18,6 +18,7 @@ export class CreateRegionsComponent {
   isLoading:any;
   errors:any = {};
   SIDEBAR:any = SIDEBAR;
+  zonas: any=[];
 
   constructor(
     public modal: NgbActiveModal,
@@ -28,14 +29,15 @@ export class CreateRegionsComponent {
   }
 
   ngOnInit(): void {
-    this.isLoading = this.regionsService.isLoading$;
+    this.isLoading = this.regionsService.isLoading$;    
   }
 
   store() {
     
     let data = {
       name: this.name,
-      description: this.description
+      description: this.description,
+      zonas: this.zonas,
     };
 
     this.regionsService.registerRegion(data).subscribe((resp:any) => {

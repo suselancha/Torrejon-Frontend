@@ -94,7 +94,7 @@
 
                             <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
                                 colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
-                                <span class="dt-column-title" role="button">Descripcion</span>
+                                <span class="dt-column-title" role="button">Zonas</span>
                                 <span class="dt-column-order"></span>
                             </th>
 
@@ -119,7 +119,9 @@
                             </td>
                                               
                             <td>
-                                {{ REGION.description }}
+                                <ul>
+                                    <li *ngFor="let zona of REGION.zonas" >{{ zona.name }}</li>
+                                </ul>
                             </td>
 
                             <td class="text-center">

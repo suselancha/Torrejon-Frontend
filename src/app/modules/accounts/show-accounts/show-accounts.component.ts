@@ -16,6 +16,7 @@ export class ShowAccountsComponent {
   @Input() ACCOUNTABLE_ID:number;
   @Input() ACCOUNT_ACTION:string;
 
+  owner:string = '';
   name:string = '';
   bank:string = '';
   alias:string = '';
@@ -57,6 +58,9 @@ export class ShowAccountsComponent {
       this.ACCOUNTS = resp.accounts; // Respuesta del backend
       this.ACCOUNTS_EMPTY = this.ACCOUNTS.length === 0;
       this.ACCOUNTABLE = resp.accountable;
+      this.owner = this.ACCOUNTABLE.name + ' ' + this.ACCOUNTABLE.surname;
+      if (!this.ACCOUNTABLE.name && !this.ACCOUNTABLE.surname) this.owner = this.ACCOUNTABLE.razon_social;
+      this.name = this.owner;    
     })
   }
 

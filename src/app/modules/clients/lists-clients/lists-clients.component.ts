@@ -12,10 +12,10 @@ import { ShowAccountsComponent } from '../../accounts/show-accounts/show-account
 })
 export class ListsClientsComponent {
   search:string = '';
-  client_segment_id:string = '';
+  column:string = '';
 
   CLIENTS:any;
-  CLIENT_SEGMENTS:any = [];
+  COLUMNS:any = [];
   isLoading$:any;
 
   totalPages:number = 0;
@@ -36,22 +36,23 @@ export class ListsClientsComponent {
 
   listConfig(){    
     this.clientsService.configAll().subscribe((resp:any) => {
-      //console.log(resp);
-      this.CLIENT_SEGMENTS = resp.client_segments; // Respuesta del backend      
+      console.log(resp);
+      this.COLUMNS = resp.columns; // Respuesta del backend      
     })
   }
 
   resetlistClients(){
     this.search = '';
-    this.client_segment_id = '';
+    this.column = '';
     this.listClients();
   }
 
   listClients(page=1) {
     let data = {
       search: this.search,
-      client_segment_id: this.client_segment_id,
+      column: this.column,
     }
+    console.log(data);
     this.clientsService.listClients(page, data).subscribe((resp: any) => {
       console.log(resp);
       this.CLIENTS = resp.clients.data;

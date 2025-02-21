@@ -15,6 +15,7 @@ export class CreateAccountsComponent {
   @Input() ACCOUNTABLE_SELECTED:any;
   @Input() ACCOUNTABLE_TYPE:any;
 
+  owner:string = '';
   name:string = '';
   bank:string = '';
   alias:string = '';
@@ -39,10 +40,13 @@ export class CreateAccountsComponent {
 
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.isLoading$ = this.accountsService.isLoading$;
     this.accountable_id = this.ACCOUNTABLE_SELECTED.id;
     this.accountable_type = this.ACCOUNTABLE_TYPE;
+    this.owner = this.ACCOUNTABLE_SELECTED.name + ' ' + this.ACCOUNTABLE_SELECTED.surname;
+    if (!this.ACCOUNTABLE_SELECTED.name && !this.ACCOUNTABLE_SELECTED.surname) this.owner = this.ACCOUNTABLE_SELECTED.razon_social;
+    this.name = this.owner;
     this.listBanks();
   }
 

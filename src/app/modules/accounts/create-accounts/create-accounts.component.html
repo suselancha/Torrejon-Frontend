@@ -34,28 +34,20 @@
                 <!--begin::Input group-->
                 <div class="fv-row mb-7">
                     <!--begin::Label-->
-                    <label class="fw-bold fs-6 mb-2">Cliente: </label>
+                    <label class="fw-bold fs-6 mb-2">
+                        <span *ngIf="accountable_type === 'provider'">Proveedor</span>
+                        <span *ngIf="accountable_type === 'client'">Cliente</span>
+                    </label>
                     <!--end::Label-->
                     <!--begin::Input-->
                     <input
                         type="text" 
-                        name="client"
+                        name="owner"
                         class="form-control form-control-solid mb-3 mb-lg-0"
-                        value="{{ ACCOUNTABLE_SELECTED.name + ' ' + ACCOUNTABLE_SELECTED.surname }}"
+                        [(ngModel)]="owner"
                         disabled
                     />
                     <!--end::Input-->
-                    <!-- begin::Errors-->
-                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-                        *ngIf="errors?.accountable_type || errors?.accountable_id">
-                        <div *ngIf="errors?.accountable_type">
-                            <p *ngFor="let error of errors.accountable_type">{{ error }}</p>
-                        </div>
-                        <div *ngIf="errors?.accountable_id">
-                            <p *ngFor="let error of errors.accountable_id">{{ error }}</p>
-                        </div>
-                    </div>
-                    <!-- end::Errors-->
                 </div>
 
                 <div class="fv-row mb-7">
