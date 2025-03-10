@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'subcategories',
     loadChildren: () => import('./subcategories/subcategories.module').then((m) => m.SubcategoriesModule),
   },
+  {
+    path: 'units',
+    loadChildren: () => import('./units/units.module').then((m) => m.UnitsModule),
+  },
 ];
 
 @NgModule({

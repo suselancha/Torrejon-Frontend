@@ -1,0 +1,232 @@
+<div id="kt_app_content" class="app-content  flex-column-fluid ">
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                <!--begin::Title-->
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+                    
+                </h1>
+                <!--end::Title-->
+            </div>
+            <!--end::Page title-->
+            <!--begin::Actions-->
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+            </div>
+            <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+    </div>
+    <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading$ | async"></span>
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container  container-xxl ">
+        <!--begin::Form-->
+        <form id="kt_ecommerce_edit_order_form"
+            class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
+            data-kt-redirect="/metronic8/demo1/apps/ecommerce/sales/listing.html" data-gtm-form-interact-id="0">
+            
+            <!--begin::Main column-->
+            <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10">
+                <!--begin::Order details-->
+                <div class="card card-flush py-4">
+                    <div class="card-header">
+                        <div class="card-title">
+                            {{ PRODUCT.name }}
+                        </div>
+                    </div>
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Billing address-->
+                        <div class="d-flex flex-column gap-5 gap-md-7">
+                            <!--begin::Table-->
+                            <div id="kt_customers_table_wrapper" class="dt-container dt-bootstrap5 dt-empty-footer">
+                                <div id="" class="table-responsive">
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable" id="kt_customers_table"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" 
+                                                    data-dt-column="1" 
+                                                    rowspan="1"
+                                                    colspan="1" 
+                                                    aria-label="Customer Name: Activate to sort" 
+                                                    tabindex="0">
+                                                    <span class="dt-column-title" role="button">#</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Almacen</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Stock</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Unidad</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold text-gray-600">
+
+                                            <ng-container *ngFor="let WAREHOUSE of PRODUCT.warehouses; index as i">
+                                            
+                                            <tr>
+                                                <td>
+                                                    {{ i+1 }}
+                                                </td>
+                                                                
+                                                <td>
+                                                    {{ WAREHOUSE.name }}
+                                                </td>
+                                                                
+                                                <td>
+                                                    {{ WAREHOUSE.stock }}
+                                                </td>
+                                                                
+                                                <td>                                                    
+                                                </td>
+                                            </tr>
+
+                                            </ng-container>
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>
+                                                <td>Total</td>
+                                                <td>{{ PRODUCT.totalStock }}</td>
+                                                <td>{{ PRODUCT.unit }}</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>                                
+                            </div>
+                            <!--end::Table-->                            
+                        </div>
+                        <!--end::Billing address-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Order details-->
+
+                <!--begin::Order details-->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Movimientos de Stock</div>
+                    </div>
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Billing address-->
+                        <div class="d-flex flex-column gap-5 gap-md-7">
+                            <!--begin::Table-->
+                            <div id="kt_customers_table_wrapper" class="dt-container dt-bootstrap5 dt-empty-footer">
+                                <div id="" class="table-responsive">
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable" id="kt_customers_table"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" role="row">                            
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Fecha</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>                                     
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Almacen</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Persona</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Tipo</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                                <th class="min-w-125px dt-orderable-asc dt-orderable-desc" data-dt-column="5" rowspan="1"
+                                                    colspan="1" aria-label="Created Date: Activate to sort" tabindex="0">
+                                                    <span class="dt-column-title" role="button">Cantidad</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold text-gray-600">
+
+                                            <ng-container *ngFor="let MOVEMENT of PRODUCT.movements; index as i">
+                                            
+                                            <tr>
+                                                <td>
+                                                    {{ MOVEMENT.created_at }}
+                                                </td>                                                                
+
+                                                <td>
+                                                    {{ MOVEMENT.warehouse.name }}
+                                                </td>                                                                
+
+                                                <td>
+                                                    {{ MOVEMENT.personable.razon_social }}
+                                                </td>                                                                
+
+                                                <td>
+                                                    <span [ngClass]="{ 'type-in': MOVEMENT.type == 'in', 'type-out': MOVEMENT.type == 'out'}">{{ MOVEMENT.type == 'in' ? 'Ingreso' : 'Salida' }}</span>
+                                                </td>                                                    
+                                                                
+                                                <td>
+                                                    {{ MOVEMENT.quantity }}
+                                                </td>
+                                                                
+                                                <td>                                                    
+                                                </td>
+                                            </tr>
+
+                                            </ng-container>
+
+                                        </tbody>
+                                        <tfoot></tfoot>
+                                    </table>
+                                </div>                                
+                            </div>
+                            <!--end::Table-->                            
+                        </div>
+                        <!--end::Billing address-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Order details-->
+
+                
+                <div class="d-flex justify-content-end">                   
+                    <!--begin::Button-->
+                    <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary" (click)="goBack()">
+                        <span class="indicator-label">                            
+                            Volver
+                        </span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+            </div>
+            <!--end::Main column-->
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Content container-->
+</div>

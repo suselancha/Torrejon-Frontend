@@ -7,6 +7,7 @@ import { CategoriesService } from '../../configuration/categories/service/catego
 import { SubcategoriesService } from '../../configuration/subcategories/service/subcategories.service';
 import { WarehousesService } from '../../warehouses/service/warehouses.service';
 import { ProvidersService } from '../../providers/service/providers.service';
+import { UnitsService } from '../../configuration/units/service/units.service';
 
 @Component({
   selector: 'app-create-products',
@@ -23,6 +24,7 @@ export class CreateProductsComponent {
   subcategory_id:string = '';
   warehouse_id:string = '';
   provider_id:string = '';
+  unit_id:string = '';
   isLoading:any;
   errors:any = {};
   SIDEBAR:any = SIDEBAR;
@@ -32,6 +34,7 @@ export class CreateProductsComponent {
   SUBCATEGORIES_SELECTED: any = [];
   WAREHOUSES: any = [];
   PROVIDERS: any = [];
+  UNITS: any = [];
 
   constructor(
     public modal: NgbActiveModal,
@@ -40,6 +43,7 @@ export class CreateProductsComponent {
     public warehousesService: WarehousesService,
     public providersService: ProvidersService,
     public productsService: ProductsService,
+    public unitsService: UnitsService,
     public toast: ToastrService,
   ) {
 
@@ -57,6 +61,7 @@ export class CreateProductsComponent {
       this.SUBCATEGORIES = resp.subcategories;
       this.WAREHOUSES = resp.warehouses;
       this.PROVIDERS = resp.providers;
+      this.UNITS = resp.units;
     });    
   }
 
@@ -81,7 +86,8 @@ export class CreateProductsComponent {
       category_id: this.category_id,
       subcategory_id: this.subcategory_id,
       warehouse_id: this.warehouse_id,
-      provider_id: this.provider_id
+      provider_id: this.provider_id,
+      unit_id: this.unit_id,
     };
 
     this.productsService.registerProduct(data).subscribe((resp:any) => {

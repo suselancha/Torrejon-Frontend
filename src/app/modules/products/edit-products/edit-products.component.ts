@@ -7,6 +7,7 @@ import { WarehousesService } from '../../warehouses/service/warehouses.service';
 import { ProvidersService } from '../../providers/service/providers.service';
 import { ProductsService } from '../service/products.service';
 import { ToastrService } from 'ngx-toastr';
+import { UnitsService } from '../../configuration/units/service/units.service';
 
 @Component({
   selector: 'app-edit-products',
@@ -24,6 +25,7 @@ export class EditProductsComponent {
   subcategory_id:string = '';
   warehouse_id:string = '';
   provider_id:string = '';
+  unit_id:string = '';
   isLoading:any;
   errors:any = {};
   SIDEBAR:any = SIDEBAR;
@@ -33,6 +35,7 @@ export class EditProductsComponent {
   SUBCATEGORIES_SELECTED: any = [];
   WAREHOUSES: any = [];
   PROVIDERS: any = [];
+  UNITS: any = [];
 
   constructor(
     public modal: NgbActiveModal,
@@ -41,6 +44,7 @@ export class EditProductsComponent {
     public warehousesService: WarehousesService,
     public providersService: ProvidersService,
     public productsService: ProductsService,
+    public unitsService: UnitsService,
     public toast: ToastrService,
   ) {
 
@@ -60,6 +64,7 @@ export class EditProductsComponent {
       this.subcategory_id = this.PRODUCT_SELECTED.subcategory_id;
       this.warehouse_id = this.PRODUCT_SELECTED.warehouse_id;
       this.provider_id = this.PRODUCT_SELECTED.provider_id;
+      this.unit_id = this.PRODUCT_SELECTED.unit_id;
       this.configAll();
     });
     
@@ -72,6 +77,7 @@ export class EditProductsComponent {
       this.SUBCATEGORIES = resp.subcategories;
       this.WAREHOUSES = resp.warehouses;
       this.PROVIDERS = resp.providers;
+      this.UNITS = resp.units;
       this.changeCategory({target:{value: this.PRODUCT_SELECTED.category_id}});
     });    
   }
@@ -97,7 +103,8 @@ export class EditProductsComponent {
       category_id: this.category_id,
       subcategory_id: this.subcategory_id,
       warehouse_id: this.warehouse_id,
-      provider_id: this.provider_id
+      provider_id: this.provider_id,
+      unit_id: this.unit_id,
     };
 
     this.productsService.updateProduct(this.PRODUCT_SELECTED.id, data).subscribe((resp:any) => {

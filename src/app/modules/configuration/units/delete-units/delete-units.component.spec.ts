@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DeleteUnitsComponent } from './delete-units.component';
+
+describe('DeleteUnitsComponent', () => {
+  let component: DeleteUnitsComponent;
+  let fixture: ComponentFixture<DeleteUnitsComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [DeleteUnitsComponent]
+    });
+    fixture = TestBed.createComponent(DeleteUnitsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

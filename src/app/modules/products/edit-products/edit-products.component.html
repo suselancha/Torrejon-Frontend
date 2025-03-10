@@ -196,6 +196,33 @@
                     </div>
                     <!-- end::Errors-->
                 </div>
+
+                <div class="fv-row mb-7"> 
+                    <!--begin::Label-->
+                    <label class="required fw-bold fs-6 mb-2">Unidad: </label>
+                    <!--end::Label-->
+
+                    <!--begin::Select-->
+                    <select 
+                        class="form-control form-select-solid fw-bolder"
+                        name="unit_id"
+                        [(ngModel)]="unit_id"
+                    >
+                        <ng-container *ngFor="let UNIT of UNITS">
+                            <option [value]="UNIT.id">{{UNIT.name}}</option>
+                        </ng-container>                        
+                    </select>
+                    <!--end::Select-->
+                    
+                    <!-- begin::Errors-->
+                    <div
+                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
+                        *ngIf="errors?.unit_id"
+                    >
+                        <p *ngFor="let error of errors.unit_id">{{ error }}</p>
+                    </div>
+                    <!-- end::Errors-->
+                </div>
                 
             </div>
             <!--end::Scroll-->
